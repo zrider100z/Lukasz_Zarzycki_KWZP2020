@@ -8,7 +8,13 @@ nie
 
 ma
 
-gda
+Bum cyk cyk
+I druga tez.
+=======
+sfdad
+
+ad
+bsfdfd
 
 
 pudel
@@ -19,4 +25,8 @@ co
 pudelko
 
 
-test 124
+Nic nie wiem.
+hmm
+>>>>>>> 1f1782c5173161df36c4cba5cb1878eefe5f2bfb
+ghd
+koniec
