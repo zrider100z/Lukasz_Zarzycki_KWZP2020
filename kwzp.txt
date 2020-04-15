@@ -8,6 +8,7 @@ Start...
 Co tu sie dzeke
 Co tu sie dzieje
 Jakies dziwne rzeczy
+asd
 
 
 Tralalala
@@ -18,13 +19,13 @@ Juz nic nie kumam
 Bum cyk cyk
 I druga tez.
 =======
-sfd
+sfdad
+
+ad
 bsfdfd
 
 
 No i co
-aada
-
 
 Nie wiem
 
@@ -34,5 +35,6 @@ Nie wiem czy teraz jest konflikt czy nie
 
 Nic nie wiem.
 hmm
-.
 >>>>>>> 1f1782c5173161df36c4cba5cb1878eefe5f2bfb
+ghd
+koniec
