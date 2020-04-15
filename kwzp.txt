@@ -1,9 +1,9 @@
 £ukasz Zarzycki 15.04.2020
 a
-
+Trasz
 ad
 Start...
-poczatek...
+
 <<<<<<< HEAD
 Co tu sie dzeke
 Co tu sie dzieje
@@ -12,8 +12,6 @@ Jakies dziwne rzeczy
 
 Tralalala
 
-Jedna linijka
-
 
 Juz nic nie kumam
 
@@ -21,13 +19,12 @@ Bum cyk cyk
 I druga tez.
 =======
 sfd
-b
+bsfdfd
 
 
 No i co
 aada
 
-ed
 
 Nie wiem
 
