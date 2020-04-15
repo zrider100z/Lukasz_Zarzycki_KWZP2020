@@ -1,38 +1,22 @@
 £ukasz Zarzycki 15.04.2020
-a
-Trasz
-ad
-Start...
 
-<<<<<<< HEAD
-Co tu sie dzeke
-Co tu sie dzieje
-Jakies dziwne rzeczy
+je
 
+dze
 
-Tralalala
+nie
+
+ma
+
+gda
 
 
-Juz nic nie kumam
+pudel
 
-Bum cyk cyk
-I druga tez.
-=======
-sfd
-bsfdfd
+co
 
 
-No i co
-aada
+pudelko
 
 
-Nie wiem
-
-a
-Nie wiem czy teraz jest konflikt czy nie
-
-
-Nic nie wiem.
-hmm
-.
->>>>>>> 1f1782c5173161df36c4cba5cb1878eefe5f2bfb
+test 124
