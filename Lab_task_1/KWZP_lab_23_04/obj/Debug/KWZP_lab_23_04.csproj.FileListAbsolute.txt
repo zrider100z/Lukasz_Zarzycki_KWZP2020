@@ -8,3 +8,13 @@ G:\STUDIA PRACE\KWZP\VS\Lab\KWZP_lab_23_04\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_
 G:\STUDIA PRACE\KWZP\VS\Lab\KWZP_lab_23_04\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.exe
 G:\STUDIA PRACE\KWZP\VS\Lab\KWZP_lab_23_04\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.pdb
 G:\STUDIA PRACE\KWZP\VS\Lab\KWZP_lab_23_04\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.Form1.resources
+D:\Git\Users\zrider100z\Source\Repos\Lukasz_Zarzycki_KWZP2020\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\bin\Debug\KWZP_lab_23_04.exe.config
+D:\Git\Users\zrider100z\Source\Repos\Lukasz_Zarzycki_KWZP2020\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\bin\Debug\KWZP_lab_23_04.exe
+D:\Git\Users\zrider100z\Source\Repos\Lukasz_Zarzycki_KWZP2020\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\bin\Debug\KWZP_lab_23_04.pdb
+D:\Git\Users\zrider100z\Source\Repos\Lukasz_Zarzycki_KWZP2020\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.csprojAssemblyReference.cache
+D:\Git\Users\zrider100z\Source\Repos\Lukasz_Zarzycki_KWZP2020\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.Form1.resources
+D:\Git\Users\zrider100z\Source\Repos\Lukasz_Zarzycki_KWZP2020\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.Properties.Resources.resources
+D:\Git\Users\zrider100z\Source\Repos\Lukasz_Zarzycki_KWZP2020\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.csproj.GenerateResource.cache
+D:\Git\Users\zrider100z\Source\Repos\Lukasz_Zarzycki_KWZP2020\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.csproj.CoreCompileInputs.cache
+D:\Git\Users\zrider100z\Source\Repos\Lukasz_Zarzycki_KWZP2020\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.exe
+D:\Git\Users\zrider100z\Source\Repos\Lukasz_Zarzycki_KWZP2020\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.pdb

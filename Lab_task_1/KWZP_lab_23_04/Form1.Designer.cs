@@ -32,11 +32,14 @@
             this.chkButtonEnabled = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtButtonLabel = new System.Windows.Forms.TextBox();
+            this.rbtRadio1 = new System.Windows.Forms.RadioButton();
+            this.rbtRadio2 = new System.Windows.Forms.RadioButton();
+            this.rbtRadio3 = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(17, 131);
+            this.btnClose.Location = new System.Drawing.Point(17, 183);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(243, 23);
             this.btnClose.TabIndex = 0;
@@ -75,11 +78,50 @@
             this.txtButtonLabel.TabIndex = 3;
             this.txtButtonLabel.TextChanged += new System.EventHandler(this.txtButtonLabel_TextChanged);
             // 
+            // rbtRadio1
+            // 
+            this.rbtRadio1.AutoSize = true;
+            this.rbtRadio1.Location = new System.Drawing.Point(98, 114);
+            this.rbtRadio1.Name = "rbtRadio1";
+            this.rbtRadio1.Size = new System.Drawing.Size(85, 17);
+            this.rbtRadio1.TabIndex = 4;
+            this.rbtRadio1.TabStop = true;
+            this.rbtRadio1.Text = "radioButton1";
+            this.rbtRadio1.UseVisualStyleBackColor = true;
+            this.rbtRadio1.CheckedChanged += new System.EventHandler(this.rbtRadio1_CheckedChanged);
+            // 
+            // rbtRadio2
+            // 
+            this.rbtRadio2.AutoSize = true;
+            this.rbtRadio2.Location = new System.Drawing.Point(98, 137);
+            this.rbtRadio2.Name = "rbtRadio2";
+            this.rbtRadio2.Size = new System.Drawing.Size(85, 17);
+            this.rbtRadio2.TabIndex = 4;
+            this.rbtRadio2.TabStop = true;
+            this.rbtRadio2.Text = "radioButton1";
+            this.rbtRadio2.UseVisualStyleBackColor = true;
+            this.rbtRadio2.CheckedChanged += new System.EventHandler(this.rbtRadio2_CheckedChanged);
+            // 
+            // rbtRadio3
+            // 
+            this.rbtRadio3.AutoSize = true;
+            this.rbtRadio3.Location = new System.Drawing.Point(98, 160);
+            this.rbtRadio3.Name = "rbtRadio3";
+            this.rbtRadio3.Size = new System.Drawing.Size(85, 17);
+            this.rbtRadio3.TabIndex = 4;
+            this.rbtRadio3.TabStop = true;
+            this.rbtRadio3.Text = "radioButton1";
+            this.rbtRadio3.UseVisualStyleBackColor = true;
+            this.rbtRadio3.CheckedChanged += new System.EventHandler(this.rbtRadio3_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(293, 166);
+            this.ClientSize = new System.Drawing.Size(315, 241);
+            this.Controls.Add(this.rbtRadio3);
+            this.Controls.Add(this.rbtRadio2);
+            this.Controls.Add(this.rbtRadio1);
             this.Controls.Add(this.txtButtonLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.chkButtonEnabled);
@@ -97,6 +139,9 @@
         private System.Windows.Forms.CheckBox chkButtonEnabled;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtButtonLabel;
+        private System.Windows.Forms.RadioButton rbtRadio1;
+        private System.Windows.Forms.RadioButton rbtRadio2;
+        private System.Windows.Forms.RadioButton rbtRadio3;
     }
 }
 
