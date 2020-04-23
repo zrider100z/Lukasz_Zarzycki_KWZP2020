@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -37,7 +38,9 @@ namespace KWZP_lab_23_04
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DetailsForm detailsform = new DetailsForm(txtButtonLabel.Text);
+            detailsform.Show();
+
         }
         Random losowa = new Random();
         private void rbtRadio1_CheckedChanged(object sender, EventArgs e)
@@ -66,7 +69,7 @@ namespace KWZP_lab_23_04
             if (rbtRadio2.Text == "Wybierz mnie")
             {
                 BackColor = Color.Green;
-            }            
+            }
             rbtRadio2.Text = "";
             int los = losowa.Next(1, 10);
             if (los > 5)
@@ -86,7 +89,7 @@ namespace KWZP_lab_23_04
             if (rbtRadio3.Text == "Wybierz mnie")
             {
                 BackColor = Color.Blue;
-            }            
+            }
             rbtRadio3.Text = "";
             int los = losowa.Next(1, 10);
             if (los > 5)
