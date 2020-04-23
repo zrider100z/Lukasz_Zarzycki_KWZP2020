@@ -31,6 +31,7 @@ namespace KWZP_lab_23_04
 
         private void chkButtonEnabled_CheckedChanged(object sender, EventArgs e)
         {
+            BackColor = Color.White;
             btnClose.Enabled = chkButtonEnabled.Checked;
         }
 
@@ -41,6 +42,10 @@ namespace KWZP_lab_23_04
         Random losowa = new Random();
         private void rbtRadio1_CheckedChanged(object sender, EventArgs e)
         {
+            if (rbtRadio1.Text == "Wybierz mnie")
+            {
+                BackColor = Color.Red;
+            }
             rbtRadio1.Text = "";
             int los = losowa.Next(1, 10);
             if (los>5) {
@@ -58,6 +63,10 @@ namespace KWZP_lab_23_04
 
         private void rbtRadio2_CheckedChanged(object sender, EventArgs e)
         {
+            if (rbtRadio2.Text == "Wybierz mnie")
+            {
+                BackColor = Color.Green;
+            }            
             rbtRadio2.Text = "";
             int los = losowa.Next(1, 10);
             if (los > 5)
@@ -74,6 +83,10 @@ namespace KWZP_lab_23_04
 
         private void rbtRadio3_CheckedChanged(object sender, EventArgs e)
         {
+            if (rbtRadio3.Text == "Wybierz mnie")
+            {
+                BackColor = Color.Blue;
+            }            
             rbtRadio3.Text = "";
             int los = losowa.Next(1, 10);
             if (los > 5)
