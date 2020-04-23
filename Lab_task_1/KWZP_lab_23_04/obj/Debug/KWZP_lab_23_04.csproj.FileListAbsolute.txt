@@ -19,3 +19,24 @@ D:\Git\Users\zrider100z\Source\Repos\Lukasz_Zarzycki_KWZP2020\Lukasz_Zarzycki_KW
 D:\Git\Users\zrider100z\Source\Repos\Lukasz_Zarzycki_KWZP2020\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.exe
 D:\Git\Users\zrider100z\Source\Repos\Lukasz_Zarzycki_KWZP2020\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.pdb
 D:\Git\Users\zrider100z\Source\Repos\Lukasz_Zarzycki_KWZP2020\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.DetailsForm.resources
+D:\Git\Users\zrider100z\Source\Repos\Lukasz_Zarzycki_KWZP2020\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\bin\Debug\EntityFramework.dll
+D:\Git\Users\zrider100z\Source\Repos\Lukasz_Zarzycki_KWZP2020\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\bin\Debug\EntityFramework.SqlServer.dll
+D:\Git\Users\zrider100z\Source\Repos\Lukasz_Zarzycki_KWZP2020\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\bin\Debug\EntityFramework.xml
+D:\Git\Users\zrider100z\Source\Repos\Lukasz_Zarzycki_KWZP2020\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\bin\Debug\EntityFramework.SqlServer.xml
+D:\Git\Users\zrider100z\Source\Repos\Lukasz_Zarzycki_KWZP2020\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.csproj.CopyComplete
+C:\Users\Magda\Desktop\STUDIA\02 Magisterskie\X semestr\Repo\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\bin\Debug\KWZP_lab_23_04.exe.config
+C:\Users\Magda\Desktop\STUDIA\02 Magisterskie\X semestr\Repo\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\bin\Debug\KWZP_lab_23_04.exe
+C:\Users\Magda\Desktop\STUDIA\02 Magisterskie\X semestr\Repo\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\bin\Debug\KWZP_lab_23_04.pdb
+C:\Users\Magda\Desktop\STUDIA\02 Magisterskie\X semestr\Repo\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\bin\Debug\EntityFramework.dll
+C:\Users\Magda\Desktop\STUDIA\02 Magisterskie\X semestr\Repo\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Magda\Desktop\STUDIA\02 Magisterskie\X semestr\Repo\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\bin\Debug\EntityFramework.xml
+C:\Users\Magda\Desktop\STUDIA\02 Magisterskie\X semestr\Repo\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Magda\Desktop\STUDIA\02 Magisterskie\X semestr\Repo\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.csprojAssemblyReference.cache
+C:\Users\Magda\Desktop\STUDIA\02 Magisterskie\X semestr\Repo\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.DetailsForm.resources
+C:\Users\Magda\Desktop\STUDIA\02 Magisterskie\X semestr\Repo\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.Form1.resources
+C:\Users\Magda\Desktop\STUDIA\02 Magisterskie\X semestr\Repo\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.Properties.Resources.resources
+C:\Users\Magda\Desktop\STUDIA\02 Magisterskie\X semestr\Repo\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.csproj.GenerateResource.cache
+C:\Users\Magda\Desktop\STUDIA\02 Magisterskie\X semestr\Repo\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.csproj.CoreCompileInputs.cache
+C:\Users\Magda\Desktop\STUDIA\02 Magisterskie\X semestr\Repo\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.csproj.CopyComplete
+C:\Users\Magda\Desktop\STUDIA\02 Magisterskie\X semestr\Repo\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.exe
+C:\Users\Magda\Desktop\STUDIA\02 Magisterskie\X semestr\Repo\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.pdb

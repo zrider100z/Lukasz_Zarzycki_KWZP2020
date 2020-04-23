@@ -42,10 +42,12 @@ namespace KWZP_lab_23_04
             detailsform.Show();
 
         }
+        //absolutnie nieprzemyslana deklaracja zmiennych
         Random losowa = new Random();
+        int which_box = 1;
         private void rbtRadio1_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbtRadio1.Text == "Wybierz mnie")
+            if (which_box == 1)
             {
                 BackColor = Color.Red;
             }
@@ -54,11 +56,13 @@ namespace KWZP_lab_23_04
             if (los>5) {
                 rbtRadio2.Text = "Wybierz mnie";
                 rbtRadio3.Text = "";
+                which_box = 2;
             }
             else
             {
                 rbtRadio2.Text = "";
                 rbtRadio3.Text = "Wybierz mnie";
+                which_box = 3;
             };
                                
             
@@ -66,7 +70,7 @@ namespace KWZP_lab_23_04
 
         private void rbtRadio2_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbtRadio2.Text == "Wybierz mnie")
+            if (which_box ==2)
             {
                 BackColor = Color.Green;
             }
@@ -76,17 +80,19 @@ namespace KWZP_lab_23_04
             {
                 rbtRadio1.Text = "Wybierz mnie";
                 rbtRadio3.Text = "";
+                which_box = 1;
             }
             else
             {
                 rbtRadio1.Text = "";
                 rbtRadio3.Text = "Wybierz mnie";
+                which_box = 3;
             };
         }
 
         private void rbtRadio3_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbtRadio3.Text == "Wybierz mnie")
+            if (which_box == 3)
             {
                 BackColor = Color.Blue;
             }
@@ -96,11 +102,13 @@ namespace KWZP_lab_23_04
             {
                 rbtRadio2.Text = "Wybierz mnie";
                 rbtRadio1.Text = "";
+                which_box = 2;
             }
             else
             {
                 rbtRadio2.Text = "";
                 rbtRadio1.Text = "Wybierz mnie";
+                which_box = 1;
             };
         }
     }
