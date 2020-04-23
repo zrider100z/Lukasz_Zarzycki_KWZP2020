@@ -1,0 +1,10 @@
+G:\STUDIA PRACE\KWZP\VS\Lab\KWZP_lab_23_04\KWZP_lab_23_04\bin\Debug\KWZP_lab_23_04.exe.config
+G:\STUDIA PRACE\KWZP\VS\Lab\KWZP_lab_23_04\KWZP_lab_23_04\bin\Debug\KWZP_lab_23_04.exe
+G:\STUDIA PRACE\KWZP\VS\Lab\KWZP_lab_23_04\KWZP_lab_23_04\bin\Debug\KWZP_lab_23_04.pdb
+G:\STUDIA PRACE\KWZP\VS\Lab\KWZP_lab_23_04\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.csprojAssemblyReference.cache
+G:\STUDIA PRACE\KWZP\VS\Lab\KWZP_lab_23_04\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.Properties.Resources.resources
+G:\STUDIA PRACE\KWZP\VS\Lab\KWZP_lab_23_04\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.csproj.GenerateResource.cache
+G:\STUDIA PRACE\KWZP\VS\Lab\KWZP_lab_23_04\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.csproj.CoreCompileInputs.cache
+G:\STUDIA PRACE\KWZP\VS\Lab\KWZP_lab_23_04\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.exe
+G:\STUDIA PRACE\KWZP\VS\Lab\KWZP_lab_23_04\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.pdb
+G:\STUDIA PRACE\KWZP\VS\Lab\KWZP_lab_23_04\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.Form1.resources
