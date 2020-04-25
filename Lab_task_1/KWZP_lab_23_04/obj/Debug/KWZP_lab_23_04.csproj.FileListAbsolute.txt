@@ -19,3 +19,8 @@ D:\Git\Users\zrider100z\Source\Repos\Lukasz_Zarzycki_KWZP2020\Lukasz_Zarzycki_KW
 D:\Git\Users\zrider100z\Source\Repos\Lukasz_Zarzycki_KWZP2020\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.exe
 D:\Git\Users\zrider100z\Source\Repos\Lukasz_Zarzycki_KWZP2020\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.pdb
 D:\Git\Users\zrider100z\Source\Repos\Lukasz_Zarzycki_KWZP2020\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.DetailsForm.resources
+D:\Git\Users\zrider100z\Source\Repos\Lukasz_Zarzycki_KWZP2020\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\bin\Debug\EntityFramework.dll
+D:\Git\Users\zrider100z\Source\Repos\Lukasz_Zarzycki_KWZP2020\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\bin\Debug\EntityFramework.SqlServer.dll
+D:\Git\Users\zrider100z\Source\Repos\Lukasz_Zarzycki_KWZP2020\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\bin\Debug\EntityFramework.xml
+D:\Git\Users\zrider100z\Source\Repos\Lukasz_Zarzycki_KWZP2020\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\bin\Debug\EntityFramework.SqlServer.xml
+D:\Git\Users\zrider100z\Source\Repos\Lukasz_Zarzycki_KWZP2020\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\obj\Debug\KWZP_lab_23_04.csproj.CopyComplete
