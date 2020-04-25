@@ -31,7 +31,9 @@ VALUES
 	('Dlugosc'),
 	('Waga'),
 	('Kolor'),
-	('Szerokosc')
+	('Szerokosc'),
+	('Org. oznaczenie'),
+	('Material')
 INSERT INTO 
 	Polki (ID_Rozmiar_Polki)
 VALUES
@@ -80,7 +82,10 @@ VALUES
 	(3,'Bawe³na',48,1000,4),
 	(4,'Okr¹g³e',0,100,5),
 	(5,'Tektura falista',0,100,2),
-	(1,'Sruba',0,10,3)
+	(1,'Sruba',0,10,3),
+	(1,'Bêbenek',48,1,2),
+	(1,'Igla do dzianin',0,10,2),
+	(1,'Kolo pasowe',0,5,2)
 INSERT INTO 
 	Elementy_Cechy (ID_Element,ID_Cecha,Wartosc_Cechy_Liczbowa,Wartosc_Cechy_Slowna)
 VALUES
@@ -89,7 +94,10 @@ VALUES
 	(3,4,null,'660033'),
 	(4,1,2,null),
 	(5,1,3,null),
-	(6,2,6.5,null)
+	(6,2,6.5,null),
+	(7,6,null,'RS/003-11'),
+	(8,7,null,'Zloty'),
+	(9,6,null,'07/28061')
 INSERT INTO 
 	Umowy_Kurierzy (ID_Kurier,Data_Zawarcia,Czas_Dostawy,Koszt_Km,Koszt_Staly)
 VALUES
@@ -113,5 +121,6 @@ VALUES
 USE Baza_szwalnia
 SELECT * FROM 
 
-USE Master
+
 */
+USE Master
