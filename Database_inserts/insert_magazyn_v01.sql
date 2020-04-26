@@ -146,77 +146,86 @@ VALUES
 	(3,3,2),
 	(4,2,1)
 
-INSERT INTO Zamowienia_Dostawy(ID_zamowienia,Data_dostawy_planowana,Data_dostawy_rzeczywista) 
+INSERT INTO 
+	Zamowienia_Dostawy(ID_zamowienia,Data_dostawy_planowana,Data_dostawy_rzeczywista) 
 VALUES 
-(2,'2020-04-08','2020-04-09'),
-(2,'2020-04-09','2020-04-11'),
-(2,'2020-04-09','2020-04-08'),
-(2,'2020-04-12','2020-04-14'),
-(2,'2020-04-16','2020-04-16')
+	(1,'2020-04-08','2020-04-09'),
+	(2,'2020-04-09','2020-04-11'),
+	(3,'2020-04-09','2020-04-08'),
+	(4,'2020-04-12','2020-04-14'),
+	(5,'2020-04-16','2020-04-16')
 
-INSERT INTO Zawartosc(ID_Zawartosc,ID_Polka,ID_Element,ID_Dostawy,Ilosc_Paczek) 
+INSERT INTO 
+	Zawartosc(ID_Zawartosc,ID_Polka,ID_Element,ID_Dostawy,Ilosc_Paczek) 
 VALUES 
-(1,1,2,1,5),
-(2,2,2,1,5),
-(3,4,1,2,10),
-(4,5,3,4,1),
-(5,3,3,5,10);
+	(1,1,2,1,5),
+	(2,2,2,1,5),
+	(3,4,1,2,10),
+	(4,5,3,4,1),
+	(5,3,3,5,10);
 
-INSERT INTO Dostawcy_Oferta(ID_Oferta,ID_Zamowienia) 
+INSERT INTO 
+	Dostawcy_Oferta(ID_Oferta,ID_Zamowienia) 
 VALUES 
-(2,3),
-(2,4),
-(1,1),
-(1,2),
-(3,5);
+	(2,3),
+	(2,4),
+	(1,1),
+	(1,2),
+	(3,5);
 
-INSERT INTO Dostawy_zawartosc(ID_dostawy,ID_element,Ilosc_dostarczona) 
+INSERT INTO 
+	Dostawy_zawartosc(ID_dostawy,ID_element,Ilosc_dostarczona) 
 VALUES 
-(1,2,5),
-(1,3,5),
-(2,2,10),
-(3,3,2),
-(4,5,1)
+	(1,2,5),
+	(1,3,5),
+	(2,2,10),
+	(3,3,2),
+	(4,5,1)
 
-INSERT INTO Zamowienia_zawartosc(ID_zamowienia,ID_oferta,Ilosc_zamawiana) 
+INSERT INTO 
+	Zamowienia_zawartosc(ID_zamowienia,ID_oferta,Ilosc_zamawiana) 
 VALUES 
-(1,2,80),
-(1,3,20),
-(2,1,50),
-(3,5,100),
-(5,5,200)
+	(1,2,80),
+	(1,3,20),
+	(2,1,50),
+	(3,5,100),
+	(5,5,200)
 
-INSERT INTO Dostarczenia_Wewn(ID_pracownicy,ID_dostawy,Ilosc_dostarczona,ID_miejsca,Data_dostarczenia) 
+INSERT INTO		
+	Dostarczenia_Wewn(ID_pracownicy,ID_dostawy,Ilosc_dostarczona,ID_miejsca,Data_dostarczenia) 
 VALUES 
-(4,1,1,3,'2020-04-08'),
-(5,2,5,3,'2020-04-10'),
-(5,3,15,3,'2020-04-10'),
-(5,4,8,3,'2020-04-15'),
-(5,4,10,3,'2020-04-17')
+	(4,1,1,3,'2020-04-08'),
+	(5,2,5,3,'2020-04-10'),
+	(5,3,15,3,'2020-04-10'),
+	(5,4,8,3,'2020-04-15'),
+	(5,4,10,3,'2020-04-17')
 
-INSERT INTO Dostarczenia_Zewn(ID_pracownicy,ID_zamowienia,Ilosc_dostarczona,ID_miejsca,Data_dostarczenia) 
+INSERT INTO 
+	Dostarczenia_Zewn(ID_pracownicy,ID_zamowienia,Ilosc_dostarczona,ID_miejsca,Data_dostarczenia) 
 VALUES 
-(5,1,200,3,'2020-04-19'),
-(5,1,20,3,'2020-04-20'),
-(5,2,15,3,'2020-04-21'),
-(4,3,2000,3,'2020-04-25'),
-(4,3,100,3,'2020-04-26')
+	(5,1,200,3,'2020-04-19'),
+	(5,1,20,3,'2020-04-20'),
+	(5,2,15,3,'2020-04-21'),
+	(4,3,2000,3,'2020-04-25'),
+	(4,3,100,3,'2020-04-26')
 
-INSERT INTO Koszt_jednostkowy(ID_element, Koszt_produkcji) 
+INSERT INTO 
+	Koszt_jednostkowy(ID_element, Koszt_produkcji) 
 VALUES 
-(1,20),
-(2,50),
-(3,5),
-(4,18),
-(5,21)
+	(1,20),
+	(2,50),
+	(3,5),
+	(4,18),
+	(5,21)
 
-INSERT INTO Zamowienie_produkt(ID_Zamowienia,ID_element, Ilosc) 
+INSERT INTO 
+	Zamowienie_produkt(ID_Zamowienia,ID_element, Ilosc) 
 VALUES 
-(1,3,20),
-(5,4,100),
-(2,2,10),
-(4,1,2000),
-(4,1,200);
+	(1,3,20),
+	(5,4,100),
+	(2,2,10),
+	(4,1,2000),
+	(4,1,200);
 
 --aktualny stan magazynowy
 SELECT Element_nazwa, Ilosc_Paczek From Zawartosc INNER JOIN Elementy ON Zawartosc.ID_Element=Elementy.ID_Element;
