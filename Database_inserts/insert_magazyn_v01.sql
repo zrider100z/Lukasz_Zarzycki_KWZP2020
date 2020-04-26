@@ -98,17 +98,17 @@ INSERT INTO
 	ID_Element_Typ,Element_Nazwa,
 	Okres_Przydatnosci_Miesiace,Element_Ilosc_W_Paczce,ID_Jednostka)
 VALUES
-	(1,'£o¿ysko',24,1,5),
-	(2,'Bawe³na',48,100,1),
-	(3,'Bawe³na',48,1000,4),
-	(4,'Guzik',0,100,5),
-	(5,'Tektura falista',0,100,2),
-	(1,'Sruba',0,10,3),
-	(1,'Bêbenek',48,1,5),
-	(1,'Igla do dzianin',0,10,5),
-	(1,'Kolo pasowe',0,5,5),
-	(5,'Karton klapowy',0,100,5),
-	(5,'Foliopaki',48,100,5)
+	(1,'£o¿ysko',24,1,8),
+	(2,'Bawe³na',48,100,5),
+	(3,'Bawe³na',48,200,5),
+	(4,'Guzik',0,100,8),
+	(5,'Tektura falista',0,100,5),
+	(1,'Sruba',0,10,8),
+	(1,'Bêbenek',48,1,8),
+	(1,'Igla do dzianin',0,10,8),
+	(1,'Kolo pasowe',0,5,8),
+	(5,'Karton klapowy',0,100,8),
+	(5,'Foliopaki',48,100,8)
 INSERT INTO 
 	Elementy_Cechy (ID_Element,ID_Cecha,Wartosc_Cechy_Liczbowa,ID_Jednostka,Wartosc_Cechy_Slowna)
 VALUES
@@ -138,13 +138,24 @@ INSERT INTO
 	Oferta (ID_Element,Element_Oznaczenie,ID_Dostawcy,Cena_Jedn,Data_Oferty,Ilosc_Minimalna,Ilosc_Maksymalna,Ilosc_W_Opakowaniu_Zbiorczym)
 	--zastanawiam siê, czy iloœæ w opakowaniu zbiorczym jest konieczna? Wprowadza niepewnoœæ - iloœæ minimalna to ilosc paczek? Iloœæ paczek w paczkach? To nie czteropak coli
 VALUES
-	(1,HDK321122,2,2.2,'2020-03-08',10,1000,5),
-	(1,PL2403,4,3.15,'2020-03-12',2,500,2),
-	(1,L09P9,5,2.05,'2020-04-08',12,1800,5),
-	(2,Bw7441,2,18.30,'2020-03-19',2,40,2),
-	(2,Egyp321,22.30,'2020-05-09',1,1000,2),
-	(2,Ctt234,2,2.2,'2020-04-30',10,1000,2)
-
+	(1,'HDK321122',2,2.2,'2020-03-08',10,1000,5),
+	(1,'PL2403',4,3.15,'2020-03-12',2,500,2),
+	(1,'L09P9',5,2.05,'2020-04-08',12,1800,5),
+	(2,'Bw7441',2,18.30,'2020-03-19',2,40,2),
+	(2,'Egyp321',3,22.30,'2020-05-09',1,1000,2),
+	(2,'Ctt234',4,21.2,'2020-04-30',10,1000,2),
+	(3,'Bw7431',5,20.50,'2020-03-19',1,200,1),
+	(3,'Egyp322',3,23.70,'2020-03-08',1,300,1),
+	(3,'Ctt235',6,20.25,'2020-03-18',1,250,1),
+	(4,'Bert3',6,0.10,'2020-03-04',4,100,1),
+	(4,'DE333',7,0.13,'2020-03-08',2,50,1),
+	(4,'B235',2,0.09,'2020-03-13',4,100,2),
+	(5,'fal66',1,1.05,'2020-03-21',2,200,2),
+	(5,'T4544',3,1,'2020-03-23',2,80,1),
+	(5,'3224w',5,0.8,'2020-03-25',2,100,1),
+	(6,'MB45',7,20.25,'2020-04-06',4,500,2),
+	(6,'mb45',4,20.25,'2020-04-06',10,200,5),
+	(6,'J45FF',2,0.03,'2020-04-01',5,250,5)
 -----------------------------------------------------------------------------------------------------
 INSERT INTO 
 	Zamowienia_Przydzial(ID_zamowienia, ID_pracownicy, ID_umowy) 
