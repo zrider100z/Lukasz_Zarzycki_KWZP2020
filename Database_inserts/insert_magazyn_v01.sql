@@ -15,7 +15,8 @@ VALUES
 	('Tkanina'),
 	('Nici'),
 	('Guziki'),
-	('Opakowania')
+	('Opakowania'),
+	('Gumka')
 INSERT INTO 
 	Elementy_Jednostki (Jednostka)
 VALUES
@@ -23,7 +24,8 @@ VALUES
 	('mb'),
 	('kg'),
 	('m'),
-	('szt')
+	('szt'),
+	('cal')
 INSERT INTO 
 	Elementy_Cechy_Slownik (Cecha)
 VALUES
@@ -48,7 +50,12 @@ INSERT INTO
 	Dostawcy_Zaopatrzenie (Nazwa,Telefon_1,Telefon_2,Email)
 VALUES
 	('Janex',555222999,789456123,'janexhandel@janex.pl'),
-	('PolMat',888666444,159753864,'polmat@wp.pl')
+	('PolMat',888666444,159753864,'polmat@wp.pl'),
+	('JanuszeDostawy', 455719998, 500687214, 'januszwalczuk@wp.pl'),
+	('PolHurt', 987619423, 598277243, 'dostawcy@polhurt.pl'),
+	('BestMaks', 600869875, 533987137,'m.korbka@bestmaks-dostawcy.pl'),
+	('AlleLogistics', 997644654, 498755653, 'allekontakt@gmail.com'),
+	('Tanio&Bezpiecznie', 666997420, 4206998654, 'kontakt@taniocha.pl')
 INSERT INTO 
 	Dostawcy_Zaopatrzenie (Nazwa,Telefon_1,Email)
 VALUES
@@ -60,7 +67,10 @@ INSERT INTO
 VALUES
 	('PoczteX',545656022,987111222,'barbara@poczta.pl'),
 	('DHL',764985132,733433133,'wysylka@dhl.pl'),
-	('JanuszPrzesylki',111111111,1111111112,'janusz@onion.pl')
+	('JanuszPrzesylki',111111111,1111111112,'janusz@onion.pl'),
+	('TNT', 444888354, 789343190, 'krzysztof.zalewski@tntpaczki.com'),
+	('Paczka w RUCHu', 500333505, 155987515, 'pomoc@paczki.ruch.pl'),
+	('Inpost', 714800800, 567787333, 'twojkurier@inpost.com')
 INSERT INTO 
 	Kurierzy (Nazwa,Telefon_1,Email)
 VALUES
