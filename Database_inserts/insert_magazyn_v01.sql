@@ -19,19 +19,23 @@ VALUES
 INSERT INTO 
 	Elementy_Jednostki (Jednostka)
 VALUES
+	('mm'),
+	('cm'),
+	('m'),
 	('m2'),
 	('mb'),
+	('cal'),
 	('kg'),
-	('m'),
 	('szt')
 INSERT INTO 
 	Elementy_Cechy_Slownik (Cecha)
 VALUES
 	('Grubosc'),
 	('Dlugosc'),
+	('Szerokosc'),
+	('Srednica'),
 	('Waga'),
 	('Kolor'),
-	('Szerokosc'),
 	('Org. oznaczenie'),
 	('Material'),
 	('Splot'),
@@ -40,10 +44,16 @@ INSERT INTO
 	Polki (ID_Rozmiar_Polki)
 VALUES
 	(1),
+	(1),
+	(1),
+	(1),
 	(2),
 	(3),
+	(3),
 	(4),
-	(5)
+	(5),
+	(5),
+	(5),
 INSERT INTO 
 	Dostawcy_Zaopatrzenie (Nazwa,Telefon_1,Telefon_2,Email)
 VALUES
@@ -82,7 +92,7 @@ VALUES
 	(1,'£o¿ysko',24,1,5),
 	(2,'Bawe³na',48,100,1),
 	(3,'Bawe³na',48,1000,4),
-	(4,'Okr¹g³e',0,100,5),
+	(4,'Guzik',0,100,5),
 	(5,'Tektura falista',0,100,2),
 	(1,'Sruba',0,10,3),
 	(1,'Bêbenek',48,1,5),
@@ -91,7 +101,7 @@ VALUES
 	(5,'Karton klapowy',0,100,5),
 	(5,'Foliopaki',48,100,5)
 INSERT INTO 
-	Elementy_Cechy (ID_Element,ID_Cecha,Wartosc_Cechy_Liczbowa,Wartosc_Cechy_Slowna)
+	Elementy_Cechy (ID_Element,ID_Cecha,Wartosc_Cechy_Liczbowa,ID_Jednostka,Wartosc_Cechy_Slowna)
 VALUES
 	(1,3,0.2,null),
 	(2,5,1.6,null),
@@ -107,6 +117,15 @@ VALUES
 	(10,5,100),
 	(11,2,40),
 	(11,5,40)
+	(1,4,17,1,null),
+	(2,3,120,2,null),
+	(3,6,null,null,'660033'),
+	(4,4,12,1,null),
+	(5,1,3,1,null),
+	(6,2,39,1,null),
+	(7,1,null,'RS/003-11'),
+	(8,6,null,'Zloty'),
+	(9,7,null,'07/28061')
 INSERT INTO 
 	Umowy_Kurierzy (ID_Kurier,Data_Zawarcia,Czas_Dostawy,Koszt_Km,Koszt_Staly)
 VALUES
