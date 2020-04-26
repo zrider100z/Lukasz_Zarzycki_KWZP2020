@@ -53,7 +53,7 @@ VALUES
 	(4),
 	(5),
 	(5),
-	(5),
+	(5)
 INSERT INTO 
 	Dostawcy_Zaopatrzenie (Nazwa,Telefon_1,Telefon_2,Email)
 VALUES
