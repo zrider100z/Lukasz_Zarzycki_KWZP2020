@@ -219,7 +219,7 @@ VALUES
 (4,1,200);
 
 --aktualny stan magazynowy
---SELECT Element_nazwa, Ilosc_Paczek From Zawartosc INNER JOIN Elementy ON Zawartosc.ID_Element=Elementy.ID_Element;
+SELECT Element_nazwa, Ilosc_Paczek From Zawartosc INNER JOIN Elementy ON Zawartosc.ID_Element=Elementy.ID_Element;
 
 --towary na magazynie, którym koñczy siê termin przydatnoœci w ci¹gu najbli¿szych 2 miesiêcy
 
