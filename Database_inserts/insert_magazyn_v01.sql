@@ -34,7 +34,8 @@ VALUES
 	('Szerokosc'),
 	('Org. oznaczenie'),
 	('Material'),
-	('Splot')
+	('Splot'),
+	('Wysokosc')
 INSERT INTO 
 	Polki (ID_Rozmiar_Polki)
 VALUES
@@ -78,15 +79,17 @@ INSERT INTO
 	ID_Element_Typ,Element_Nazwa,
 	Okres_Przydatnosci_Miesiace,Element_Ilosc_W_Paczce,ID_Jednostka)
 VALUES
-	(1,'£o¿ysko',24,1,2),
+	(1,'£o¿ysko',24,1,5),
 	(2,'Bawe³na',48,100,1),
 	(3,'Bawe³na',48,1000,4),
 	(4,'Okr¹g³e',0,100,5),
 	(5,'Tektura falista',0,100,2),
 	(1,'Sruba',0,10,3),
-	(1,'Bêbenek',48,1,2),
-	(1,'Igla do dzianin',0,10,2),
-	(1,'Kolo pasowe',0,5,2)
+	(1,'Bêbenek',48,1,5),
+	(1,'Igla do dzianin',0,10,5),
+	(1,'Kolo pasowe',0,5,5),
+	(5,'Karton klapowy',0,100,5),
+	(5,'Foliopaki',48,100,5)
 INSERT INTO 
 	Elementy_Cechy (ID_Element,ID_Cecha,Wartosc_Cechy_Liczbowa,Wartosc_Cechy_Slowna)
 VALUES
@@ -98,7 +101,12 @@ VALUES
 	(6,2,6.5,null),
 	(7,6,null,'RS/003-11'),
 	(8,7,null,'Zloty'),
-	(9,6,null,'07/28061')
+	(9,6,null,'07/28061'),
+	(10,9,100),
+	(10,2,100),
+	(10,5,100),
+	(11,2,40),
+	(11,5,40)
 INSERT INTO 
 	Umowy_Kurierzy (ID_Kurier,Data_Zawarcia,Czas_Dostawy,Koszt_Km,Koszt_Staly)
 VALUES
