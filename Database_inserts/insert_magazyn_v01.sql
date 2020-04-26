@@ -103,20 +103,6 @@ VALUES
 INSERT INTO 
 	Elementy_Cechy (ID_Element,ID_Cecha,Wartosc_Cechy_Liczbowa,ID_Jednostka,Wartosc_Cechy_Slowna)
 VALUES
-	(1,3,0.2,null),
-	(2,5,1.6,null),
-	(3,4,null,'660033'),
-	(4,1,2,null),
-	(5,1,3,null),
-	(6,2,6.5,null),
-	(7,6,null,'RS/003-11'),
-	(8,7,null,'Zloty'),
-	(9,6,null,'07/28061'),
-	(10,9,100),
-	(10,2,100),
-	(10,5,100),
-	(11,2,40),
-	(11,5,40)
 	(1,4,17,1,null),
 	(2,3,120,2,null),
 	(3,6,null,null,'660033'),
@@ -126,6 +112,11 @@ VALUES
 	(7,1,null,'RS/003-11'),
 	(8,6,null,'Zloty'),
 	(9,7,null,'07/28061')
+	(10,20,2,100,),
+	(10,30,2,100),
+	(10,100,2,100),
+	(11,2,40),
+	(11,3,30)
 INSERT INTO 
 	Umowy_Kurierzy (ID_Kurier,Data_Zawarcia,Czas_Dostawy,Koszt_Km,Koszt_Staly)
 VALUES
