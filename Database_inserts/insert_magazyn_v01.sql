@@ -118,14 +118,14 @@ VALUES
 	(4,4,12,1,null),
 	(5,1,3,1,null),
 	(6,2,39,1,null),
-	(7,1,null,'RS/003-11'),
-	(8,6,null,'Zloty'),
-	(9,7,null,'07/28061'),
-	(10,2,20,2),
-	(10,2,30,2),
-	(10,2,40,2),
-	(11,2,40,2),
-	(11,3,30,2)
+	(7,1,null,null,'RS/003-11'),
+	(8,6,null,null,'Zloty'),
+	(9,7,null,null,'07/28061'),
+	(10,2,20,2,null),
+	(10,2,30,2,null),
+	(10,2,40,2,null),
+	(11,2,40,2,null),
+	(11,3,30,2,null)
 INSERT INTO 
 	Umowy_Kurierzy (ID_Kurier,Data_Zawarcia,Czas_Dostawy,Koszt_Km,Koszt_Staly)
 VALUES
