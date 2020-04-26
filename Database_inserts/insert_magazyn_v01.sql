@@ -64,7 +64,7 @@ VALUES
 	('PolHurt', 987619423, 598277243, 'dostawcy@polhurt.pl'),
 	('BestMaks', 600869875, 533987137,'m.korbka@bestmaks-dostawcy.pl'),
 	('AlleLogistics', 997644654, 498755653, 'allekontakt@gmail.com'),
-	('Tanio&Bezpiecznie', 666997420, 4206998654, 'kontakt@taniocha.pl')
+	('Tanio&Bezpiecznie', 666997420, 420699865, 'kontakt@taniocha.pl')
 INSERT INTO 
 	Dostawcy_Zaopatrzenie (Nazwa,Telefon_1,Email)
 VALUES
@@ -188,13 +188,13 @@ VALUES
 	(5,'2020-04-16','2020-04-16')
 
 INSERT INTO 
-	Zawartosc(ID_Zawartosc,ID_Polka,ID_Element,ID_Dostawy,Ilosc_Paczek) 
+	Zawartosc(ID_Polka,ID_Element,ID_Dostawy,Ilosc_Paczek) 
 VALUES 
-	(1,1,2,1,5),
-	(2,2,2,1,5),
-	(3,4,1,2,10),
-	(4,5,3,4,1),
-	(5,3,3,5,10);
+	(1,2,1,5),
+	(2,2,1,5),
+	(4,1,2,10),
+	(5,3,4,1),
+	(3,3,5,10);
 
 INSERT INTO 
 	Dostawcy_Oferta(ID_Oferta,ID_Zamowienia) 
