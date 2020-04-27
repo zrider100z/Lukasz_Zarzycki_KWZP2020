@@ -448,7 +448,29 @@ WHERE Stan_magazynu.Ilosc_calkowita < Zapotrzebowanie_zamowien.Suma_potrzebnych
 
 --status zape³nienia pó³ek
 
+SELECT * FROM Zawartosc 
+DECLARE @ilosc_polek int = (SELECT COUNT(ID_Polka) FROM Polki)
+DECLARE @ilosc_polek_zajetych int = (SELECT Count(ID_Polka) FROM Zawartosc)
+DECLARE @procent_zajetych int = (@ilosc_polek_zajetych*100/@ilosc_polek)
+PRINT @procent_zajetych
 
+SELECT ID_Polka FROM Polki WHERE ID_polka NOT IN (SELECT ID_Polka FROM Zawartosc) 
+/*
+SELECT ID_polka FROM Polki WHERE ID_Polka != (SELECT ID_Polka FROM Zawartosc)
+CREATE TABLE #Puste_Polki (ID_Polka int)
+DECLARE @counter int = 0;
+WHILE @counter < (SELECT MAX(ID_Polka) FROM Polki )
+BEGIN
+SET @counter = @counter+1
+	INSERT INTO #Puste_polki
+	SELECT @counter AS ID_Polka
+	FROM Zawartosc
+	WHERE Zawartosc.ID_Polka != @counter
+END;
+SELECT * FROM #Puste_Polki
+DROP TABLE #Puste_polki
+*/
+--SELECT COUNT(ID_Polka) FROM Polki
 /*sample code
 INSERT INTO 
 	Polki (ID_Rozmiar_Polki)
