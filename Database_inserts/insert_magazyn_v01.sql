@@ -414,8 +414,6 @@ DROP TABLE #Ilosc_ofert
 
 
 --towary które trzeba zamówiæ => towary, których stan magazynowy jest mniejszy ni¿ minimalna iloœæ zamówienia (?)
-CREATE TABLE Selekt_materialow (ID_zamowienie int, ID_element int, ilosc int)
-INSERT INTO Selekt_materialow (ID_zamowienie,ID_element,ilosc) VALUES (1,2,2000),(1,3,5),(1,1,1),(2,2,100),(2,3,1000),(3,2,200),(3,3,500)
 SELECT Stan_magazynu.ID_Element, Zapotrzebowanie_zamowien.Suma_potrzebnych-Stan_magazynu.Ilosc_calkowita AS Brak_ilosc 
 FROM
 	(
@@ -433,12 +431,20 @@ FROM
 			INNER JOIN Elementy_Jednostki 
 			ON Elementy.ID_Jednostka=Elementy_Jednostki.ID_jednostka 
 	) Stan_magazynu 
-	INNER JOIN (SELECT ID_element, SUM(ILOSC) AS Suma_potrzebnych 
-				FROM Selekt_materialow --TU POWINIEN BYÆ SELECT Z DANYCH MODU£U PROJEKTOWANIA/UTRZYMANIA RUCHU
+	INNER JOIN (SELECT ID_element, SUM(Liczba) AS Suma_potrzebnych 
+				FROM 
+				(
+				SELECT ID_zamowienia, Elementy_Proces.ID_element, Liczba 
+				FROM Zamowienie_Produkt
+				INNER JOIN Proces_Zamowienie
+				ON Zamowienie_Produkt.ID = Proces_Zamowienie.ID_Zamowienie_Produkty
+				INNER JOIN Elementy_proces
+				ON Proces_Zamowienie.ID_Proces_Technologiczny = Elementy_Proces.ID_Proces_Technologiczny				
+				) Lista_zapotrzebowania
 				GROUP BY ID_element) Zapotrzebowanie_zamowien 
 	ON Stan_magazynu.ID_Element=Zapotrzebowanie_zamowien.ID_element
 WHERE Stan_magazynu.Ilosc_calkowita < Zapotrzebowanie_zamowien.Suma_potrzebnych
-DROP TABLE Selekt_materialow
+
 --status zape³nienia pó³ek
 
 */
