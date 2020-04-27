@@ -275,14 +275,13 @@ SELECT Elementy.ID_Element, SUM( Ilosc_Paczek) AS Ilosc_paczek_total  From Zawar
 ) Stan INNER JOIN Elementy ON Stan.ID_Element=Elementy.ID_Element INNER JOIN Elementy_Jednostki ON Elementy.ID_Jednostka=Elementy_Jednostki.ID_jednostka
 
 --towary na magazynie, którym koñczy siê termin przydatnoœci w ci¹gu najbli¿szych 2 miesiêcy
-/*
+
 SELECT Element_Nazwa, Okres_Przydatnosci_Miesiace, Data_Dostawy_Rzeczywista 
-FROM Zamowienia_Dostawy INNER JOIN (SELECT ID_Zamowienia, Element_Nazwa, Okres_Przydatnosci_Miesiace 
-FROM Elementy INNER JOIN Zamowienia 
-ON Elementy.ID_Element=Zamowienia.ID_Element)  INNER JOIN Dostawy
-ON Zamowienia.ID_Zamowienia=Zamowienia_Dostawy.ID_Zamowienia;
-*/
---to nie dzia³a, ale jak bd zamówienia to moze bd dzia³aæ--
+FROM Elementy INNER JOIN (SELECT ID_Element, Data_Dostawy_Rzeczywista 
+FROM Dostawy_Zawartosc INNER JOIN Zamowienia_Dostawy
+ON Dostawy_Zawartosc.ID_Dostawy=Zamowienia_Dostawy.ID_Dostawy) AS x
+ON Elementy.ID_Element=x.ID_Element
+WHERE DATEDIFF(MONTH,GETDATE(), DATEADD(MONTH, Okres_Przydatnosci_Miesiace, Data_Dostawy_Rzeczywista))<2;
 
 /*
 --najtañszy dostawca(wg produktu i /..œrednio dla wszystkich produktów)
