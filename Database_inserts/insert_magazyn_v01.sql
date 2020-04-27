@@ -275,15 +275,15 @@ SELECT Elementy.ID_Element, SUM( Ilosc_Paczek) AS Ilosc_paczek_total  From Zawar
 ) Stan INNER JOIN Elementy ON Stan.ID_Element=Elementy.ID_Element INNER JOIN Elementy_Jednostki ON Elementy.ID_Jednostka=Elementy_Jednostki.ID_jednostka
 
 --towary na magazynie, którym koñczy siê termin przydatnoœci w ci¹gu najbli¿szych 2 miesiêcy
-
-/*SELECT Element_Nazwa, Okres_Przydatnosci_Miesiace, Data_Dostawy_Rzeczywista 
+/*
+SELECT Element_Nazwa, Okres_Przydatnosci_Miesiace, Data_Dostawy_Rzeczywista 
 FROM Zamowienia_Dostawy INNER JOIN (SELECT ID_Zamowienia, Element_Nazwa, Okres_Przydatnosci_Miesiace 
 FROM Elementy INNER JOIN Zamowienia 
-ON Elementy.ID_Element=Zamowienia.ID_Element) 
+ON Elementy.ID_Element=Zamowienia.ID_Element)  INNER JOIN Dostawy
 ON Zamowienia.ID_Zamowienia=Zamowienia_Dostawy.ID_Zamowienia;
-
---to nie dzia³a, ale jak bd zamówienia to moze bd dzia³aæ--
 */
+--to nie dzia³a, ale jak bd zamówienia to moze bd dzia³aæ--
+
 /*
 --najtañszy dostawca(wg produktu i /..œrednio dla wszystkich produktów)
 WG produktu
@@ -415,7 +415,31 @@ DROP TABLE #Ilosc_ofert
 
 
 --towary które trzeba zamówiæ => towary, których stan magazynowy jest mniejszy ni¿ minimalna iloœæ zamówienia (?)
-
+CREATE TABLE Selekt_materialow (ID_zamowienie int, ID_element int, ilosc int)
+INSERT INTO Selekt_materialow (ID_zamowienie,ID_element,ilosc) VALUES (1,2,2000),(1,3,5),(1,1,1),(2,2,100),(2,3,1000),(3,2,200),(3,3,500)
+SELECT Stan_magazynu.ID_Element, Zapotrzebowanie_zamowien.Suma_potrzebnych-Stan_magazynu.Ilosc_calkowita AS Brak_ilosc 
+FROM
+	(
+	SELECT Elementy.ID_Element, Element_Nazwa, Ilosc_paczek_total, Ilosc_paczek_total*Element_Ilosc_W_Paczce AS Ilosc_calkowita, Jednostka 
+		FROM 
+		(
+			SELECT Elementy.ID_Element, SUM( Ilosc_Paczek) AS Ilosc_paczek_total  
+			FROM Zawartosc 
+			INNER JOIN Elementy 
+			ON Zawartosc.ID_Element=Elementy.ID_Element 
+			GROUP BY Elementy.ID_Element
+		) Stan 
+			INNER JOIN Elementy 
+			ON Stan.ID_Element=Elementy.ID_Element 
+			INNER JOIN Elementy_Jednostki 
+			ON Elementy.ID_Jednostka=Elementy_Jednostki.ID_jednostka 
+	) Stan_magazynu 
+	INNER JOIN (SELECT ID_element, SUM(ILOSC) AS Suma_potrzebnych 
+				FROM Selekt_materialow --TU POWINIEN BYÆ SELECT Z DANYCH MODU£U PROJEKTOWANIA/UTRZYMANIA RUCHU
+				GROUP BY ID_element) Zapotrzebowanie_zamowien 
+	ON Stan_magazynu.ID_Element=Zapotrzebowanie_zamowien.ID_element
+WHERE Stan_magazynu.Ilosc_calkowita < Zapotrzebowanie_zamowien.Suma_potrzebnych
+DROP TABLE Selekt_materialow
 --status zape³nienia pó³ek
 
 */
