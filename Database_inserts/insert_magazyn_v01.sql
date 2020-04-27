@@ -264,12 +264,14 @@ SELECT Element_nazwa, COUNT(*) Ilosc_Paczek From Zawartosc INNER JOIN Elementy O
 
 --towary na magazynie, którym koñczy siê termin przydatnoœci w ci¹gu najbli¿szych 2 miesiêcy
 
-SELECT Element_Nazwa, Okres_Przydatnosci_Miesiace, Data_Dostawy_Rzeczywista 
+/*SELECT Element_Nazwa, Okres_Przydatnosci_Miesiace, Data_Dostawy_Rzeczywista 
 FROM Zamowienia_Dostawy INNER JOIN (SELECT ID_Zamowienia, Element_Nazwa, Okres_Przydatnosci_Miesiace 
 FROM Elementy INNER JOIN Zamowienia 
-ON Elementy.ID_Element=Zamowienia.ID_Element) AS x
+ON Elementy.ID_Element=Zamowienia.ID_Element) 
 ON Zamowienia.ID_Zamowienia=Zamowienia_Dostawy.ID_Zamowienia;
 
+--to nie dzia³a, ale jak bd zamówienia to moze bd dzia³aæ--
+*/
 --najtañszy dostawca(wg produktu i /..œrednio dla wszystkich produktów)
 
 --najlepszy dostawca, kryteria: minimalna cena, krótki czas dostawy, minimalna iloœæ zamówienia
