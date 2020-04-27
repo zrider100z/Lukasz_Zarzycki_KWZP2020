@@ -287,7 +287,6 @@ SELECT Nazwa, Ranking.ID_element, Ranking.Cena AS Cena_jednostkowa FROM(
 			Dostawcy_Zaopatrzenie ON Dostawcy_Zaopatrzenie.ID_Dostawcy = Oferta.ID_Dostawcy
 
 ---------------------------------------------SREDNIO DLA WSZYSTKICH PRODUKTOW-------------------------------------------------------
---Temporary ranking table
 CREATE TABLE #Ranking_sredni (
 ID_ranking int IDENTITY(1,1) PRIMARY KEY,
 ID_element int,
@@ -318,11 +317,16 @@ BEGIN
 	FROM (
 		SELECT ID_oferta, ID_Dostawcy, Cena_Jedn FROM Oferta WHERE ID_element = @counter --ORDER BY Cena_Jedn
 	) Ranking
-	
-
 END;
 --This select returns the final ranking
-SELECT ID_Dostawcy, SUM(Mark) AS Score FROM #Ranking_sredni GROUP BY ID_dostawcy ORDER BY Score DESC
+SELECT Nazwa, MidSelect.ID_dostawcy AS ID_dostawcy, Score 
+	FROM (
+		SELECT ID_Dostawcy, SUM(Mark) AS Score 
+			FROM #Ranking_sredni 
+			GROUP BY ID_dostawcy 
+	) MidSelect INNER JOIN Dostawcy_Zaopatrzenie 
+	ON Dostawcy_Zaopatrzenie.ID_Dostawcy = MidSelect.ID_dostawcy 
+	ORDER BY Score DESC
 DROP TABLE #Ranking_sredni
 DROP TABLE #Ilosc_ofert
 ---------------------KONIEC SREDNIO DLA WSZYSTKICH-------------------------------------------------
