@@ -283,9 +283,8 @@ ON Dostawy_Zawartosc.ID_Dostawy=Zamowienia_Dostawy.ID_Dostawy) AS x
 ON Elementy.ID_Element=x.ID_Element
 WHERE DATEDIFF(MONTH,GETDATE(), DATEADD(MONTH, Okres_Przydatnosci_Miesiace, Data_Dostawy_Rzeczywista))<2;
 
-/*
---najtañszy dostawca(wg produktu i /..œrednio dla wszystkich produktów)
-WG produktu
+
+--najtañszy dostawca WG produktu
 SELECT Nazwa, Oferta.ID_dostawcy, Ranking.ID_element, Ranking.Cena AS Cena_jednostkowa FROM(
 		SELECT ID_Element, MIN(Cena_Jedn) FROM Oferta GROUP BY ID_Element
 		) Ranking (ID_element, Cena) 
@@ -337,7 +336,8 @@ SELECT Nazwa, MidSelect.ID_dostawcy AS ID_dostawcy, Score
 	ON Dostawcy_Zaopatrzenie.ID_Dostawcy = MidSelect.ID_dostawcy 
 	ORDER BY Score DESC
 DROP TABLE #Ranking_sredni
-DROP TABLE #Ilosc_ofert
+DROP TABLE #Ilosc_ofert 
+GO
 ---------------------KONIEC SREDNIO DLA WSZYSTKICH-------------------------------------------------
 
 --najlepszy dostawca, kryteria: minimalna cena, krótki czas dostawy, minimalna iloœæ zamówienia
@@ -349,8 +349,8 @@ ID_dostawcy int,
 Mark real
 )
 --Counter for while loop declared
---DECLARE @counter INT = 0
-SET @counter = 0
+DECLARE @counter INT = 0
+--SET @counter = 0
 --Teomporary amount of offers table created to work as a yardstick
 CREATE TABLE #Ilosc_ofert (
 ID_ilosc_ofert int IDENTITY(1,1) PRIMARY KEY,
@@ -448,7 +448,7 @@ WHERE Stan_magazynu.Ilosc_calkowita < Zapotrzebowanie_zamowien.Suma_potrzebnych
 
 --status zape³nienia pó³ek
 
-*/
+
 /*sample code
 INSERT INTO 
 	Polki (ID_Rozmiar_Polki)
