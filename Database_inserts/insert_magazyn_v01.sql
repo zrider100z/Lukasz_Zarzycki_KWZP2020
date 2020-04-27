@@ -275,15 +275,67 @@ ON Zamowienia.ID_Zamowienia=Zamowienia_Dostawy.ID_Zamowienia;
 
 --to nie dzia³a, ale jak bd zamówienia to moze bd dzia³aæ--
 */
+/*
 --najtañszy dostawca(wg produktu i /..œrednio dla wszystkich produktów)
+WG produktu
+SELECT Nazwa, Ranking.ID_element, Ranking.Cena AS Cena_jednostkowa FROM(
+		SELECT ID_Element, MIN(Cena_Jedn) FROM Oferta GROUP BY ID_Element
+		) Ranking (ID_element, Cena) 
+		INNER JOIN 
+			Oferta ON Oferta.ID_Element = Ranking.ID_element AND Ranking.Cena = Oferta.Cena_Jedn
+		INNER JOIN 
+			Dostawcy_Zaopatrzenie ON Dostawcy_Zaopatrzenie.ID_Dostawcy = Oferta.ID_Dostawcy
+
+---------------------------------------------SREDNIO DLA WSZYSTKICH PRODUKTOW-------------------------------------------------------
+--Temporary ranking table
+CREATE TABLE #Ranking_sredni (
+ID_ranking int IDENTITY(1,1) PRIMARY KEY,
+ID_element int,
+ID_dostawcy int,
+Mark real
+)
+--Counter for while loop declared
+DECLARE @counter INT = 0
+--Teomporary amount of offers table created to work as a yardstick
+CREATE TABLE #Ilosc_ofert (
+ID_ilosc_ofert int IDENTITY(1,1) PRIMARY KEY,
+ID_element int,
+Ilosc int
+)
+--Table inserted with amount of offers for each item
+INSERT INTO #Ilosc_ofert (ID_element, Ilosc)
+SELECT ID_element, COUNT(ID_Dostawcy)
+FROM Oferta
+GROUP BY ID_Element
+--While loop to make a coherent ranking
+WHILE @counter < (SELECT MAX(ID_element) FROM Oferta)
+BEGIN
+	set @counter = @counter+1
+	--Insert into ranking
+	INSERT INTO #Ranking_sredni (ID_element, ID_Dostawcy, Mark)
+	--element ID as counter, supplier ID, scaled rank
+	SELECT @counter, Ranking.ID_Dostawcy, RANK() OVER (ORDER BY Cena_Jedn DESC)*100/(SELECT Ilosc FROM #Ilosc_ofert WHERE ID_element = @counter)    --ROW_NUMBER() OVER (ORDER BY ID_oferta) AS Mark 
+	FROM (
+		SELECT ID_oferta, ID_Dostawcy, Cena_Jedn FROM Oferta WHERE ID_element = @counter --ORDER BY Cena_Jedn
+	) Ranking
+	
+
+END;
+--This select returns the final ranking
+SELECT ID_Dostawcy, SUM(Mark) AS Score FROM #Ranking_sredni GROUP BY ID_dostawcy ORDER BY Score DESC
+DROP TABLE #Ranking_sredni
+DROP TABLE #Ilosc_ofert
+---------------------KONIEC SREDNIO DLA WSZYSTKICH-------------------------------------------------
 
 --najlepszy dostawca, kryteria: minimalna cena, krótki czas dostawy, minimalna iloœæ zamówienia
+
+
 
 --towary które trzeba zamówiæ => towary, których stan magazynowy jest mniejszy ni¿ minimalna iloœæ zamówienia (?)
 
 --status zape³nienia pó³ek
 
-
+*/
 /*sample code
 INSERT INTO 
 	Polki (ID_Rozmiar_Polki)
