@@ -1,9 +1,9 @@
 --------------------------INSERT QUERY MAGAZYN--------------------------------
 USE Baza_szwalnia
 
-INSERT INTO Klienci (Imie) Values ('Ra','Raf','Rafa','Rafal','Rafal2')
-INSERT INTO Zamowienia (ID_klienta) Values (1,2,3,4,5)
-INSERT INTO Pracownicy(Imie) Values ('Grz','Grze','Grzeg','Grzego','Grzegor','Grzegorz')
+INSERT INTO Klienci (Imie,Nazwisko,Nazwa_firmy,Nip,Adres,Telefon,E_Mail) Values ('a','a','a','a','a','a','a'),('b','b','b','b','b','b','b'),('c','c','c','c','c','c','c'),('d','d','d','d','d','d','d'),('e','e','e','e','e','e','e'),('f','f','f','f','f','f','f')
+INSERT INTO Zamowienia (ID_klienta) Values (1),(2),(3),(4),(5),(6)
+INSERT INTO Pracownicy(Imie,Nazwisko,Pesel,Adres,Telefon) Values ('a','a','a','a','a'),('b','b','b','b','b'),('c','c','c','c','c'),('d','d','d','d','d'),('e','e','e','e','e'),('f','f','f','f','f')
 
 
 
