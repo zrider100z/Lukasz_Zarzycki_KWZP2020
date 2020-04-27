@@ -270,17 +270,22 @@ VALUES
 	(4,1,200);
 
 --aktualny stan magazynowy
-SELECT Elementy.ID_Element, Element_Nazwa, Ilosc_paczek_total, Ilosc_paczek_total*Element_Ilosc_W_Paczce, Jednostka FROM (
-SELECT Elementy.ID_Element, SUM( Ilosc_Paczek) AS Ilosc_paczek_total  From Zawartosc INNER JOIN Elementy ON Zawartosc.ID_Element=Elementy.ID_Element GROUP BY Elementy.ID_Element
-) Stan INNER JOIN Elementy ON Stan.ID_Element=Elementy.ID_Element INNER JOIN Elementy_Jednostki ON Elementy.ID_Jednostka=Elementy_Jednostki.ID_jednostka
+SELECT Elementy.ID_Element, Element_Nazwa, Ilosc_paczek_total, Ilosc_paczek_total*Element_Ilosc_W_Paczce AS Ilosc_calkowita, Jednostka 
+	FROM (SELECT Elementy.ID_Element, SUM( Ilosc_Paczek) AS Ilosc_paczek_total  
+			FROM Zawartosc INNER JOIN Elementy 
+			ON Zawartosc.ID_Element=Elementy.ID_Element 
+			GROUP BY Elementy.ID_Element) 
+	Stan INNER JOIN Elementy 
+		ON Stan.ID_Element=Elementy.ID_Element INNER JOIN Elementy_Jednostki 
+			ON Elementy.ID_Jednostka=Elementy_Jednostki.ID_jednostka
 
 --towary na magazynie, którym koñczy siê termin przydatnoœci w ci¹gu najbli¿szych 2 miesiêcy
 
 SELECT Element_Nazwa, Okres_Przydatnosci_Miesiace, Data_Dostawy_Rzeczywista 
-FROM Elementy INNER JOIN (SELECT ID_Element, Data_Dostawy_Rzeczywista 
-FROM Dostawy_Zawartosc INNER JOIN Zamowienia_Dostawy
-ON Dostawy_Zawartosc.ID_Dostawy=Zamowienia_Dostawy.ID_Dostawy) AS x
-ON Elementy.ID_Element=x.ID_Element
+	FROM Elementy INNER JOIN (SELECT ID_Element, Data_Dostawy_Rzeczywista 
+			FROM Dostawy_Zawartosc INNER JOIN Zamowienia_Dostawy
+			ON Dostawy_Zawartosc.ID_Dostawy=Zamowienia_Dostawy.ID_Dostawy) AS x
+	ON Elementy.ID_Element=x.ID_Element
 WHERE DATEDIFF(MONTH,GETDATE(), DATEADD(MONTH, Okres_Przydatnosci_Miesiace, Data_Dostawy_Rzeczywista))<2;
 
 /*
