@@ -350,6 +350,7 @@ Mark real
 )
 --Counter for while loop declared
 --DECLARE @counter INT = 0
+SET @counter = 0
 --Teomporary amount of offers table created to work as a yardstick
 CREATE TABLE #Ilosc_ofert (
 ID_ilosc_ofert int IDENTITY(1,1) PRIMARY KEY,
