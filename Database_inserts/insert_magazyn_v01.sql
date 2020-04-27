@@ -278,7 +278,7 @@ ON Zamowienia.ID_Zamowienia=Zamowienia_Dostawy.ID_Zamowienia;
 /*
 --najtañszy dostawca(wg produktu i /..œrednio dla wszystkich produktów)
 WG produktu
-SELECT Nazwa, Ranking.ID_element, Ranking.Cena AS Cena_jednostkowa FROM(
+SELECT Nazwa, Oferta.ID_dostawcy, Ranking.ID_element, Ranking.Cena AS Cena_jednostkowa FROM(
 		SELECT ID_Element, MIN(Cena_Jedn) FROM Oferta GROUP BY ID_Element
 		) Ranking (ID_element, Cena) 
 		INNER JOIN 
