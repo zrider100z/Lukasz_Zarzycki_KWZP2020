@@ -1,5 +1,12 @@
 --------------------------INSERT QUERY MAGAZYN--------------------------------
 USE Baza_szwalnia
+
+INSERT INTO Klienci (Imie) Values ('Ra','Raf','Rafa','Rafal','Rafal2')
+INSERT INTO Zamowienia (ID_klienta) Values (1,2,3,4,5)
+INSERT INTO Pracownicy(Imie) Values ('Grz','Grze','Grzeg','Grzego','Grzegor','Grzegorz')
+
+
+
 INSERT INTO 
 	Polki_rozmiary (Wysokosc,Szerokosc,Glebokosc)
 VALUES
@@ -263,7 +270,9 @@ VALUES
 	(4,1,200);
 
 --aktualny stan magazynowy
-SELECT Element_nazwa, COUNT(*) Ilosc_Paczek From Zawartosc INNER JOIN Elementy ON Zawartosc.ID_Element=Elementy.ID_Element GROUP BY Element_nazwa;
+SELECT Elementy.ID_Element, Element_Nazwa, Ilosc_paczek_total, Ilosc_paczek_total*Element_Ilosc_W_Paczce FROM (
+SELECT Elementy.ID_Element, SUM( Ilosc_Paczek) AS Ilosc_paczek_total  From Zawartosc INNER JOIN Elementy ON Zawartosc.ID_Element=Elementy.ID_Element GROUP BY Elementy.ID_Element
+) Stan INNER JOIN Elementy ON Stan.ID_Element=Elementy.ID_Element
 
 --towary na magazynie, którym koñczy siê termin przydatnoœci w ci¹gu najbli¿szych 2 miesiêcy
 
