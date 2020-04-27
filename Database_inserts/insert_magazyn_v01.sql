@@ -1,5 +1,12 @@
 --------------------------INSERT QUERY MAGAZYN--------------------------------
 USE Baza_szwalnia
+
+INSERT INTO Klienci (Imie,Nazwisko,Nazwa_firmy,Nip,Adres,Telefon,E_Mail) Values ('a','a','a','a','a','a','a'),('b','b','b','b','b','b','b'),('c','c','c','c','c','c','c'),('d','d','d','d','d','d','d'),('e','e','e','e','e','e','e'),('f','f','f','f','f','f','f')
+INSERT INTO Zamowienia (ID_klienta) Values (1),(2),(3),(4),(5),(6)
+INSERT INTO Pracownicy(Imie,Nazwisko,Pesel,Adres,Telefon) Values ('a','a','a','a','a'),('b','b','b','b','b'),('c','c','c','c','c'),('d','d','d','d','d'),('e','e','e','e','e'),('f','f','f','f','f')
+
+
+
 INSERT INTO 
 	Polki_rozmiary (Wysokosc,Szerokosc,Glebokosc)
 VALUES
@@ -64,7 +71,7 @@ VALUES
 	('PolHurt', 987619423, 598277243, 'dostawcy@polhurt.pl'),
 	('BestMaks', 600869875, 533987137,'m.korbka@bestmaks-dostawcy.pl'),
 	('AlleLogistics', 997644654, 498755653, 'allekontakt@gmail.com'),
-	('Tanio&Bezpiecznie', 666997420, 4206998654, 'kontakt@taniocha.pl')
+	('Tanio&Bezpiecznie', 666997420, 420699865, 'kontakt@taniocha.pl')
 INSERT INTO 
 	Dostawcy_Zaopatrzenie (Nazwa,Telefon_1,Email)
 VALUES
@@ -118,14 +125,14 @@ VALUES
 	(4,4,12,1,null),
 	(5,1,3,1,null),
 	(6,2,39,1,null),
-	(7,1,null,'RS/003-11'),
-	(8,6,null,'Zloty'),
-	(9,7,null,'07/28061'),
-	(10,2,20,2),
-	(10,2,30,2),
-	(10,2,40,2),
-	(11,2,40,2),
-	(11,3,30,2)
+	(7,1,null,null,'RS/003-11'),
+	(8,6,null,null,'Zloty'),
+	(9,7,null,null,'07/28061'),
+	(10,2,20,2,null),
+	(10,2,30,2,null),
+	(10,2,40,2,null),
+	(11,2,40,2,null),
+	(11,3,30,2,null)
 INSERT INTO 
 	Umowy_Kurierzy (ID_Kurier,Data_Zawarcia,Czas_Dostawy,Koszt_Km,Koszt_Staly)
 VALUES
@@ -167,7 +174,10 @@ VALUES
 	(9,'KJP022',2,12,'2020-04-11',1,150,1),
 	(10,'AJP030',1,0.29,'2020-04-15',1000,6000,20),
 	(10,'AJP031',2,0.35,'2020-04-11',500,3000,10),
-	(10,'AJP032',1,0.49,'2020-04-16',500,4000,10)
+	(10,'AJP032',1,0.49,'2020-04-16',500,4000,10),
+	(11,'FJP040',1,0.2,'2020-03-15',200,10000,100),
+	(11,'FJP041',3,0.3,'2020-04-15',100,5000,100),
+	(11,'FJP042',2,0.4,'2020-03-19',100,4000,50)
 -----------------------------------------------------------------------------------------------------
 INSERT INTO 
 	Zamowienia_Przydzial(ID_zamowienia, ID_pracownicy, ID_umowy) 
@@ -188,13 +198,13 @@ VALUES
 	(5,'2020-04-16','2020-04-16')
 
 INSERT INTO 
-	Zawartosc(ID_Zawartosc,ID_Polka,ID_Element,ID_Dostawy,Ilosc_Paczek) 
+	Zawartosc(ID_Polka,ID_Element,ID_Dostawy,Ilosc_Paczek) 
 VALUES 
-	(1,1,2,1,5),
-	(2,2,2,1,5),
-	(3,4,1,2,10),
-	(4,5,3,4,1),
-	(5,3,3,5,10);
+	(1,2,1,5),
+	(2,2,1,5),
+	(4,1,2,10),
+	(5,3,4,1),
+	(3,3,5,10);
 
 INSERT INTO 
 	Dostawcy_Oferta(ID_Oferta,ID_Zamowienia) 
@@ -260,7 +270,9 @@ VALUES
 	(4,1,200);
 
 --aktualny stan magazynowy
-SELECT Element_nazwa, COUNT(*) Ilosc_Paczek From Zawartosc INNER JOIN Elementy ON Zawartosc.ID_Element=Elementy.ID_Element GROUP BY Element_nazwa;
+SELECT Elementy.ID_Element, Element_Nazwa, Ilosc_paczek_total, Ilosc_paczek_total*Element_Ilosc_W_Paczce, Jednostka FROM (
+SELECT Elementy.ID_Element, SUM( Ilosc_Paczek) AS Ilosc_paczek_total  From Zawartosc INNER JOIN Elementy ON Zawartosc.ID_Element=Elementy.ID_Element GROUP BY Elementy.ID_Element
+) Stan INNER JOIN Elementy ON Stan.ID_Element=Elementy.ID_Element INNER JOIN Elementy_Jednostki ON Elementy.ID_Jednostka=Elementy_Jednostki.ID_jednostka
 
 --towary na magazynie, którym koñczy siê termin przydatnoœci w ci¹gu najbli¿szych 2 miesiêcy
 
@@ -272,15 +284,141 @@ ON Zamowienia.ID_Zamowienia=Zamowienia_Dostawy.ID_Zamowienia;
 
 --to nie dzia³a, ale jak bd zamówienia to moze bd dzia³aæ--
 */
+/*
 --najtañszy dostawca(wg produktu i /..œrednio dla wszystkich produktów)
+WG produktu
+SELECT Nazwa, Oferta.ID_dostawcy, Ranking.ID_element, Ranking.Cena AS Cena_jednostkowa FROM(
+		SELECT ID_Element, MIN(Cena_Jedn) FROM Oferta GROUP BY ID_Element
+		) Ranking (ID_element, Cena) 
+		INNER JOIN 
+			Oferta ON Oferta.ID_Element = Ranking.ID_element AND Ranking.Cena = Oferta.Cena_Jedn
+		INNER JOIN 
+			Dostawcy_Zaopatrzenie ON Dostawcy_Zaopatrzenie.ID_Dostawcy = Oferta.ID_Dostawcy
+
+---------------------------------------------SREDNIO DLA WSZYSTKICH PRODUKTOW-------------------------------------------------------
+--Temporary ranking table
+CREATE TABLE #Ranking_sredni (
+ID_ranking int IDENTITY(1,1) PRIMARY KEY,
+ID_element int,
+ID_dostawcy int,
+Mark real
+)
+--Counter for while loop declared
+DECLARE @counter INT = 0
+--Teomporary amount of offers table created to work as a yardstick
+CREATE TABLE #Ilosc_ofert (
+ID_ilosc_ofert int IDENTITY(1,1) PRIMARY KEY,
+ID_element int,
+Ilosc int
+)
+--Table inserted with amount of offers for each item
+INSERT INTO #Ilosc_ofert (ID_element, Ilosc)
+SELECT ID_element, COUNT(ID_Dostawcy)
+FROM Oferta
+GROUP BY ID_Element
+--While loop to make a coherent ranking
+WHILE @counter < (SELECT MAX(ID_element) FROM Oferta)
+BEGIN
+	set @counter = @counter+1
+	--Insert into ranking
+	INSERT INTO #Ranking_sredni (ID_element, ID_Dostawcy, Mark)
+	--element ID as counter, supplier ID, scaled rank
+	SELECT @counter, Ranking.ID_Dostawcy, RANK() OVER (ORDER BY Cena_Jedn DESC)*100/(SELECT Ilosc FROM #Ilosc_ofert WHERE ID_element = @counter)    --ROW_NUMBER() OVER (ORDER BY ID_oferta) AS Mark 
+	FROM (
+		SELECT ID_oferta, ID_Dostawcy, Cena_Jedn FROM Oferta WHERE ID_element = @counter --ORDER BY Cena_Jedn
+	) Ranking
+END;
+--This select returns the final ranking
+SELECT Nazwa, MidSelect.ID_dostawcy AS ID_dostawcy, Score 
+	FROM (
+		SELECT ID_Dostawcy, SUM(Mark) AS Score 
+			FROM #Ranking_sredni 
+			GROUP BY ID_dostawcy 
+	) MidSelect INNER JOIN Dostawcy_Zaopatrzenie 
+	ON Dostawcy_Zaopatrzenie.ID_Dostawcy = MidSelect.ID_dostawcy 
+	ORDER BY Score DESC
+DROP TABLE #Ranking_sredni
+DROP TABLE #Ilosc_ofert
+---------------------KONIEC SREDNIO DLA WSZYSTKICH-------------------------------------------------
 
 --najlepszy dostawca, kryteria: minimalna cena, krótki czas dostawy, minimalna iloœæ zamówienia
+--Temporary ranking table
+CREATE TABLE #Ranking_ogolny (
+ID_ranking int IDENTITY(1,1) PRIMARY KEY,
+ID_element int,
+ID_dostawcy int,
+Mark real
+)
+--Counter for while loop declared
+DECLARE @counter INT = 0
+--Teomporary amount of offers table created to work as a yardstick
+CREATE TABLE #Ilosc_ofert (
+ID_ilosc_ofert int IDENTITY(1,1) PRIMARY KEY,
+ID_element int,
+Ilosc int
+)
+--Table inserted with amount of offers for each item
+INSERT INTO #Ilosc_ofert (ID_element, Ilosc)
+SELECT ID_element, COUNT(ID_Dostawcy)
+FROM Oferta
+GROUP BY ID_Element
+--While loop to make a coherent price ranking
+WHILE @counter < (SELECT MAX(ID_element) FROM Oferta)
+BEGIN
+	set @counter = @counter+1
+	--Insert into ranking
+	INSERT INTO #Ranking_ogolny (ID_element, ID_Dostawcy, Mark)
+	--element ID as counter, supplier ID, scaled rank
+	SELECT @counter, Ranking.ID_Dostawcy, RANK() OVER (ORDER BY Cena_Jedn DESC)*100/(SELECT Ilosc FROM #Ilosc_ofert WHERE ID_element = @counter)    --ROW_NUMBER() OVER (ORDER BY ID_oferta) AS Mark 
+	FROM (
+		SELECT ID_oferta, ID_Dostawcy, Cena_Jedn FROM Oferta WHERE ID_element = @counter --ORDER BY Cena_Jedn
+	) Ranking
+END;
+--second ranking to judge the best timing
+set @counter = 0
+WHILE @counter < (SELECT MAX(ID_element) FROM Oferta)
+BEGIN
+	set @counter = @counter+1
+	--Insert into ranking
+	INSERT INTO #Ranking_ogolny (ID_element, ID_Dostawcy, Mark)
+	--element ID as counter, supplier ID, scaled rank
+	SELECT @counter, Ranking.ID_Dostawcy, RANK() OVER (ORDER BY Deklarowany_czas_dostawy DESC)*100/(SELECT Ilosc FROM #Ilosc_ofert WHERE ID_element = @counter)     
+	FROM (
+		SELECT ID_oferta, ID_Dostawcy, Deklarowany_czas_dostawy FROM Oferta WHERE ID_element = @counter
+	) Ranking
+END;
+
+--third ranking to judge the lowest minimal amount
+set @counter = 0
+WHILE @counter < (SELECT MAX(ID_element) FROM Oferta)
+BEGIN
+	set @counter = @counter+1
+	--Insert into ranking
+	INSERT INTO #Ranking_ogolny (ID_element, ID_Dostawcy, Mark)
+	--element ID as counter, supplier ID, scaled rank
+	SELECT @counter, Ranking.ID_Dostawcy, RANK() OVER (ORDER BY Ilosc_Minimalna DESC)*100/(SELECT Ilosc FROM #Ilosc_ofert WHERE ID_element = @counter)    
+	FROM (
+		SELECT ID_oferta, ID_Dostawcy, Ilosc_Minimalna FROM Oferta WHERE ID_element = @counter 
+	) Ranking
+END;
+--This select returns the final ranking
+SELECT Nazwa, MidSelect.ID_dostawcy AS ID_dostawcy, Score 
+	FROM (
+		SELECT ID_Dostawcy, SUM(Mark) AS Score 
+			FROM #Ranking_ogolny 
+			GROUP BY ID_dostawcy 
+	) MidSelect INNER JOIN Dostawcy_Zaopatrzenie 
+	ON Dostawcy_Zaopatrzenie.ID_Dostawcy = MidSelect.ID_dostawcy 
+	ORDER BY Score DESC
+DROP TABLE #Ranking_ogolny
+DROP TABLE #Ilosc_ofert
+
 
 --towary które trzeba zamówiæ => towary, których stan magazynowy jest mniejszy ni¿ minimalna iloœæ zamówienia (?)
 
 --status zape³nienia pó³ek
 
-
+*/
 /*sample code
 INSERT INTO 
 	Polki (ID_Rozmiar_Polki)
