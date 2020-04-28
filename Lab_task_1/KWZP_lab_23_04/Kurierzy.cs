@@ -20,7 +20,7 @@ namespace KWZP_lab_23_04
             this.Umowy_Kurierzy = new HashSet<Umowy_Kurierzy>();
         }
     
-        public string ID_Kurier { get; set; }
+        public int ID_Kurier { get; set; }
         public string Nazwa { get; set; }
         public Nullable<int> Telefon_1 { get; set; }
         public Nullable<int> Telefon_2 { get; set; }

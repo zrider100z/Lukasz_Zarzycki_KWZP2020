@@ -24,8 +24,8 @@ namespace KWZP_lab_23_04
     
         public int ID_Dostawy { get; set; }
         public Nullable<int> ID_Zamowienia { get; set; }
-        public string Data_Dostawy_Planowana { get; set; }
-        public string Data_Dostawy_Rzeczywista { get; set; }
+        public Nullable<System.DateTime> Data_Dostawy_Planowana { get; set; }
+        public Nullable<System.DateTime> Data_Dostawy_Rzeczywista { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dostarczenia_Wewn> Dostarczenia_Wewn { get; set; }

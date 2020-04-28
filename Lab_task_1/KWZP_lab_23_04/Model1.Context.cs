@@ -13,10 +13,10 @@ namespace KWZP_lab_23_04
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Baza_szwalniaEntities : DbContext
+    public partial class SzwalniaEntities : DbContext
     {
-        public Baza_szwalniaEntities()
-            : base("name=Baza_szwalniaEntities")
+        public SzwalniaEntities()
+            : base("name=SzwalniaEntities")
         {
         }
     
@@ -46,10 +46,12 @@ namespace KWZP_lab_23_04
         public virtual DbSet<Grupa> Grupa { get; set; }
         public virtual DbSet<Jezyk> Jezyk { get; set; }
         public virtual DbSet<Klienci> Klienci { get; set; }
+        public virtual DbSet<Kontrola_Efektywnosci> Kontrola_Efektywnosci { get; set; }
         public virtual DbSet<Koszt_Jednostkowy> Koszt_Jednostkowy { get; set; }
         public virtual DbSet<Kurierzy> Kurierzy { get; set; }
         public virtual DbSet<Maszyny> Maszyny { get; set; }
         public virtual DbSet<Maszyny_Proces> Maszyny_Proces { get; set; }
+        public virtual DbSet<Material_Na_Produkcji> Material_Na_Produkcji { get; set; }
         public virtual DbSet<Miejsca> Miejsca { get; set; }
         public virtual DbSet<Obsluga_Techniczna> Obsluga_Techniczna { get; set; }
         public virtual DbSet<Oferta> Oferta { get; set; }
@@ -57,10 +59,12 @@ namespace KWZP_lab_23_04
         public virtual DbSet<Polki> Polki { get; set; }
         public virtual DbSet<Polki_Rozmiary> Polki_Rozmiary { get; set; }
         public virtual DbSet<Pracownicy> Pracownicy { get; set; }
+        public virtual DbSet<Pracownicy_Zatrudnienie> Pracownicy_Zatrudnienie { get; set; }
         public virtual DbSet<Proces_Produkcyjny> Proces_Produkcyjny { get; set; }
         public virtual DbSet<Proces_Technologiczny> Proces_Technologiczny { get; set; }
         public virtual DbSet<Proces_Zamowienie> Proces_Zamowienie { get; set; }
-        public virtual DbSet<Produkty> Produkty { get; set; }
+        public virtual DbSet<Produkt> Produkt { get; set; }
+        public virtual DbSet<Przydzial_Zasobow> Przydzial_Zasobow { get; set; }
         public virtual DbSet<Realizacja_Procesu> Realizacja_Procesu { get; set; }
         public virtual DbSet<Rodzaj_Dokumentacji> Rodzaj_Dokumentacji { get; set; }
         public virtual DbSet<Rodzaj_Etapu> Rodzaj_Etapu { get; set; }
@@ -69,17 +73,14 @@ namespace KWZP_lab_23_04
         public virtual DbSet<Rodzaj_Umowy> Rodzaj_Umowy { get; set; }
         public virtual DbSet<Stanowisko> Stanowisko { get; set; }
         public virtual DbSet<Umowy_Kurierzy> Umowy_Kurierzy { get; set; }
+        public virtual DbSet<Urlop> Urlop { get; set; }
         public virtual DbSet<Zamowienia> Zamowienia { get; set; }
         public virtual DbSet<Zamowienia_Dostawy> Zamowienia_Dostawy { get; set; }
         public virtual DbSet<Zamowienia_Przydzial> Zamowienia_Przydzial { get; set; }
         public virtual DbSet<Zamowienia_Zawartosc> Zamowienia_Zawartosc { get; set; }
         public virtual DbSet<Zamowienie_Produkt> Zamowienie_Produkt { get; set; }
+        public virtual DbSet<Zapotrzebowanie_Opakowan> Zapotrzebowanie_Opakowan { get; set; }
         public virtual DbSet<Zawartosc> Zawartosc { get; set; }
         public virtual DbSet<Znajomosc_Jezykow> Znajomosc_Jezykow { get; set; }
-        public virtual DbSet<Kontrola_Efektywnosci> Kontrola_Efektywnosci { get; set; }
-        public virtual DbSet<Material_Na_Produkcji> Material_Na_Produkcji { get; set; }
-        public virtual DbSet<Pracownicy_Zatrudnienie> Pracownicy_Zatrudnienie { get; set; }
-        public virtual DbSet<Przydzial_Zasobow> Przydzial_Zasobow { get; set; }
-        public virtual DbSet<Zapotrzebowanie_Opakowan> Zapotrzebowanie_Opakowan { get; set; }
     }
 }

@@ -20,7 +20,7 @@ namespace KWZP_lab_23_04
             this.Polki = new HashSet<Polki>();
         }
     
-        public string ID_Rozmiar_Polki { get; set; }
+        public int ID_Rozmiar_Polki { get; set; }
         public Nullable<int> Wysokosc { get; set; }
         public Nullable<int> Szerokosc { get; set; }
         public Nullable<int> Glebokosc { get; set; }

@@ -14,12 +14,13 @@ namespace KWZP_lab_23_04
     
     public partial class Pracownicy_Zatrudnienie
     {
+        public int ID_Pracownicy_Zatrudnienie { get; set; }
         public Nullable<int> ID_Pracownika { get; set; }
         public Nullable<int> ID_Stanowiska { get; set; }
         public Nullable<int> ID_Etatu { get; set; }
         public Nullable<int> ID_Rodzaju_Umowy { get; set; }
         public System.DateTime Data_Zatrudnienia { get; set; }
-        public bool Urlop { get; set; }
+        public System.DateTime Koniec_umowy { get; set; }
     
         public virtual Etat Etat { get; set; }
         public virtual Pracownicy Pracownicy { get; set; }

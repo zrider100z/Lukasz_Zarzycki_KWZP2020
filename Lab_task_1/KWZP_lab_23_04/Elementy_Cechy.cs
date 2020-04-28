@@ -14,12 +14,15 @@ namespace KWZP_lab_23_04
     
     public partial class Elementy_Cechy
     {
-        public int ID_elementy_cechy { get; set; }
+        public int ID_Elementy_Cechy { get; set; }
         public Nullable<int> ID_Element { get; set; }
         public Nullable<int> ID_Cecha { get; set; }
-        public Nullable<float> Wartosc_Cechy { get; set; }
+        public Nullable<float> Wartosc_Cechy_Liczbowa { get; set; }
+        public Nullable<int> ID_Jednostka { get; set; }
+        public string Wartosc_Cechy_Slowna { get; set; }
     
         public virtual Elementy Elementy { get; set; }
         public virtual Elementy_Cechy_Slownik Elementy_Cechy_Slownik { get; set; }
+        public virtual Elementy_Jednostki Elementy_Jednostki { get; set; }
     }
 }

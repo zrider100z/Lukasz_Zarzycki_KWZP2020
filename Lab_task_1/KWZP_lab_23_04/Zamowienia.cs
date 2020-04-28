@@ -20,12 +20,10 @@ namespace KWZP_lab_23_04
             this.Dostarczenia_Zewn = new HashSet<Dostarczenia_Zewn>();
             this.Dostawcy_Oferta = new HashSet<Dostawcy_Oferta>();
             this.Faktury = new HashSet<Faktury>();
-            this.Proces_Produkcyjny = new HashSet<Proces_Produkcyjny>();
-            this.Proces_Zamowienie = new HashSet<Proces_Zamowienie>();
+            this.Zamowienia_Dostawy = new HashSet<Zamowienia_Dostawy>();
             this.Zamowienia_Zawartosc = new HashSet<Zamowienia_Zawartosc>();
             this.Zamowienie_Produkt = new HashSet<Zamowienie_Produkt>();
             this.Zamowienia_Przydzial = new HashSet<Zamowienia_Przydzial>();
-            this.Zamowienia_Dostawy = new HashSet<Zamowienia_Dostawy>();
         }
     
         public int ID_Zamowienia { get; set; }
@@ -44,16 +42,12 @@ namespace KWZP_lab_23_04
         public virtual Klienci Klienci { get; set; }
         public virtual Pracownicy Pracownicy { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Proces_Produkcyjny> Proces_Produkcyjny { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Proces_Zamowienie> Proces_Zamowienie { get; set; }
+        public virtual ICollection<Zamowienia_Dostawy> Zamowienia_Dostawy { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zamowienia_Zawartosc> Zamowienia_Zawartosc { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zamowienie_Produkt> Zamowienie_Produkt { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zamowienia_Przydzial> Zamowienia_Przydzial { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Zamowienia_Dostawy> Zamowienia_Dostawy { get; set; }
     }
 }

@@ -21,7 +21,7 @@ namespace KWZP_lab_23_04
             this.Dostarczenia_Zewn = new HashSet<Dostarczenia_Zewn>();
         }
     
-        public string ID_Miejsca { get; set; }
+        public int ID_Miejsca { get; set; }
         public string Nazwa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

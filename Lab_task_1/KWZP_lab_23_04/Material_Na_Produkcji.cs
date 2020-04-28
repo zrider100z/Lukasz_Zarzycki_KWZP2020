@@ -14,6 +14,7 @@ namespace KWZP_lab_23_04
     
     public partial class Material_Na_Produkcji
     {
+        public int ID_Material_Na_Produkcji { get; set; }
         public int ID_Procesu_Produkcyjnego { get; set; }
         public int ID_Element { get; set; }
         public double Liczba { get; set; }

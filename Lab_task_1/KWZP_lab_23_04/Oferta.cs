@@ -21,15 +21,16 @@ namespace KWZP_lab_23_04
             this.Zamowienia_Zawartosc = new HashSet<Zamowienia_Zawartosc>();
         }
     
-        public string ID_Oferta { get; set; }
+        public int ID_Oferta { get; set; }
         public Nullable<int> ID_Element { get; set; }
-        public string ID_Dostawcy { get; set; }
+        public string Element_Oznaczenie { get; set; }
+        public Nullable<int> ID_Dostawcy { get; set; }
         public Nullable<decimal> Cena_Jedn { get; set; }
-        public Nullable<decimal> Cena { get; set; }
-        public string Data_Oferty { get; set; }
+        public Nullable<System.DateTime> Data_Oferty { get; set; }
         public Nullable<int> Ilosc_Minimalna { get; set; }
         public Nullable<int> Ilosc_Maksymalna { get; set; }
         public Nullable<int> Ilosc_W_Opakowaniu_Zbiorczym { get; set; }
+        public Nullable<int> Deklarowany_czas_dostawy { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dostawcy_Oferta> Dostawcy_Oferta { get; set; }
