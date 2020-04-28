@@ -12,15 +12,18 @@ namespace KWZP_lab_23_04
 {
     public partial class DetailsForm : Form
     {
-        public DetailsForm(String labeltext)
+        public DetailsForm(SzwalniaEntities db, String employeeLastName)
         {
             InitializeComponent();
-            lblLabel1.Text = labeltext;
+
+            Pracownicy employee = db.Pracownicy.Where(pracownik => pracownik.Nazwisko == employeeLastName).First();
+
+            lblTitle.Text = employee.Imie.Trim() + ' ' + employee.Nazwisko.Trim();
+            txtName.Text = employee.Imie.Trim();
+            txtSurname.Text = employee.Nazwisko.Trim();
+            txtPesel.Text = employee.Pesel.Trim();
+            txtAdres.Text = employee.Adres.Trim();
         }
 
-        private void lblLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

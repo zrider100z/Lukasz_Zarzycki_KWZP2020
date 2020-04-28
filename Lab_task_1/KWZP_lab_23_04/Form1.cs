@@ -13,6 +13,7 @@ namespace KWZP_lab_23_04
 {
     public partial class Form1 : Form
     {
+        public SzwalniaEntities db;
         public Form1()
         {
             InitializeComponent();
@@ -20,15 +21,10 @@ namespace KWZP_lab_23_04
             rbtRadio1.Text = "Wybierz mnie";
             rbtRadio2.Text = "";
             rbtRadio3.Text = "";
+            db = new SzwalniaEntities();
         }
 
-        private void txtButtonLabel_TextChanged(object sender, EventArgs e)
-        {
-            if (txtButtonLabel.TextLength > 0)
-            {
-                btnClose.Text = txtButtonLabel.Text;
-            }
-        }
+
 
         private void chkButtonEnabled_CheckedChanged(object sender, EventArgs e)
         {
@@ -38,7 +34,7 @@ namespace KWZP_lab_23_04
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            DetailsForm detailsform = new DetailsForm(txtButtonLabel.Text);
+            DetailsForm detailsform = new DetailsForm(db,txtButtonLabel.Text);
             detailsform.Show();
 
         }
@@ -110,6 +106,11 @@ namespace KWZP_lab_23_04
                 rbtRadio1.Text = "Wybierz mnie";
                 which_box = 1;
             };
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
