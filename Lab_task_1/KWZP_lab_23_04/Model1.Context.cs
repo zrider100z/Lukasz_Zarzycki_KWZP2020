@@ -82,5 +82,6 @@ namespace KWZP_lab_23_04
         public virtual DbSet<Zapotrzebowanie_Opakowan> Zapotrzebowanie_Opakowan { get; set; }
         public virtual DbSet<Zawartosc> Zawartosc { get; set; }
         public virtual DbSet<Znajomosc_Jezykow> Znajomosc_Jezykow { get; set; }
+        public virtual DbSet<vZatrudnienie> vZatrudnienie { get; set; }
     }
 }

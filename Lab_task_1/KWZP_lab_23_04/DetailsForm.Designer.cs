@@ -37,6 +37,8 @@
             this.lblSurname = new System.Windows.Forms.Label();
             this.lblPesel = new System.Windows.Forms.Label();
             this.lblAdres = new System.Windows.Forms.Label();
+            this.dgvEmployment = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployment)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -51,28 +53,28 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(70, 144);
+            this.txtName.Location = new System.Drawing.Point(79, 43);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(297, 20);
             this.txtName.TabIndex = 2;
             // 
             // txtSurname
             // 
-            this.txtSurname.Location = new System.Drawing.Point(70, 170);
+            this.txtSurname.Location = new System.Drawing.Point(79, 69);
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.Size = new System.Drawing.Size(297, 20);
             this.txtSurname.TabIndex = 2;
             // 
             // txtPesel
             // 
-            this.txtPesel.Location = new System.Drawing.Point(70, 196);
+            this.txtPesel.Location = new System.Drawing.Point(79, 95);
             this.txtPesel.Name = "txtPesel";
             this.txtPesel.Size = new System.Drawing.Size(297, 20);
             this.txtPesel.TabIndex = 2;
             // 
             // txtAdres
             // 
-            this.txtAdres.Location = new System.Drawing.Point(70, 222);
+            this.txtAdres.Location = new System.Drawing.Point(79, 121);
             this.txtAdres.Name = "txtAdres";
             this.txtAdres.Size = new System.Drawing.Size(297, 20);
             this.txtAdres.TabIndex = 2;
@@ -80,7 +82,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(12, 144);
+            this.lblName.Location = new System.Drawing.Point(21, 43);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(26, 13);
             this.lblName.TabIndex = 3;
@@ -89,7 +91,7 @@
             // lblSurname
             // 
             this.lblSurname.AutoSize = true;
-            this.lblSurname.Location = new System.Drawing.Point(12, 173);
+            this.lblSurname.Location = new System.Drawing.Point(21, 72);
             this.lblSurname.Name = "lblSurname";
             this.lblSurname.Size = new System.Drawing.Size(53, 13);
             this.lblSurname.TabIndex = 3;
@@ -98,7 +100,7 @@
             // lblPesel
             // 
             this.lblPesel.AutoSize = true;
-            this.lblPesel.Location = new System.Drawing.Point(12, 199);
+            this.lblPesel.Location = new System.Drawing.Point(21, 98);
             this.lblPesel.Name = "lblPesel";
             this.lblPesel.Size = new System.Drawing.Size(33, 13);
             this.lblPesel.TabIndex = 3;
@@ -107,17 +109,26 @@
             // lblAdres
             // 
             this.lblAdres.AutoSize = true;
-            this.lblAdres.Location = new System.Drawing.Point(12, 229);
+            this.lblAdres.Location = new System.Drawing.Point(21, 128);
             this.lblAdres.Name = "lblAdres";
             this.lblAdres.Size = new System.Drawing.Size(34, 13);
             this.lblAdres.TabIndex = 3;
             this.lblAdres.Text = "Adres";
             // 
+            // dgvEmployment
+            // 
+            this.dgvEmployment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEmployment.Location = new System.Drawing.Point(18, 156);
+            this.dgvEmployment.Name = "dgvEmployment";
+            this.dgvEmployment.Size = new System.Drawing.Size(753, 362);
+            this.dgvEmployment.TabIndex = 4;
+            // 
             // DetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(798, 530);
+            this.Controls.Add(this.dgvEmployment);
             this.Controls.Add(this.lblAdres);
             this.Controls.Add(this.lblPesel);
             this.Controls.Add(this.lblSurname);
@@ -129,6 +140,7 @@
             this.Controls.Add(this.lblTitle);
             this.Name = "DetailsForm";
             this.Text = "Form2";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployment)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,5 +157,6 @@
         private System.Windows.Forms.Label lblSurname;
         private System.Windows.Forms.Label lblPesel;
         private System.Windows.Forms.Label lblAdres;
+        private System.Windows.Forms.DataGridView dgvEmployment;
     }
 }

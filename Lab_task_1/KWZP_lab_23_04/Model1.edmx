@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SzwalniaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Szwalnia.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Czesci_Obsluga">
           <Key>
             <PropertyRef Name="ID_Obslugi" />
@@ -38,7 +38,7 @@
           <Property Name="ID_Dostawy" Type="int" />
           <Property Name="Ilosc_Dostarczona" Type="float" />
           <Property Name="ID_Miejsca" Type="int" />
-          <Property Name="Data_Dostarczenia" Type="char" MaxLength="10" />
+          <Property Name="Data_Dostarczenia" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="Dostarczenia_Zewn">
           <Key>
@@ -49,7 +49,7 @@
           <Property Name="ID_Zamowienia" Type="int" />
           <Property Name="Ilosc_Dostarczona" Type="float" />
           <Property Name="ID_Miejsca" Type="int" />
-          <Property Name="Data_Dostarczenia" Type="char" MaxLength="10" />
+          <Property Name="Data_Dostarczenia" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="Dostawcy_Oferta">
           <Key>
@@ -64,10 +64,10 @@
             <PropertyRef Name="ID_Dostawcy" />
           </Key>
           <Property Name="ID_Dostawcy" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nazwa" Type="char" MaxLength="40" />
+          <Property Name="Nazwa" Type="varchar" MaxLength="40" />
           <Property Name="Telefon_1" Type="int" />
           <Property Name="Telefon_2" Type="int" />
-          <Property Name="Email" Type="char" MaxLength="40" />
+          <Property Name="Email" Type="varchar" MaxLength="40" />
         </EntityType>
         <EntityType Name="Dostawy_Zawartosc">
           <Key>
@@ -84,7 +84,7 @@
           </Key>
           <Property Name="ID_Element" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Element_Typ" Type="int" />
-          <Property Name="Element_Nazwa" Type="char" MaxLength="20" />
+          <Property Name="Element_Nazwa" Type="varchar" MaxLength="20" />
           <Property Name="Okres_Przydatnosci_Miesiace" Type="int" />
           <Property Name="Element_Ilosc_W_Paczce" Type="real" />
           <Property Name="ID_Jednostka" Type="int" />
@@ -98,21 +98,21 @@
           <Property Name="ID_Cecha" Type="int" />
           <Property Name="Wartosc_Cechy_Liczbowa" Type="real" />
           <Property Name="ID_Jednostka" Type="int" />
-          <Property Name="Wartosc_Cechy_Slowna" Type="char" MaxLength="30" />
+          <Property Name="Wartosc_Cechy_Slowna" Type="varchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="Elementy_Cechy_Slownik">
           <Key>
             <PropertyRef Name="ID_Cecha" />
           </Key>
           <Property Name="ID_Cecha" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Cecha" Type="char" MaxLength="20" />
+          <Property Name="Cecha" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="Elementy_Jednostki">
           <Key>
             <PropertyRef Name="ID_jednostka" />
           </Key>
           <Property Name="ID_jednostka" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Jednostka" Type="char" MaxLength="10" />
+          <Property Name="Jednostka" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="Elementy_Proces">
           <Key>
@@ -128,7 +128,7 @@
             <PropertyRef Name="ID_Element_Typ" />
           </Key>
           <Property Name="ID_Element_Typ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Typ" Type="char" MaxLength="15" />
+          <Property Name="Typ" Type="varchar" MaxLength="15" />
         </EntityType>
         <EntityType Name="Etapy_W_Procesie">
           <Key>
@@ -144,8 +144,8 @@
             <PropertyRef Name="ID_Etat" />
           </Key>
           <Property Name="ID_Etat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Wymiar_Etatu" Type="char" MaxLength="5" Nullable="false" />
-          <Property Name="Uwagi" Type="char" MaxLength="100" />
+          <Property Name="Wymiar_Etatu" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Uwagi" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Faktury">
           <Key>
@@ -165,7 +165,7 @@
           <Property Name="ID_Faktura_zewnetrzna" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nr_Faktury" Type="real" Nullable="false" />
           <Property Name="ID_Grupa" Type="int" />
-          <Property Name="Nazwa_Firmy" Type="char" MaxLength="100" />
+          <Property Name="Nazwa_Firmy" Type="varchar" MaxLength="100" />
           <Property Name="Netto" Type="real" Nullable="false" />
           <Property Name="Brutto" Type="real" Nullable="false" />
           <Property Name="Podatek" Type="real" Nullable="false" />
@@ -175,28 +175,28 @@
             <PropertyRef Name="ID_Grupa" />
           </Key>
           <Property Name="ID_Grupa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nazwa" Type="char" MaxLength="100" />
+          <Property Name="Nazwa" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Jezyk">
           <Key>
             <PropertyRef Name="ID_Jezyk" />
           </Key>
           <Property Name="ID_Jezyk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Jezyk" Type="char" MaxLength="40" Nullable="false" />
-          <Property Name="Informacje_Dodatkowe" Type="char" MaxLength="200" Nullable="false" />
+          <Property Name="Jezyk" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Informacje_Dodatkowe" Type="varchar" MaxLength="200" Nullable="false" />
         </EntityType>
         <EntityType Name="Klienci">
           <Key>
             <PropertyRef Name="ID_Klienta" />
           </Key>
           <Property Name="ID_Klienta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Imie" Type="char" MaxLength="50" Nullable="false" />
-          <Property Name="Nazwisko" Type="char" MaxLength="50" Nullable="false" />
-          <Property Name="Nazwa_Firmy" Type="char" MaxLength="100" />
-          <Property Name="NIP" Type="char" MaxLength="10" />
-          <Property Name="Adres" Type="char" MaxLength="100" Nullable="false" />
-          <Property Name="Telefon" Type="char" MaxLength="15" Nullable="false" />
-          <Property Name="E_Mail" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="Imie" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nazwa_Firmy" Type="varchar" MaxLength="100" />
+          <Property Name="NIP" Type="varchar" MaxLength="10" />
+          <Property Name="Adres" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Telefon" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="E_Mail" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Kontrola_Efektywnosci">
           <Key>
@@ -206,7 +206,7 @@
           <Property Name="ID_Procesu_Produkcyjnego" Type="int" Nullable="false" />
           <Property Name="Data_Kontroli" Type="smalldatetime" Nullable="false" />
           <Property Name="Dokument" Type="image" Nullable="false" />
-          <Property Name="Uwagi" Type="char" MaxLength="300" />
+          <Property Name="Uwagi" Type="varchar" MaxLength="300" />
           <Property Name="Zgodnosc_Zamowienia" Type="bit" Nullable="false" />
           <Property Name="Liczba_Poprawnych" Type="int" Nullable="false" />
           <Property Name="Liczba_Blednych" Type="int" Nullable="false" />
@@ -224,19 +224,19 @@
             <PropertyRef Name="ID_Kurier" />
           </Key>
           <Property Name="ID_Kurier" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nazwa" Type="char" MaxLength="20" />
+          <Property Name="Nazwa" Type="varchar" MaxLength="20" />
           <Property Name="Telefon_1" Type="int" />
           <Property Name="Telefon_2" Type="int" />
-          <Property Name="Email" Type="char" MaxLength="40" />
+          <Property Name="Email" Type="varchar" MaxLength="40" />
         </EntityType>
         <EntityType Name="Maszyny">
           <Key>
             <PropertyRef Name="ID_Maszyny" />
           </Key>
           <Property Name="ID_Maszyny" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Model" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="Model" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="ID_Rodzaj_Maszyny" Type="int" Nullable="false" />
-          <Property Name="Producent" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="Producent" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Gwarancja_do" Type="smalldatetime" Nullable="false" />
           <Property Name="Data_zakupu" Type="smalldatetime" Nullable="false" />
           <Property Name="Resurs_rbh" Type="int" Nullable="false" />
@@ -268,7 +268,7 @@
             <PropertyRef Name="ID_Miejsca" />
           </Key>
           <Property Name="ID_Miejsca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nazwa" Type="char" MaxLength="20" />
+          <Property Name="Nazwa" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="Obsluga_Techniczna">
           <Key>
@@ -286,7 +286,7 @@
           </Key>
           <Property Name="ID_Oferta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Element" Type="int" />
-          <Property Name="Element_Oznaczenie" Type="char" MaxLength="20" />
+          <Property Name="Element_Oznaczenie" Type="varchar" MaxLength="20" />
           <Property Name="ID_Dostawcy" Type="int" />
           <Property Name="Cena_Jedn" Type="money" />
           <Property Name="Data_Oferty" Type="date" />
@@ -323,11 +323,11 @@
             <PropertyRef Name="ID_Pracownika" />
           </Key>
           <Property Name="ID_Pracownika" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Imie" Type="char" MaxLength="50" Nullable="false" />
-          <Property Name="Nazwisko" Type="char" MaxLength="50" Nullable="false" />
-          <Property Name="Pesel" Type="char" MaxLength="11" Nullable="false" />
-          <Property Name="Adres" Type="char" MaxLength="100" Nullable="false" />
-          <Property Name="Telefon" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="Imie" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pesel" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="Adres" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Telefon" Type="varchar" MaxLength="15" Nullable="false" />
         </EntityType>
         <EntityType Name="Pracownicy_Zatrudnienie">
           <Key>
@@ -351,7 +351,7 @@
           <Property Name="Data_Rozpoczecia" Type="smalldatetime" />
           <Property Name="Data_Zakonczenia" Type="smalldatetime" />
           <Property Name="ID_Dokumentacja_Proces" Type="int" />
-          <Property Name="Uwagi" Type="char" MaxLength="300" />
+          <Property Name="Uwagi" Type="varchar" MaxLength="300" />
         </EntityType>
         <EntityType Name="Proces_Technologiczny">
           <Key>
@@ -374,7 +374,7 @@
             <PropertyRef Name="ID_Produkt" />
           </Key>
           <Property Name="ID_Produkt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nazwa" Type="char" MaxLength="30" Nullable="false" />
+          <Property Name="Nazwa" Type="varchar" MaxLength="30" Nullable="false" />
         </EntityType>
         <EntityType Name="Przydzial_Zasobow">
           <Key>
@@ -395,51 +395,51 @@
           <Property Name="Data_Rozpoczecia_Procesu" Type="smalldatetime" Nullable="false" />
           <Property Name="Data_Zakonczenia_Procesu" Type="smalldatetime" />
           <Property Name="Data_Kontroli" Type="smalldatetime" />
-          <Property Name="Uwagi_Kontroli" Type="char" MaxLength="300" Nullable="false" />
+          <Property Name="Uwagi_Kontroli" Type="varchar" MaxLength="300" Nullable="false" />
         </EntityType>
         <EntityType Name="Rodzaj_Dokumentacji">
           <Key>
             <PropertyRef Name="ID_Rodzaj_Dokumentacji" />
           </Key>
           <Property Name="ID_Rodzaj_Dokumentacji" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nazwa" Type="char" MaxLength="25" Nullable="false" />
+          <Property Name="Nazwa" Type="varchar" MaxLength="25" Nullable="false" />
         </EntityType>
         <EntityType Name="Rodzaj_Etapu">
           <Key>
             <PropertyRef Name="ID_Etapu" />
           </Key>
           <Property Name="ID_Etapu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nazwa" Type="char" MaxLength="30" Nullable="false" />
+          <Property Name="Nazwa" Type="varchar" MaxLength="30" Nullable="false" />
         </EntityType>
         <EntityType Name="Rodzaj_Maszyny">
           <Key>
             <PropertyRef Name="ID_Rodzaj_Maszyny" />
           </Key>
           <Property Name="ID_Rodzaj_Maszyny" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Rodzaj_Maszyny" Type="char" MaxLength="30" Nullable="false" />
+          <Property Name="Rodzaj_Maszyny" Type="varchar" MaxLength="30" Nullable="false" />
         </EntityType>
         <EntityType Name="Rodzaj_Obslugi">
           <Key>
             <PropertyRef Name="ID_Rodzaj_Obslugi" />
           </Key>
           <Property Name="ID_Rodzaj_Obslugi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nazwa" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="Nazwa" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="Rodzaj_Umowy">
           <Key>
             <PropertyRef Name="ID_Rodzaj_Umowy" />
           </Key>
           <Property Name="ID_Rodzaj_Umowy" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Rodzaj_Umowy" Type="char" MaxLength="30" Nullable="false" />
-          <Property Name="Uwagi" Type="char" MaxLength="100" />
+          <Property Name="Rodzaj_Umowy" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Uwagi" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Stanowisko">
           <Key>
             <PropertyRef Name="ID_Stanowiska" />
           </Key>
           <Property Name="ID_Stanowiska" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Stanowisko" Type="char" MaxLength="50" Nullable="false" />
-          <Property Name="Opis" Type="char" MaxLength="200" Nullable="false" />
+          <Property Name="Stanowisko" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Opis" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="ID_Pensji" Type="int" />
         </EntityType>
         <EntityType Name="Umowy_Kurierzy">
@@ -518,7 +518,7 @@
           <Property Name="ID_Element" Type="int" Nullable="false" />
           <Property Name="Liczba" Type="int" Nullable="false" />
           <Property Name="Czy_Otrzymano" Type="bit" />
-          <Property Name="Uwagi" Type="char" MaxLength="300" />
+          <Property Name="Uwagi" Type="varchar" MaxLength="300" />
         </EntityType>
         <EntityType Name="Zawartosc">
           <Key>
@@ -537,6 +537,22 @@
           <Property Name="ID_Znajomosc_Jezykow" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Jezyka" Type="int" />
           <Property Name="ID_Pracownika" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vZatrudnienie' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vZatrudnienie">
+          <Key>
+            <PropertyRef Name="ID_Pracownika" />
+            <PropertyRef Name="Pensja" />
+            <PropertyRef Name="Stanowisko" />
+            <PropertyRef Name="Start umowy" />
+            <PropertyRef Name="Koniec umowy" />
+          </Key>
+          <Property Name="ID_Pracownika" Type="int" Nullable="false" />
+          <Property Name="Pensja" Type="real" Nullable="false" />
+          <Property Name="Stanowisko" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Start umowy" Type="date" Nullable="false" />
+          <Property Name="Koniec umowy" Type="date" Nullable="false" />
         </EntityType>
         <Association Name="FK__Czesci_Ob__ID_El__2645B050">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
@@ -1450,7 +1466,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SzwalniaModelStoreContainer">
+        <EntityContainer Name="SzwalniaStoreContainer">
           <EntitySet Name="Czesci_Obsluga" EntityType="Self.Czesci_Obsluga" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Dokumentacja_Proces" EntityType="Self.Dokumentacja_Proces" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Dokumentacje" EntityType="Self.Dokumentacje" Schema="dbo" store:Type="Tables" />
@@ -1508,6 +1524,15 @@
           <EntitySet Name="Zapotrzebowanie_Opakowan" EntityType="Self.Zapotrzebowanie_Opakowan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zawartosc" EntityType="Self.Zawartosc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Znajomosc_Jezykow" EntityType="Self.Znajomosc_Jezykow" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vZatrudnienie" EntityType="Self.vZatrudnienie" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vZatrudnienie].[ID_Pracownika] AS [ID_Pracownika], 
+    [vZatrudnienie].[Pensja] AS [Pensja], 
+    [vZatrudnienie].[Stanowisko] AS [Stanowisko], 
+    [vZatrudnienie].[Start umowy] AS [Start umowy], 
+    [vZatrudnienie].[Koniec umowy] AS [Koniec umowy]
+    FROM [dbo].[vZatrudnienie] AS [vZatrudnienie]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK__Czesci_Ob__ID_El__2645B050" Association="Self.FK__Czesci_Ob__ID_El__2645B050">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Czesci_Obsluga" EntitySet="Czesci_Obsluga" />
@@ -1813,11 +1838,10 @@
             <End Role="Znajomosc_Jezykow" EntitySet="Znajomosc_Jezykow" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="SzwalniaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="Szwalnia" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Czesci_Obsluga">
           <Key>
             <PropertyRef Name="ID_Obslugi" />
@@ -1858,7 +1882,7 @@
           <Property Name="ID_Dostawy" Type="Int32" />
           <Property Name="Ilosc_Dostarczona" Type="Double" />
           <Property Name="ID_Miejsca" Type="Int32" />
-          <Property Name="Data_Dostarczenia" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Data_Dostarczenia" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Zamowienia_Dostawy" Relationship="Self.FK__Dostarcze__ID_Do__17036CC0" FromRole="Dostarczenia_Wewn" ToRole="Zamowienia_Dostawy" />
           <NavigationProperty Name="Miejsca" Relationship="Self.FK__Dostarcze__ID_Mi__17F790F9" FromRole="Dostarczenia_Wewn" ToRole="Miejsca" />
           <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Dostarcze__ID_Pr__160F4887" FromRole="Dostarczenia_Wewn" ToRole="Pracownicy" />
@@ -1872,7 +1896,7 @@
           <Property Name="ID_Zamowienia" Type="Int32" />
           <Property Name="Ilosc_Dostarczona" Type="Double" />
           <Property Name="ID_Miejsca" Type="Int32" />
-          <Property Name="Data_Dostarczenia" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Data_Dostarczenia" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Miejsca" Relationship="Self.FK__Dostarcze__ID_Mi__1CBC4616" FromRole="Dostarczenia_Zewn" ToRole="Miejsca" />
           <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Dostarcze__ID_Pr__1AD3FDA4" FromRole="Dostarczenia_Zewn" ToRole="Pracownicy" />
           <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Dostarcze__ID_Za__1BC821DD" FromRole="Dostarczenia_Zewn" ToRole="Zamowienia" />
@@ -1892,10 +1916,10 @@
             <PropertyRef Name="ID_Dostawcy" />
           </Key>
           <Property Name="ID_Dostawcy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nazwa" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
+          <Property Name="Nazwa" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="Telefon_1" Type="Int32" />
           <Property Name="Telefon_2" Type="Int32" />
-          <Property Name="Email" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Oferta" Relationship="Self.FK__Oferta__ID_Dosta__7A672E12" FromRole="Dostawcy_Zaopatrzenie" ToRole="Oferta" />
         </EntityType>
         <EntityType Name="Dostawy_Zawartosc">
@@ -1915,7 +1939,7 @@
           </Key>
           <Property Name="ID_Element" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Element_Typ" Type="Int32" />
-          <Property Name="Element_Nazwa" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Element_Nazwa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Okres_Przydatnosci_Miesiace" Type="Int32" />
           <Property Name="Element_Ilosc_W_Paczce" Type="Single" />
           <Property Name="ID_Jednostka" Type="Int32" />
@@ -1940,7 +1964,7 @@
           <Property Name="ID_Cecha" Type="Int32" />
           <Property Name="Wartosc_Cechy_Liczbowa" Type="Single" />
           <Property Name="ID_Jednostka" Type="Int32" />
-          <Property Name="Wartosc_Cechy_Slowna" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="Wartosc_Cechy_Slowna" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Elementy" Relationship="Self.FK__Elementy___ID_El__71D1E811" FromRole="Elementy_Cechy" ToRole="Elementy" />
           <NavigationProperty Name="Elementy_Cechy_Slownik" Relationship="Self.FK__Elementy___ID_Ce__72C60C4A" FromRole="Elementy_Cechy" ToRole="Elementy_Cechy_Slownik" />
           <NavigationProperty Name="Elementy_Jednostki" Relationship="Self.FK__Elementy___ID_Je__73BA3083" FromRole="Elementy_Cechy" ToRole="Elementy_Jednostki" />
@@ -1950,7 +1974,7 @@
             <PropertyRef Name="ID_Cecha" />
           </Key>
           <Property Name="ID_Cecha" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Cecha" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Cecha" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Elementy_Cechy" Relationship="Self.FK__Elementy___ID_Ce__72C60C4A" FromRole="Elementy_Cechy_Slownik" ToRole="Elementy_Cechy" />
         </EntityType>
         <EntityType Name="Elementy_Jednostki">
@@ -1958,7 +1982,7 @@
             <PropertyRef Name="ID_jednostka" />
           </Key>
           <Property Name="ID_jednostka" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Elementy" Relationship="Self.FK__Elementy__ID_Jed__6EF57B66" FromRole="Elementy_Jednostki" ToRole="Elementy" />
           <NavigationProperty Name="Elementy_Cechy" Relationship="Self.FK__Elementy___ID_Je__73BA3083" FromRole="Elementy_Jednostki" ToRole="Elementy_Cechy" />
           <NavigationProperty Name="Material_Na_Produkcji" Relationship="Self.FK__Material___ID_Je__56E8E7AB" FromRole="Elementy_Jednostki" ToRole="Material_Na_Produkcji" />
@@ -1979,7 +2003,7 @@
             <PropertyRef Name="ID_Element_Typ" />
           </Key>
           <Property Name="ID_Element_Typ" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Typ" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+          <Property Name="Typ" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Elementy" Relationship="Self.FK__Elementy__ID_Ele__6E01572D" FromRole="Elementy_Typy" ToRole="Elementy" />
         </EntityType>
         <EntityType Name="Etapy_W_Procesie">
@@ -1998,8 +2022,8 @@
             <PropertyRef Name="ID_Etat" />
           </Key>
           <Property Name="ID_Etat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Wymiar_Etatu" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Uwagi" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="Wymiar_Etatu" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Uwagi" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Pracownicy_Zatrudnienie" Relationship="Self.FK__Pracownic__ID_Et__4316F928" FromRole="Etat" ToRole="Pracownicy_Zatrudnienie" />
         </EntityType>
         <EntityType Name="Faktury">
@@ -2022,7 +2046,7 @@
           <Property Name="ID_Faktura_zewnetrzna" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nr_Faktury" Type="Single" Nullable="false" />
           <Property Name="ID_Grupa" Type="Int32" />
-          <Property Name="Nazwa_Firmy" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="Nazwa_Firmy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Netto" Type="Single" Nullable="false" />
           <Property Name="Brutto" Type="Single" Nullable="false" />
           <Property Name="Podatek" Type="Single" Nullable="false" />
@@ -2033,7 +2057,7 @@
             <PropertyRef Name="ID_Grupa" />
           </Key>
           <Property Name="ID_Grupa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nazwa" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="Nazwa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Faktury_Zewnetrzne" Relationship="Self.FK__Faktury_Z__ID_Gr__5AEE82B9" FromRole="Grupa" ToRole="Faktury_Zewnetrzne" />
         </EntityType>
         <EntityType Name="Jezyk">
@@ -2041,8 +2065,8 @@
             <PropertyRef Name="ID_Jezyk" />
           </Key>
           <Property Name="ID_Jezyk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Jezyk1" Type="String" MaxLength="40" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Informacje_Dodatkowe" Type="String" MaxLength="200" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Jezyk1" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Informacje_Dodatkowe" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Znajomosc_Jezykow" Relationship="Self.FK__Znajomosc__ID_Je__4BAC3F29" FromRole="Jezyk" ToRole="Znajomosc_Jezykow" />
         </EntityType>
         <EntityType Name="Klienci">
@@ -2050,13 +2074,13 @@
             <PropertyRef Name="ID_Klienta" />
           </Key>
           <Property Name="ID_Klienta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Imie" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Nazwa_Firmy" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="NIP" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="Adres" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Telefon" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="E_Mail" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Imie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nazwa_Firmy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NIP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Adres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefon" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="E_Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Faktury" Relationship="Self.FK__Faktury__ID_Klie__5441852A" FromRole="Klienci" ToRole="Faktury" />
           <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Zamowieni__ID_Kl__4F7CD00D" FromRole="Klienci" ToRole="Zamowienia" />
         </EntityType>
@@ -2068,7 +2092,7 @@
           <Property Name="ID_Procesu_Produkcyjnego" Type="Int32" Nullable="false" />
           <Property Name="Data_Kontroli" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Dokument" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
-          <Property Name="Uwagi" Type="String" MaxLength="300" FixedLength="true" Unicode="false" />
+          <Property Name="Uwagi" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
           <Property Name="Zgodnosc_Zamowienia" Type="Boolean" Nullable="false" />
           <Property Name="Liczba_Poprawnych" Type="Int32" Nullable="false" />
           <Property Name="Liczba_Blednych" Type="Int32" Nullable="false" />
@@ -2088,10 +2112,10 @@
             <PropertyRef Name="ID_Kurier" />
           </Key>
           <Property Name="ID_Kurier" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nazwa" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Nazwa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Telefon_1" Type="Int32" />
           <Property Name="Telefon_2" Type="Int32" />
-          <Property Name="Email" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Umowy_Kurierzy" Relationship="Self.FK__Umowy_Kur__ID_Ku__76969D2E" FromRole="Kurierzy" ToRole="Umowy_Kurierzy" />
         </EntityType>
         <EntityType Name="Maszyny">
@@ -2099,9 +2123,9 @@
             <PropertyRef Name="ID_Maszyny" />
           </Key>
           <Property Name="ID_Maszyny" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Model" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Model" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ID_Rodzaj_Maszyny" Type="Int32" Nullable="false" />
-          <Property Name="Producent" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Producent" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Gwarancja_do" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Data_zakupu" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Resurs_rbh" Type="Int32" Nullable="false" />
@@ -2141,7 +2165,7 @@
             <PropertyRef Name="ID_Miejsca" />
           </Key>
           <Property Name="ID_Miejsca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nazwa" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Nazwa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Dostarczenia_Wewn" Relationship="Self.FK__Dostarcze__ID_Mi__17F790F9" FromRole="Miejsca" ToRole="Dostarczenia_Wewn" />
           <NavigationProperty Name="Dostarczenia_Zewn" Relationship="Self.FK__Dostarcze__ID_Mi__1CBC4616" FromRole="Miejsca" ToRole="Dostarczenia_Zewn" />
         </EntityType>
@@ -2164,7 +2188,7 @@
           </Key>
           <Property Name="ID_Oferta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Element" Type="Int32" />
-          <Property Name="Element_Oznaczenie" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Element_Oznaczenie" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="ID_Dostawcy" Type="Int32" />
           <Property Name="Cena_Jedn" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="Data_Oferty" Type="DateTime" Precision="0" />
@@ -2209,11 +2233,11 @@
             <PropertyRef Name="ID_Pracownika" />
           </Key>
           <Property Name="ID_Pracownika" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Imie" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Pesel" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Adres" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Telefon" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Imie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pesel" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Adres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefon" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Dokumentacje" Relationship="Self.FK__Dokumenta__ID_Pr__2FCF1A8A" FromRole="Pracownicy" ToRole="Dokumentacje" />
           <NavigationProperty Name="Dostarczenia_Wewn" Relationship="Self.FK__Dostarcze__ID_Pr__160F4887" FromRole="Pracownicy" ToRole="Dostarczenia_Wewn" />
           <NavigationProperty Name="Dostarczenia_Zewn" Relationship="Self.FK__Dostarcze__ID_Pr__1AD3FDA4" FromRole="Pracownicy" ToRole="Dostarczenia_Zewn" />
@@ -2252,7 +2276,7 @@
           <Property Name="Data_Rozpoczecia" Type="DateTime" Precision="0" />
           <Property Name="Data_Zakonczenia" Type="DateTime" Precision="0" />
           <Property Name="ID_Dokumentacja_Proces" Type="Int32" />
-          <Property Name="Uwagi" Type="String" MaxLength="300" FixedLength="true" Unicode="false" />
+          <Property Name="Uwagi" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Dokumentacja_Proces" Relationship="Self.FK__Proces_Pr__ID_Do__5224328E" FromRole="Proces_Produkcyjny" ToRole="Dokumentacja_Proces" />
           <NavigationProperty Name="Kontrola_Efektywnosci" Relationship="Self.FK__Kontrola___ID_Pr__662B2B3B" FromRole="Proces_Produkcyjny" ToRole="Kontrola_Efektywnosci" />
           <NavigationProperty Name="Material_Na_Produkcji" Relationship="Self.FK__Material___ID_Pr__55009F39" FromRole="Proces_Produkcyjny" ToRole="Material_Na_Produkcji" />
@@ -2291,7 +2315,7 @@
             <PropertyRef Name="ID_Produkt" />
           </Key>
           <Property Name="ID_Produkt" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nazwa" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Nazwa" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Zamowienie_Produkt" Relationship="Self.FK__Zamowieni__ID_Pr__236943A5" FromRole="Produkt" ToRole="Zamowienie_Produkt" />
         </EntityType>
         <EntityType Name="Przydzial_Zasobow">
@@ -2316,7 +2340,7 @@
           <Property Name="Data_Rozpoczecia_Procesu" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Data_Zakonczenia_Procesu" Type="DateTime" Precision="0" />
           <Property Name="Data_Kontroli" Type="DateTime" Precision="0" />
-          <Property Name="Uwagi_Kontroli" Type="String" MaxLength="300" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Uwagi_Kontroli" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Realizacj__ID_Pr__59C55456" FromRole="Realizacja_Procesu" ToRole="Proces_Produkcyjny" />
           <NavigationProperty Name="Przydzial_Zasobow" Relationship="Self.FK__Przydzial__ID_Re__5D95E53A" FromRole="Realizacja_Procesu" ToRole="Przydzial_Zasobow" />
           <NavigationProperty Name="Rodzaj_Etapu" Relationship="Self.FK__Realizacj__ID_Et__5AB9788F" FromRole="Realizacja_Procesu" ToRole="Rodzaj_Etapu" />
@@ -2326,7 +2350,7 @@
             <PropertyRef Name="ID_Rodzaj_Dokumentacji" />
           </Key>
           <Property Name="ID_Rodzaj_Dokumentacji" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nazwa" Type="String" MaxLength="25" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Nazwa" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Dokumentacje" Relationship="Self.FK__Dokumenta__ID_Ro__2EDAF651" FromRole="Rodzaj_Dokumentacji" ToRole="Dokumentacje" />
         </EntityType>
         <EntityType Name="Rodzaj_Etapu">
@@ -2334,7 +2358,7 @@
             <PropertyRef Name="ID_Etapu" />
           </Key>
           <Property Name="ID_Etapu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nazwa" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Nazwa" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Etapy_W_Procesie" Relationship="Self.FK__Etapy_W_P__ID_Et__4D5F7D71" FromRole="Rodzaj_Etapu" ToRole="Etapy_W_Procesie" />
           <NavigationProperty Name="Realizacja_Procesu" Relationship="Self.FK__Realizacj__ID_Et__5AB9788F" FromRole="Rodzaj_Etapu" ToRole="Realizacja_Procesu" />
         </EntityType>
@@ -2343,7 +2367,7 @@
             <PropertyRef Name="ID_Rodzaj_Maszyny" />
           </Key>
           <Property Name="ID_Rodzaj_Maszyny" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Rodzaj_Maszyny1" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Rodzaj_Maszyny1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Maszyny" Relationship="Self.FK__Maszyny__ID_Rodz__3D2915A8" FromRole="Rodzaj_Maszyny" ToRole="Maszyny" />
           <NavigationProperty Name="Maszyny_Proces" Relationship="Self.FK__Maszyny_P__ID_Ro__3A4CA8FD" FromRole="Rodzaj_Maszyny" ToRole="Maszyny_Proces" />
         </EntityType>
@@ -2352,7 +2376,7 @@
             <PropertyRef Name="ID_Rodzaj_Obslugi" />
           </Key>
           <Property Name="ID_Rodzaj_Obslugi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nazwa" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Nazwa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Obsluga_Techniczna" Relationship="Self.FK__Obsluga_T__ID_Ro__40F9A68C" FromRole="Rodzaj_Obslugi" ToRole="Obsluga_Techniczna" />
         </EntityType>
         <EntityType Name="Rodzaj_Umowy">
@@ -2360,8 +2384,8 @@
             <PropertyRef Name="ID_Rodzaj_Umowy" />
           </Key>
           <Property Name="ID_Rodzaj_Umowy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Rodzaj_Umowy1" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Uwagi" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="Rodzaj_Umowy1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Uwagi" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Pracownicy_Zatrudnienie" Relationship="Self.FK__Pracownic__ID_Ro__440B1D61" FromRole="Rodzaj_Umowy" ToRole="Pracownicy_Zatrudnienie" />
         </EntityType>
         <EntityType Name="Stanowisko">
@@ -2369,8 +2393,8 @@
             <PropertyRef Name="ID_Stanowiska" />
           </Key>
           <Property Name="ID_Stanowiska" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Stanowisko1" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Opis" Type="String" MaxLength="200" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Stanowisko1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Opis" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ID_Pensji" Type="Int32" />
           <NavigationProperty Name="Pensja" Relationship="Self.FK__Stanowisk__ID_Pe__300424B4" FromRole="Stanowisko" ToRole="Pensja" />
           <NavigationProperty Name="Pracownicy_Zatrudnienie" Relationship="Self.FK__Pracownic__ID_St__4222D4EF" FromRole="Stanowisko" ToRole="Pracownicy_Zatrudnienie" />
@@ -2476,7 +2500,7 @@
           <Property Name="ID_Element" Type="Int32" Nullable="false" />
           <Property Name="Liczba" Type="Int32" Nullable="false" />
           <Property Name="Czy_Otrzymano" Type="Boolean" />
-          <Property Name="Uwagi" Type="String" MaxLength="300" FixedLength="true" Unicode="false" />
+          <Property Name="Uwagi" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Elementy" Relationship="Self.FK__Zapotrzeb__ID_El__634EBE90" FromRole="Zapotrzebowanie_Opakowan" ToRole="Elementy" />
           <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Zapotrzeb__ID_Pr__625A9A57" FromRole="Zapotrzebowanie_Opakowan" ToRole="Proces_Produkcyjny" />
         </EntityType>
@@ -3777,15 +3801,30 @@
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
             <End Role="Zawartosc" EntitySet="Zawartosc" />
           </AssociationSet>
+          <EntitySet Name="vZatrudnienie" EntityType="Szwalnia.vZatrudnienie" />
         </EntityContainer>
+        <EntityType Name="vZatrudnienie">
+          <Key>
+            <PropertyRef Name="ID_Pracownika" />
+            <PropertyRef Name="Pensja" />
+            <PropertyRef Name="Stanowisko" />
+            <PropertyRef Name="Start_umowy" />
+            <PropertyRef Name="Koniec_umowy" />
+          </Key>
+          <Property Name="ID_Pracownika" Type="Int32" Nullable="false" />
+          <Property Name="Pensja" Type="Single" Nullable="false" />
+          <Property Name="Stanowisko" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Start_umowy" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Koniec_umowy" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SzwalniaModelStoreContainer" CdmEntityContainer="SzwalniaEntities">
+        <EntityContainerMapping StorageEntityContainer="SzwalniaStoreContainer" CdmEntityContainer="SzwalniaEntities">
           <EntitySetMapping Name="Czesci_Obsluga">
-            <EntityTypeMapping TypeName="SzwalniaModel.Czesci_Obsluga">
+            <EntityTypeMapping TypeName="Szwalnia.Czesci_Obsluga">
               <MappingFragment StoreEntitySet="Czesci_Obsluga">
                 <ScalarProperty Name="ID_Obslugi" ColumnName="ID_Obslugi" />
                 <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
@@ -3794,7 +3833,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Dokumentacja_Proces">
-            <EntityTypeMapping TypeName="SzwalniaModel.Dokumentacja_Proces">
+            <EntityTypeMapping TypeName="Szwalnia.Dokumentacja_Proces">
               <MappingFragment StoreEntitySet="Dokumentacja_Proces">
                 <ScalarProperty Name="ID_Dokumentacja_Proces" ColumnName="ID_Dokumentacja_Proces" />
                 <ScalarProperty Name="ID_Dokumentacji" ColumnName="ID_Dokumentacji" />
@@ -3802,7 +3841,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Dokumentacje">
-            <EntityTypeMapping TypeName="SzwalniaModel.Dokumentacje">
+            <EntityTypeMapping TypeName="Szwalnia.Dokumentacje">
               <MappingFragment StoreEntitySet="Dokumentacje">
                 <ScalarProperty Name="ID_Dokumentacji" ColumnName="ID_Dokumentacji" />
                 <ScalarProperty Name="ID_Rodzaj_Dokumentacji" ColumnName="ID_Rodzaj_Dokumentacji" />
@@ -3812,7 +3851,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Dostarczenia_Wewn">
-            <EntityTypeMapping TypeName="SzwalniaModel.Dostarczenia_Wewn">
+            <EntityTypeMapping TypeName="Szwalnia.Dostarczenia_Wewn">
               <MappingFragment StoreEntitySet="Dostarczenia_Wewn">
                 <ScalarProperty Name="ID_Dostarczenia" ColumnName="ID_Dostarczenia" />
                 <ScalarProperty Name="ID_Pracownicy" ColumnName="ID_Pracownicy" />
@@ -3824,7 +3863,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Dostarczenia_Zewn">
-            <EntityTypeMapping TypeName="SzwalniaModel.Dostarczenia_Zewn">
+            <EntityTypeMapping TypeName="Szwalnia.Dostarczenia_Zewn">
               <MappingFragment StoreEntitySet="Dostarczenia_Zewn">
                 <ScalarProperty Name="ID_Dostarczenia" ColumnName="ID_Dostarczenia" />
                 <ScalarProperty Name="ID_Pracownicy" ColumnName="ID_Pracownicy" />
@@ -3836,7 +3875,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Dostawcy_Oferta">
-            <EntityTypeMapping TypeName="SzwalniaModel.Dostawcy_Oferta">
+            <EntityTypeMapping TypeName="Szwalnia.Dostawcy_Oferta">
               <MappingFragment StoreEntitySet="Dostawcy_Oferta">
                 <ScalarProperty Name="ID_Dostawcy_Oferta" ColumnName="ID_Dostawcy_Oferta" />
                 <ScalarProperty Name="ID_Oferta" ColumnName="ID_Oferta" />
@@ -3845,7 +3884,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Dostawcy_Zaopatrzenie">
-            <EntityTypeMapping TypeName="SzwalniaModel.Dostawcy_Zaopatrzenie">
+            <EntityTypeMapping TypeName="Szwalnia.Dostawcy_Zaopatrzenie">
               <MappingFragment StoreEntitySet="Dostawcy_Zaopatrzenie">
                 <ScalarProperty Name="ID_Dostawcy" ColumnName="ID_Dostawcy" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
@@ -3856,7 +3895,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Dostawy_Zawartosc">
-            <EntityTypeMapping TypeName="SzwalniaModel.Dostawy_Zawartosc">
+            <EntityTypeMapping TypeName="Szwalnia.Dostawy_Zawartosc">
               <MappingFragment StoreEntitySet="Dostawy_Zawartosc">
                 <ScalarProperty Name="ID_Dostawy_Zawartosc" ColumnName="ID_Dostawy_Zawartosc" />
                 <ScalarProperty Name="ID_Dostawy" ColumnName="ID_Dostawy" />
@@ -3866,7 +3905,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Elementy">
-            <EntityTypeMapping TypeName="SzwalniaModel.Elementy">
+            <EntityTypeMapping TypeName="Szwalnia.Elementy">
               <MappingFragment StoreEntitySet="Elementy">
                 <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
                 <ScalarProperty Name="ID_Element_Typ" ColumnName="ID_Element_Typ" />
@@ -3878,7 +3917,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Elementy_Cechy">
-            <EntityTypeMapping TypeName="SzwalniaModel.Elementy_Cechy">
+            <EntityTypeMapping TypeName="Szwalnia.Elementy_Cechy">
               <MappingFragment StoreEntitySet="Elementy_Cechy">
                 <ScalarProperty Name="ID_Elementy_Cechy" ColumnName="ID_Elementy_Cechy" />
                 <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
@@ -3890,7 +3929,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Elementy_Cechy_Slownik">
-            <EntityTypeMapping TypeName="SzwalniaModel.Elementy_Cechy_Slownik">
+            <EntityTypeMapping TypeName="Szwalnia.Elementy_Cechy_Slownik">
               <MappingFragment StoreEntitySet="Elementy_Cechy_Slownik">
                 <ScalarProperty Name="ID_Cecha" ColumnName="ID_Cecha" />
                 <ScalarProperty Name="Cecha" ColumnName="Cecha" />
@@ -3898,7 +3937,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Elementy_Jednostki">
-            <EntityTypeMapping TypeName="SzwalniaModel.Elementy_Jednostki">
+            <EntityTypeMapping TypeName="Szwalnia.Elementy_Jednostki">
               <MappingFragment StoreEntitySet="Elementy_Jednostki">
                 <ScalarProperty Name="ID_jednostka" ColumnName="ID_jednostka" />
                 <ScalarProperty Name="Jednostka" ColumnName="Jednostka" />
@@ -3906,7 +3945,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Elementy_Proces">
-            <EntityTypeMapping TypeName="SzwalniaModel.Elementy_Proces">
+            <EntityTypeMapping TypeName="Szwalnia.Elementy_Proces">
               <MappingFragment StoreEntitySet="Elementy_Proces">
                 <ScalarProperty Name="ID_Elementy_Proces" ColumnName="ID_Elementy_Proces" />
                 <ScalarProperty Name="ID_Proces_Technologiczny" ColumnName="ID_Proces_Technologiczny" />
@@ -3916,7 +3955,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Elementy_Typy">
-            <EntityTypeMapping TypeName="SzwalniaModel.Elementy_Typy">
+            <EntityTypeMapping TypeName="Szwalnia.Elementy_Typy">
               <MappingFragment StoreEntitySet="Elementy_Typy">
                 <ScalarProperty Name="ID_Element_Typ" ColumnName="ID_Element_Typ" />
                 <ScalarProperty Name="Typ" ColumnName="Typ" />
@@ -3924,7 +3963,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Etapy_W_Procesie">
-            <EntityTypeMapping TypeName="SzwalniaModel.Etapy_W_Procesie">
+            <EntityTypeMapping TypeName="Szwalnia.Etapy_W_Procesie">
               <MappingFragment StoreEntitySet="Etapy_W_Procesie">
                 <ScalarProperty Name="ID_Etapy_W_Procesie" ColumnName="ID_Etapy_W_Procesie" />
                 <ScalarProperty Name="ID_Proces_Technologiczny" ColumnName="ID_Proces_Technologiczny" />
@@ -3934,7 +3973,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Etat">
-            <EntityTypeMapping TypeName="SzwalniaModel.Etat">
+            <EntityTypeMapping TypeName="Szwalnia.Etat">
               <MappingFragment StoreEntitySet="Etat">
                 <ScalarProperty Name="ID_Etat" ColumnName="ID_Etat" />
                 <ScalarProperty Name="Wymiar_Etatu" ColumnName="Wymiar_Etatu" />
@@ -3943,7 +3982,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Faktury">
-            <EntityTypeMapping TypeName="SzwalniaModel.Faktury">
+            <EntityTypeMapping TypeName="Szwalnia.Faktury">
               <MappingFragment StoreEntitySet="Faktury">
                 <ScalarProperty Name="ID_Faktury" ColumnName="ID_Faktury" />
                 <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
@@ -3955,7 +3994,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Faktury_Zewnetrzne">
-            <EntityTypeMapping TypeName="SzwalniaModel.Faktury_Zewnetrzne">
+            <EntityTypeMapping TypeName="Szwalnia.Faktury_Zewnetrzne">
               <MappingFragment StoreEntitySet="Faktury_Zewnetrzne">
                 <ScalarProperty Name="ID_Faktura_zewnetrzna" ColumnName="ID_Faktura_zewnetrzna" />
                 <ScalarProperty Name="Nr_Faktury" ColumnName="Nr_Faktury" />
@@ -3968,7 +4007,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Grupa">
-            <EntityTypeMapping TypeName="SzwalniaModel.Grupa">
+            <EntityTypeMapping TypeName="Szwalnia.Grupa">
               <MappingFragment StoreEntitySet="Grupa">
                 <ScalarProperty Name="ID_Grupa" ColumnName="ID_Grupa" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
@@ -3976,7 +4015,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Jezyk">
-            <EntityTypeMapping TypeName="SzwalniaModel.Jezyk">
+            <EntityTypeMapping TypeName="Szwalnia.Jezyk">
               <MappingFragment StoreEntitySet="Jezyk">
                 <ScalarProperty Name="ID_Jezyk" ColumnName="ID_Jezyk" />
                 <ScalarProperty Name="Jezyk1" ColumnName="Jezyk" />
@@ -3985,7 +4024,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Klienci">
-            <EntityTypeMapping TypeName="SzwalniaModel.Klienci">
+            <EntityTypeMapping TypeName="Szwalnia.Klienci">
               <MappingFragment StoreEntitySet="Klienci">
                 <ScalarProperty Name="ID_Klienta" ColumnName="ID_Klienta" />
                 <ScalarProperty Name="Imie" ColumnName="Imie" />
@@ -3999,7 +4038,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Kontrola_Efektywnosci">
-            <EntityTypeMapping TypeName="SzwalniaModel.Kontrola_Efektywnosci">
+            <EntityTypeMapping TypeName="Szwalnia.Kontrola_Efektywnosci">
               <MappingFragment StoreEntitySet="Kontrola_Efektywnosci">
                 <ScalarProperty Name="ID_Kontrola_Efektywnosci" ColumnName="ID_Kontrola_Efektywnosci" />
                 <ScalarProperty Name="ID_Procesu_Produkcyjnego" ColumnName="ID_Procesu_Produkcyjnego" />
@@ -4013,7 +4052,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Koszt_Jednostkowy">
-            <EntityTypeMapping TypeName="SzwalniaModel.Koszt_Jednostkowy">
+            <EntityTypeMapping TypeName="Szwalnia.Koszt_Jednostkowy">
               <MappingFragment StoreEntitySet="Koszt_Jednostkowy">
                 <ScalarProperty Name="ID_Koszt_Jednostkowy" ColumnName="ID_Koszt_Jednostkowy" />
                 <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
@@ -4022,7 +4061,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Kurierzy">
-            <EntityTypeMapping TypeName="SzwalniaModel.Kurierzy">
+            <EntityTypeMapping TypeName="Szwalnia.Kurierzy">
               <MappingFragment StoreEntitySet="Kurierzy">
                 <ScalarProperty Name="ID_Kurier" ColumnName="ID_Kurier" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
@@ -4033,7 +4072,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Maszyny">
-            <EntityTypeMapping TypeName="SzwalniaModel.Maszyny">
+            <EntityTypeMapping TypeName="Szwalnia.Maszyny">
               <MappingFragment StoreEntitySet="Maszyny">
                 <ScalarProperty Name="ID_Maszyny" ColumnName="ID_Maszyny" />
                 <ScalarProperty Name="Model" ColumnName="Model" />
@@ -4047,7 +4086,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Maszyny_Proces">
-            <EntityTypeMapping TypeName="SzwalniaModel.Maszyny_Proces">
+            <EntityTypeMapping TypeName="Szwalnia.Maszyny_Proces">
               <MappingFragment StoreEntitySet="Maszyny_Proces">
                 <ScalarProperty Name="ID_Maszyny_Proces" ColumnName="ID_Maszyny_Proces" />
                 <ScalarProperty Name="ID_Proces_Technologiczny" ColumnName="ID_Proces_Technologiczny" />
@@ -4058,7 +4097,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Material_Na_Produkcji">
-            <EntityTypeMapping TypeName="SzwalniaModel.Material_Na_Produkcji">
+            <EntityTypeMapping TypeName="Szwalnia.Material_Na_Produkcji">
               <MappingFragment StoreEntitySet="Material_Na_Produkcji">
                 <ScalarProperty Name="ID_Material_Na_Produkcji" ColumnName="ID_Material_Na_Produkcji" />
                 <ScalarProperty Name="ID_Procesu_Produkcyjnego" ColumnName="ID_Procesu_Produkcyjnego" />
@@ -4070,7 +4109,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Miejsca">
-            <EntityTypeMapping TypeName="SzwalniaModel.Miejsca">
+            <EntityTypeMapping TypeName="Szwalnia.Miejsca">
               <MappingFragment StoreEntitySet="Miejsca">
                 <ScalarProperty Name="ID_Miejsca" ColumnName="ID_Miejsca" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
@@ -4078,7 +4117,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Obsluga_Techniczna">
-            <EntityTypeMapping TypeName="SzwalniaModel.Obsluga_Techniczna">
+            <EntityTypeMapping TypeName="Szwalnia.Obsluga_Techniczna">
               <MappingFragment StoreEntitySet="Obsluga_Techniczna">
                 <ScalarProperty Name="ID_Obslugi" ColumnName="ID_Obslugi" />
                 <ScalarProperty Name="ID_Maszyny" ColumnName="ID_Maszyny" />
@@ -4089,7 +4128,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Oferta">
-            <EntityTypeMapping TypeName="SzwalniaModel.Oferta">
+            <EntityTypeMapping TypeName="Szwalnia.Oferta">
               <MappingFragment StoreEntitySet="Oferta">
                 <ScalarProperty Name="ID_Oferta" ColumnName="ID_Oferta" />
                 <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
@@ -4105,7 +4144,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Pensja">
-            <EntityTypeMapping TypeName="SzwalniaModel.Pensja">
+            <EntityTypeMapping TypeName="Szwalnia.Pensja">
               <MappingFragment StoreEntitySet="Pensja">
                 <ScalarProperty Name="ID_Pensja" ColumnName="ID_Pensja" />
                 <ScalarProperty Name="Pensja1" ColumnName="Pensja" />
@@ -4113,7 +4152,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Polki">
-            <EntityTypeMapping TypeName="SzwalniaModel.Polki">
+            <EntityTypeMapping TypeName="Szwalnia.Polki">
               <MappingFragment StoreEntitySet="Polki">
                 <ScalarProperty Name="ID_Polka" ColumnName="ID_Polka" />
                 <ScalarProperty Name="ID_Rozmiar_Polki" ColumnName="ID_Rozmiar_Polki" />
@@ -4121,7 +4160,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Polki_Rozmiary">
-            <EntityTypeMapping TypeName="SzwalniaModel.Polki_Rozmiary">
+            <EntityTypeMapping TypeName="Szwalnia.Polki_Rozmiary">
               <MappingFragment StoreEntitySet="Polki_Rozmiary">
                 <ScalarProperty Name="ID_Rozmiar_Polki" ColumnName="ID_Rozmiar_Polki" />
                 <ScalarProperty Name="Wysokosc" ColumnName="Wysokosc" />
@@ -4131,7 +4170,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Pracownicy">
-            <EntityTypeMapping TypeName="SzwalniaModel.Pracownicy">
+            <EntityTypeMapping TypeName="Szwalnia.Pracownicy">
               <MappingFragment StoreEntitySet="Pracownicy">
                 <ScalarProperty Name="ID_Pracownika" ColumnName="ID_Pracownika" />
                 <ScalarProperty Name="Imie" ColumnName="Imie" />
@@ -4143,7 +4182,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Pracownicy_Zatrudnienie">
-            <EntityTypeMapping TypeName="SzwalniaModel.Pracownicy_Zatrudnienie">
+            <EntityTypeMapping TypeName="Szwalnia.Pracownicy_Zatrudnienie">
               <MappingFragment StoreEntitySet="Pracownicy_Zatrudnienie">
                 <ScalarProperty Name="ID_Pracownicy_Zatrudnienie" ColumnName="ID_Pracownicy_Zatrudnienie" />
                 <ScalarProperty Name="ID_Pracownika" ColumnName="ID_Pracownika" />
@@ -4156,7 +4195,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Proces_Produkcyjny">
-            <EntityTypeMapping TypeName="SzwalniaModel.Proces_Produkcyjny">
+            <EntityTypeMapping TypeName="Szwalnia.Proces_Produkcyjny">
               <MappingFragment StoreEntitySet="Proces_Produkcyjny">
                 <ScalarProperty Name="ID_Procesu_Produkcyjnego" ColumnName="ID_Procesu_Produkcyjnego" />
                 <ScalarProperty Name="ID_Zamowienie_Produkt" ColumnName="ID_Zamowienie_Produkt" />
@@ -4169,7 +4208,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Proces_Technologiczny">
-            <EntityTypeMapping TypeName="SzwalniaModel.Proces_Technologiczny">
+            <EntityTypeMapping TypeName="Szwalnia.Proces_Technologiczny">
               <MappingFragment StoreEntitySet="Proces_Technologiczny">
                 <ScalarProperty Name="ID_Proces_Technologiczny" ColumnName="ID_Proces_Technologiczny" />
                 <ScalarProperty Name="ID_Dokumentacja_Proces" ColumnName="ID_Dokumentacja_Proces" />
@@ -4178,7 +4217,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Proces_Zamowienie">
-            <EntityTypeMapping TypeName="SzwalniaModel.Proces_Zamowienie">
+            <EntityTypeMapping TypeName="Szwalnia.Proces_Zamowienie">
               <MappingFragment StoreEntitySet="Proces_Zamowienie">
                 <ScalarProperty Name="ID_Proces_Zamowienie" ColumnName="ID_Proces_Zamowienie" />
                 <ScalarProperty Name="ID_Proces_Technologiczny" ColumnName="ID_Proces_Technologiczny" />
@@ -4187,7 +4226,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Produkt">
-            <EntityTypeMapping TypeName="SzwalniaModel.Produkt">
+            <EntityTypeMapping TypeName="Szwalnia.Produkt">
               <MappingFragment StoreEntitySet="Produkt">
                 <ScalarProperty Name="ID_Produkt" ColumnName="ID_Produkt" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
@@ -4195,7 +4234,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Przydzial_Zasobow">
-            <EntityTypeMapping TypeName="SzwalniaModel.Przydzial_Zasobow">
+            <EntityTypeMapping TypeName="Szwalnia.Przydzial_Zasobow">
               <MappingFragment StoreEntitySet="Przydzial_Zasobow">
                 <ScalarProperty Name="ID_Przydzial_Zasobow" ColumnName="ID_Przydzial_Zasobow" />
                 <ScalarProperty Name="ID_Realizacji_Procesu" ColumnName="ID_Realizacji_Procesu" />
@@ -4205,7 +4244,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Realizacja_Procesu">
-            <EntityTypeMapping TypeName="SzwalniaModel.Realizacja_Procesu">
+            <EntityTypeMapping TypeName="Szwalnia.Realizacja_Procesu">
               <MappingFragment StoreEntitySet="Realizacja_Procesu">
                 <ScalarProperty Name="ID_Realizacji_Procesu" ColumnName="ID_Realizacji_Procesu" />
                 <ScalarProperty Name="ID_Procesu_Produkcyjnego" ColumnName="ID_Procesu_Produkcyjnego" />
@@ -4218,7 +4257,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Rodzaj_Dokumentacji">
-            <EntityTypeMapping TypeName="SzwalniaModel.Rodzaj_Dokumentacji">
+            <EntityTypeMapping TypeName="Szwalnia.Rodzaj_Dokumentacji">
               <MappingFragment StoreEntitySet="Rodzaj_Dokumentacji">
                 <ScalarProperty Name="ID_Rodzaj_Dokumentacji" ColumnName="ID_Rodzaj_Dokumentacji" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
@@ -4226,7 +4265,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Rodzaj_Etapu">
-            <EntityTypeMapping TypeName="SzwalniaModel.Rodzaj_Etapu">
+            <EntityTypeMapping TypeName="Szwalnia.Rodzaj_Etapu">
               <MappingFragment StoreEntitySet="Rodzaj_Etapu">
                 <ScalarProperty Name="ID_Etapu" ColumnName="ID_Etapu" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
@@ -4234,7 +4273,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Rodzaj_Maszyny">
-            <EntityTypeMapping TypeName="SzwalniaModel.Rodzaj_Maszyny">
+            <EntityTypeMapping TypeName="Szwalnia.Rodzaj_Maszyny">
               <MappingFragment StoreEntitySet="Rodzaj_Maszyny">
                 <ScalarProperty Name="ID_Rodzaj_Maszyny" ColumnName="ID_Rodzaj_Maszyny" />
                 <ScalarProperty Name="Rodzaj_Maszyny1" ColumnName="Rodzaj_Maszyny" />
@@ -4242,7 +4281,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Rodzaj_Obslugi">
-            <EntityTypeMapping TypeName="SzwalniaModel.Rodzaj_Obslugi">
+            <EntityTypeMapping TypeName="Szwalnia.Rodzaj_Obslugi">
               <MappingFragment StoreEntitySet="Rodzaj_Obslugi">
                 <ScalarProperty Name="ID_Rodzaj_Obslugi" ColumnName="ID_Rodzaj_Obslugi" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
@@ -4250,7 +4289,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Rodzaj_Umowy">
-            <EntityTypeMapping TypeName="SzwalniaModel.Rodzaj_Umowy">
+            <EntityTypeMapping TypeName="Szwalnia.Rodzaj_Umowy">
               <MappingFragment StoreEntitySet="Rodzaj_Umowy">
                 <ScalarProperty Name="ID_Rodzaj_Umowy" ColumnName="ID_Rodzaj_Umowy" />
                 <ScalarProperty Name="Rodzaj_Umowy1" ColumnName="Rodzaj_Umowy" />
@@ -4259,7 +4298,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Stanowisko">
-            <EntityTypeMapping TypeName="SzwalniaModel.Stanowisko">
+            <EntityTypeMapping TypeName="Szwalnia.Stanowisko">
               <MappingFragment StoreEntitySet="Stanowisko">
                 <ScalarProperty Name="ID_Stanowiska" ColumnName="ID_Stanowiska" />
                 <ScalarProperty Name="Stanowisko1" ColumnName="Stanowisko" />
@@ -4269,7 +4308,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Umowy_Kurierzy">
-            <EntityTypeMapping TypeName="SzwalniaModel.Umowy_Kurierzy">
+            <EntityTypeMapping TypeName="Szwalnia.Umowy_Kurierzy">
               <MappingFragment StoreEntitySet="Umowy_Kurierzy">
                 <ScalarProperty Name="ID_Umowy" ColumnName="ID_Umowy" />
                 <ScalarProperty Name="ID_Kurier" ColumnName="ID_Kurier" />
@@ -4281,7 +4320,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Urlop">
-            <EntityTypeMapping TypeName="SzwalniaModel.Urlop">
+            <EntityTypeMapping TypeName="Szwalnia.Urlop">
               <MappingFragment StoreEntitySet="Urlop">
                 <ScalarProperty Name="ID_Urlop" ColumnName="ID_Urlop" />
                 <ScalarProperty Name="ID_Pracownika" ColumnName="ID_Pracownika" />
@@ -4291,7 +4330,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Zamowienia">
-            <EntityTypeMapping TypeName="SzwalniaModel.Zamowienia">
+            <EntityTypeMapping TypeName="Szwalnia.Zamowienia">
               <MappingFragment StoreEntitySet="Zamowienia">
                 <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
                 <ScalarProperty Name="ID_Klienta" ColumnName="ID_Klienta" />
@@ -4303,7 +4342,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Zamowienia_Dostawy">
-            <EntityTypeMapping TypeName="SzwalniaModel.Zamowienia_Dostawy">
+            <EntityTypeMapping TypeName="Szwalnia.Zamowienia_Dostawy">
               <MappingFragment StoreEntitySet="Zamowienia_Dostawy">
                 <ScalarProperty Name="ID_Dostawy" ColumnName="ID_Dostawy" />
                 <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
@@ -4313,7 +4352,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Zamowienia_Przydzial">
-            <EntityTypeMapping TypeName="SzwalniaModel.Zamowienia_Przydzial">
+            <EntityTypeMapping TypeName="Szwalnia.Zamowienia_Przydzial">
               <MappingFragment StoreEntitySet="Zamowienia_Przydzial">
                 <ScalarProperty Name="ID_Zamowienia_Przydzial" ColumnName="ID_Zamowienia_Przydzial" />
                 <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
@@ -4323,7 +4362,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Zamowienia_Zawartosc">
-            <EntityTypeMapping TypeName="SzwalniaModel.Zamowienia_Zawartosc">
+            <EntityTypeMapping TypeName="Szwalnia.Zamowienia_Zawartosc">
               <MappingFragment StoreEntitySet="Zamowienia_Zawartosc">
                 <ScalarProperty Name="ID_Zamowienia_Zawartosc" ColumnName="ID_Zamowienia_Zawartosc" />
                 <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
@@ -4333,7 +4372,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Zamowienie_Produkt">
-            <EntityTypeMapping TypeName="SzwalniaModel.Zamowienie_Produkt">
+            <EntityTypeMapping TypeName="Szwalnia.Zamowienie_Produkt">
               <MappingFragment StoreEntitySet="Zamowienie_Produkt">
                 <ScalarProperty Name="ID_Zamowienie_Produkt" ColumnName="ID_Zamowienie_Produkt" />
                 <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
@@ -4343,7 +4382,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Zapotrzebowanie_Opakowan">
-            <EntityTypeMapping TypeName="SzwalniaModel.Zapotrzebowanie_Opakowan">
+            <EntityTypeMapping TypeName="Szwalnia.Zapotrzebowanie_Opakowan">
               <MappingFragment StoreEntitySet="Zapotrzebowanie_Opakowan">
                 <ScalarProperty Name="ID_Zapotrzebowanie_opakowan" ColumnName="ID_Zapotrzebowanie_opakowan" />
                 <ScalarProperty Name="ID_Procesu_Produkcyjnego" ColumnName="ID_Procesu_Produkcyjnego" />
@@ -4355,7 +4394,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Zawartosc">
-            <EntityTypeMapping TypeName="SzwalniaModel.Zawartosc">
+            <EntityTypeMapping TypeName="Szwalnia.Zawartosc">
               <MappingFragment StoreEntitySet="Zawartosc">
                 <ScalarProperty Name="ID_Zawartosc" ColumnName="ID_Zawartosc" />
                 <ScalarProperty Name="ID_Polka" ColumnName="ID_Polka" />
@@ -4366,10 +4405,21 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Znajomosc_Jezykow">
-            <EntityTypeMapping TypeName="SzwalniaModel.Znajomosc_Jezykow">
+            <EntityTypeMapping TypeName="Szwalnia.Znajomosc_Jezykow">
               <MappingFragment StoreEntitySet="Znajomosc_Jezykow">
                 <ScalarProperty Name="ID_Znajomosc_Jezykow" ColumnName="ID_Znajomosc_Jezykow" />
                 <ScalarProperty Name="ID_Jezyka" ColumnName="ID_Jezyka" />
+                <ScalarProperty Name="ID_Pracownika" ColumnName="ID_Pracownika" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vZatrudnienie">
+            <EntityTypeMapping TypeName="Szwalnia.vZatrudnienie">
+              <MappingFragment StoreEntitySet="vZatrudnienie">
+                <ScalarProperty Name="Koniec_umowy" ColumnName="Koniec umowy" />
+                <ScalarProperty Name="Start_umowy" ColumnName="Start umowy" />
+                <ScalarProperty Name="Stanowisko" ColumnName="Stanowisko" />
+                <ScalarProperty Name="Pensja" ColumnName="Pensja" />
                 <ScalarProperty Name="ID_Pracownika" ColumnName="ID_Pracownika" />
               </MappingFragment>
             </EntityTypeMapping>

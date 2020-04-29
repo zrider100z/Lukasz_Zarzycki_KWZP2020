@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="SzwalniaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="Szwalnia.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Czesci_Obsluga">
     <Key>
       <PropertyRef Name="ID_Obslugi" />
@@ -33,7 +33,7 @@
     <Property Name="ID_Dostawy" Type="int" />
     <Property Name="Ilosc_Dostarczona" Type="float" />
     <Property Name="ID_Miejsca" Type="int" />
-    <Property Name="Data_Dostarczenia" Type="char" MaxLength="10" />
+    <Property Name="Data_Dostarczenia" Type="varchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="Dostarczenia_Zewn">
     <Key>
@@ -44,7 +44,7 @@
     <Property Name="ID_Zamowienia" Type="int" />
     <Property Name="Ilosc_Dostarczona" Type="float" />
     <Property Name="ID_Miejsca" Type="int" />
-    <Property Name="Data_Dostarczenia" Type="char" MaxLength="10" />
+    <Property Name="Data_Dostarczenia" Type="varchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="Dostawcy_Oferta">
     <Key>
@@ -59,10 +59,10 @@
       <PropertyRef Name="ID_Dostawcy" />
     </Key>
     <Property Name="ID_Dostawcy" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nazwa" Type="char" MaxLength="40" />
+    <Property Name="Nazwa" Type="varchar" MaxLength="40" />
     <Property Name="Telefon_1" Type="int" />
     <Property Name="Telefon_2" Type="int" />
-    <Property Name="Email" Type="char" MaxLength="40" />
+    <Property Name="Email" Type="varchar" MaxLength="40" />
   </EntityType>
   <EntityType Name="Dostawy_Zawartosc">
     <Key>
@@ -79,7 +79,7 @@
     </Key>
     <Property Name="ID_Element" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ID_Element_Typ" Type="int" />
-    <Property Name="Element_Nazwa" Type="char" MaxLength="20" />
+    <Property Name="Element_Nazwa" Type="varchar" MaxLength="20" />
     <Property Name="Okres_Przydatnosci_Miesiace" Type="int" />
     <Property Name="Element_Ilosc_W_Paczce" Type="real" />
     <Property Name="ID_Jednostka" Type="int" />
@@ -93,21 +93,21 @@
     <Property Name="ID_Cecha" Type="int" />
     <Property Name="Wartosc_Cechy_Liczbowa" Type="real" />
     <Property Name="ID_Jednostka" Type="int" />
-    <Property Name="Wartosc_Cechy_Slowna" Type="char" MaxLength="30" />
+    <Property Name="Wartosc_Cechy_Slowna" Type="varchar" MaxLength="30" />
   </EntityType>
   <EntityType Name="Elementy_Cechy_Slownik">
     <Key>
       <PropertyRef Name="ID_Cecha" />
     </Key>
     <Property Name="ID_Cecha" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Cecha" Type="char" MaxLength="20" />
+    <Property Name="Cecha" Type="varchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="Elementy_Jednostki">
     <Key>
       <PropertyRef Name="ID_jednostka" />
     </Key>
     <Property Name="ID_jednostka" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Jednostka" Type="char" MaxLength="10" />
+    <Property Name="Jednostka" Type="varchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="Elementy_Proces">
     <Key>
@@ -123,7 +123,7 @@
       <PropertyRef Name="ID_Element_Typ" />
     </Key>
     <Property Name="ID_Element_Typ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Typ" Type="char" MaxLength="15" />
+    <Property Name="Typ" Type="varchar" MaxLength="15" />
   </EntityType>
   <EntityType Name="Etapy_W_Procesie">
     <Key>
@@ -139,8 +139,8 @@
       <PropertyRef Name="ID_Etat" />
     </Key>
     <Property Name="ID_Etat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Wymiar_Etatu" Type="char" MaxLength="5" Nullable="false" />
-    <Property Name="Uwagi" Type="char" MaxLength="100" />
+    <Property Name="Wymiar_Etatu" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="Uwagi" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="Faktury">
     <Key>
@@ -160,7 +160,7 @@
     <Property Name="ID_Faktura_zewnetrzna" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nr_Faktury" Type="real" Nullable="false" />
     <Property Name="ID_Grupa" Type="int" />
-    <Property Name="Nazwa_Firmy" Type="char" MaxLength="100" />
+    <Property Name="Nazwa_Firmy" Type="varchar" MaxLength="100" />
     <Property Name="Netto" Type="real" Nullable="false" />
     <Property Name="Brutto" Type="real" Nullable="false" />
     <Property Name="Podatek" Type="real" Nullable="false" />
@@ -170,28 +170,28 @@
       <PropertyRef Name="ID_Grupa" />
     </Key>
     <Property Name="ID_Grupa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nazwa" Type="char" MaxLength="100" />
+    <Property Name="Nazwa" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="Jezyk">
     <Key>
       <PropertyRef Name="ID_Jezyk" />
     </Key>
     <Property Name="ID_Jezyk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Jezyk" Type="char" MaxLength="40" Nullable="false" />
-    <Property Name="Informacje_Dodatkowe" Type="char" MaxLength="200" Nullable="false" />
+    <Property Name="Jezyk" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Informacje_Dodatkowe" Type="varchar" MaxLength="200" Nullable="false" />
   </EntityType>
   <EntityType Name="Klienci">
     <Key>
       <PropertyRef Name="ID_Klienta" />
     </Key>
     <Property Name="ID_Klienta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Imie" Type="char" MaxLength="50" Nullable="false" />
-    <Property Name="Nazwisko" Type="char" MaxLength="50" Nullable="false" />
-    <Property Name="Nazwa_Firmy" Type="char" MaxLength="100" />
-    <Property Name="NIP" Type="char" MaxLength="10" />
-    <Property Name="Adres" Type="char" MaxLength="100" Nullable="false" />
-    <Property Name="Telefon" Type="char" MaxLength="15" Nullable="false" />
-    <Property Name="E_Mail" Type="char" MaxLength="50" Nullable="false" />
+    <Property Name="Imie" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nazwa_Firmy" Type="varchar" MaxLength="100" />
+    <Property Name="NIP" Type="varchar" MaxLength="10" />
+    <Property Name="Adres" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Telefon" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="E_Mail" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Kontrola_Efektywnosci">
     <Key>
@@ -201,7 +201,7 @@
     <Property Name="ID_Procesu_Produkcyjnego" Type="int" Nullable="false" />
     <Property Name="Data_Kontroli" Type="smalldatetime" Nullable="false" />
     <Property Name="Dokument" Type="image" Nullable="false" />
-    <Property Name="Uwagi" Type="char" MaxLength="300" />
+    <Property Name="Uwagi" Type="varchar" MaxLength="300" />
     <Property Name="Zgodnosc_Zamowienia" Type="bit" Nullable="false" />
     <Property Name="Liczba_Poprawnych" Type="int" Nullable="false" />
     <Property Name="Liczba_Blednych" Type="int" Nullable="false" />
@@ -219,19 +219,19 @@
       <PropertyRef Name="ID_Kurier" />
     </Key>
     <Property Name="ID_Kurier" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nazwa" Type="char" MaxLength="20" />
+    <Property Name="Nazwa" Type="varchar" MaxLength="20" />
     <Property Name="Telefon_1" Type="int" />
     <Property Name="Telefon_2" Type="int" />
-    <Property Name="Email" Type="char" MaxLength="40" />
+    <Property Name="Email" Type="varchar" MaxLength="40" />
   </EntityType>
   <EntityType Name="Maszyny">
     <Key>
       <PropertyRef Name="ID_Maszyny" />
     </Key>
     <Property Name="ID_Maszyny" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Model" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="Model" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="ID_Rodzaj_Maszyny" Type="int" Nullable="false" />
-    <Property Name="Producent" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="Producent" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="Gwarancja_do" Type="smalldatetime" Nullable="false" />
     <Property Name="Data_zakupu" Type="smalldatetime" Nullable="false" />
     <Property Name="Resurs_rbh" Type="int" Nullable="false" />
@@ -263,7 +263,7 @@
       <PropertyRef Name="ID_Miejsca" />
     </Key>
     <Property Name="ID_Miejsca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nazwa" Type="char" MaxLength="20" />
+    <Property Name="Nazwa" Type="varchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="Obsluga_Techniczna">
     <Key>
@@ -281,7 +281,7 @@
     </Key>
     <Property Name="ID_Oferta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ID_Element" Type="int" />
-    <Property Name="Element_Oznaczenie" Type="char" MaxLength="20" />
+    <Property Name="Element_Oznaczenie" Type="varchar" MaxLength="20" />
     <Property Name="ID_Dostawcy" Type="int" />
     <Property Name="Cena_Jedn" Type="money" />
     <Property Name="Data_Oferty" Type="date" />
@@ -318,11 +318,11 @@
       <PropertyRef Name="ID_Pracownika" />
     </Key>
     <Property Name="ID_Pracownika" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Imie" Type="char" MaxLength="50" Nullable="false" />
-    <Property Name="Nazwisko" Type="char" MaxLength="50" Nullable="false" />
-    <Property Name="Pesel" Type="char" MaxLength="11" Nullable="false" />
-    <Property Name="Adres" Type="char" MaxLength="100" Nullable="false" />
-    <Property Name="Telefon" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="Imie" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Pesel" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="Adres" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Telefon" Type="varchar" MaxLength="15" Nullable="false" />
   </EntityType>
   <EntityType Name="Pracownicy_Zatrudnienie">
     <Key>
@@ -346,7 +346,7 @@
     <Property Name="Data_Rozpoczecia" Type="smalldatetime" />
     <Property Name="Data_Zakonczenia" Type="smalldatetime" />
     <Property Name="ID_Dokumentacja_Proces" Type="int" />
-    <Property Name="Uwagi" Type="char" MaxLength="300" />
+    <Property Name="Uwagi" Type="varchar" MaxLength="300" />
   </EntityType>
   <EntityType Name="Proces_Technologiczny">
     <Key>
@@ -369,7 +369,7 @@
       <PropertyRef Name="ID_Produkt" />
     </Key>
     <Property Name="ID_Produkt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nazwa" Type="char" MaxLength="30" Nullable="false" />
+    <Property Name="Nazwa" Type="varchar" MaxLength="30" Nullable="false" />
   </EntityType>
   <EntityType Name="Przydzial_Zasobow">
     <Key>
@@ -390,51 +390,51 @@
     <Property Name="Data_Rozpoczecia_Procesu" Type="smalldatetime" Nullable="false" />
     <Property Name="Data_Zakonczenia_Procesu" Type="smalldatetime" />
     <Property Name="Data_Kontroli" Type="smalldatetime" />
-    <Property Name="Uwagi_Kontroli" Type="char" MaxLength="300" Nullable="false" />
+    <Property Name="Uwagi_Kontroli" Type="varchar" MaxLength="300" Nullable="false" />
   </EntityType>
   <EntityType Name="Rodzaj_Dokumentacji">
     <Key>
       <PropertyRef Name="ID_Rodzaj_Dokumentacji" />
     </Key>
     <Property Name="ID_Rodzaj_Dokumentacji" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nazwa" Type="char" MaxLength="25" Nullable="false" />
+    <Property Name="Nazwa" Type="varchar" MaxLength="25" Nullable="false" />
   </EntityType>
   <EntityType Name="Rodzaj_Etapu">
     <Key>
       <PropertyRef Name="ID_Etapu" />
     </Key>
     <Property Name="ID_Etapu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nazwa" Type="char" MaxLength="30" Nullable="false" />
+    <Property Name="Nazwa" Type="varchar" MaxLength="30" Nullable="false" />
   </EntityType>
   <EntityType Name="Rodzaj_Maszyny">
     <Key>
       <PropertyRef Name="ID_Rodzaj_Maszyny" />
     </Key>
     <Property Name="ID_Rodzaj_Maszyny" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Rodzaj_Maszyny" Type="char" MaxLength="30" Nullable="false" />
+    <Property Name="Rodzaj_Maszyny" Type="varchar" MaxLength="30" Nullable="false" />
   </EntityType>
   <EntityType Name="Rodzaj_Obslugi">
     <Key>
       <PropertyRef Name="ID_Rodzaj_Obslugi" />
     </Key>
     <Property Name="ID_Rodzaj_Obslugi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nazwa" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="Nazwa" Type="varchar" MaxLength="20" Nullable="false" />
   </EntityType>
   <EntityType Name="Rodzaj_Umowy">
     <Key>
       <PropertyRef Name="ID_Rodzaj_Umowy" />
     </Key>
     <Property Name="ID_Rodzaj_Umowy" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Rodzaj_Umowy" Type="char" MaxLength="30" Nullable="false" />
-    <Property Name="Uwagi" Type="char" MaxLength="100" />
+    <Property Name="Rodzaj_Umowy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Uwagi" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="Stanowisko">
     <Key>
       <PropertyRef Name="ID_Stanowiska" />
     </Key>
     <Property Name="ID_Stanowiska" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Stanowisko" Type="char" MaxLength="50" Nullable="false" />
-    <Property Name="Opis" Type="char" MaxLength="200" Nullable="false" />
+    <Property Name="Stanowisko" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Opis" Type="varchar" MaxLength="200" Nullable="false" />
     <Property Name="ID_Pensji" Type="int" />
   </EntityType>
   <EntityType Name="Umowy_Kurierzy">
@@ -513,7 +513,7 @@
     <Property Name="ID_Element" Type="int" Nullable="false" />
     <Property Name="Liczba" Type="int" Nullable="false" />
     <Property Name="Czy_Otrzymano" Type="bit" />
-    <Property Name="Uwagi" Type="char" MaxLength="300" />
+    <Property Name="Uwagi" Type="varchar" MaxLength="300" />
   </EntityType>
   <EntityType Name="Zawartosc">
     <Key>
@@ -532,6 +532,22 @@
     <Property Name="ID_Znajomosc_Jezykow" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ID_Jezyka" Type="int" />
     <Property Name="ID_Pracownika" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vZatrudnienie' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vZatrudnienie">
+    <Key>
+      <PropertyRef Name="ID_Pracownika" />
+      <PropertyRef Name="Pensja" />
+      <PropertyRef Name="Stanowisko" />
+      <PropertyRef Name="Start umowy" />
+      <PropertyRef Name="Koniec umowy" />
+    </Key>
+    <Property Name="ID_Pracownika" Type="int" Nullable="false" />
+    <Property Name="Pensja" Type="real" Nullable="false" />
+    <Property Name="Stanowisko" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Start umowy" Type="date" Nullable="false" />
+    <Property Name="Koniec umowy" Type="date" Nullable="false" />
   </EntityType>
   <Association Name="FK__Czesci_Ob__ID_El__2645B050">
     <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
@@ -1445,7 +1461,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="SzwalniaModelStoreContainer">
+  <EntityContainer Name="SzwalniaStoreContainer">
     <EntitySet Name="Czesci_Obsluga" EntityType="Self.Czesci_Obsluga" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Dokumentacja_Proces" EntityType="Self.Dokumentacja_Proces" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Dokumentacje" EntityType="Self.Dokumentacje" Schema="dbo" store:Type="Tables" />
@@ -1503,6 +1519,15 @@
     <EntitySet Name="Zapotrzebowanie_Opakowan" EntityType="Self.Zapotrzebowanie_Opakowan" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Zawartosc" EntityType="Self.Zawartosc" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Znajomosc_Jezykow" EntityType="Self.Znajomosc_Jezykow" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vZatrudnienie" EntityType="Self.vZatrudnienie" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vZatrudnienie].[ID_Pracownika] AS [ID_Pracownika], 
+    [vZatrudnienie].[Pensja] AS [Pensja], 
+    [vZatrudnienie].[Stanowisko] AS [Stanowisko], 
+    [vZatrudnienie].[Start umowy] AS [Start umowy], 
+    [vZatrudnienie].[Koniec umowy] AS [Koniec umowy]
+    FROM [dbo].[vZatrudnienie] AS [vZatrudnienie]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK__Czesci_Ob__ID_El__2645B050" Association="Self.FK__Czesci_Ob__ID_El__2645B050">
       <End Role="Elementy" EntitySet="Elementy" />
       <End Role="Czesci_Obsluga" EntitySet="Czesci_Obsluga" />

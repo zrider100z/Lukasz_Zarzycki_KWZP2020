@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="SzwalniaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="Szwalnia" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="Czesci_Obsluga">
     <Key>
       <PropertyRef Name="ID_Obslugi" />
@@ -40,7 +40,7 @@
     <Property Name="ID_Dostawy" Type="Int32" />
     <Property Name="Ilosc_Dostarczona" Type="Double" />
     <Property Name="ID_Miejsca" Type="Int32" />
-    <Property Name="Data_Dostarczenia" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="Data_Dostarczenia" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Zamowienia_Dostawy" Relationship="Self.FK__Dostarcze__ID_Do__17036CC0" FromRole="Dostarczenia_Wewn" ToRole="Zamowienia_Dostawy" />
     <NavigationProperty Name="Miejsca" Relationship="Self.FK__Dostarcze__ID_Mi__17F790F9" FromRole="Dostarczenia_Wewn" ToRole="Miejsca" />
     <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Dostarcze__ID_Pr__160F4887" FromRole="Dostarczenia_Wewn" ToRole="Pracownicy" />
@@ -54,7 +54,7 @@
     <Property Name="ID_Zamowienia" Type="Int32" />
     <Property Name="Ilosc_Dostarczona" Type="Double" />
     <Property Name="ID_Miejsca" Type="Int32" />
-    <Property Name="Data_Dostarczenia" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="Data_Dostarczenia" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Miejsca" Relationship="Self.FK__Dostarcze__ID_Mi__1CBC4616" FromRole="Dostarczenia_Zewn" ToRole="Miejsca" />
     <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Dostarcze__ID_Pr__1AD3FDA4" FromRole="Dostarczenia_Zewn" ToRole="Pracownicy" />
     <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Dostarcze__ID_Za__1BC821DD" FromRole="Dostarczenia_Zewn" ToRole="Zamowienia" />
@@ -74,10 +74,10 @@
       <PropertyRef Name="ID_Dostawcy" />
     </Key>
     <Property Name="ID_Dostawcy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Nazwa" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
+    <Property Name="Nazwa" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
     <Property Name="Telefon_1" Type="Int32" />
     <Property Name="Telefon_2" Type="Int32" />
-    <Property Name="Email" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Oferta" Relationship="Self.FK__Oferta__ID_Dosta__7A672E12" FromRole="Dostawcy_Zaopatrzenie" ToRole="Oferta" />
   </EntityType>
   <EntityType Name="Dostawy_Zawartosc">
@@ -97,7 +97,7 @@
     </Key>
     <Property Name="ID_Element" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ID_Element_Typ" Type="Int32" />
-    <Property Name="Element_Nazwa" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="Element_Nazwa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="Okres_Przydatnosci_Miesiace" Type="Int32" />
     <Property Name="Element_Ilosc_W_Paczce" Type="Single" />
     <Property Name="ID_Jednostka" Type="Int32" />
@@ -122,7 +122,7 @@
     <Property Name="ID_Cecha" Type="Int32" />
     <Property Name="Wartosc_Cechy_Liczbowa" Type="Single" />
     <Property Name="ID_Jednostka" Type="Int32" />
-    <Property Name="Wartosc_Cechy_Slowna" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="Wartosc_Cechy_Slowna" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Elementy" Relationship="Self.FK__Elementy___ID_El__71D1E811" FromRole="Elementy_Cechy" ToRole="Elementy" />
     <NavigationProperty Name="Elementy_Cechy_Slownik" Relationship="Self.FK__Elementy___ID_Ce__72C60C4A" FromRole="Elementy_Cechy" ToRole="Elementy_Cechy_Slownik" />
     <NavigationProperty Name="Elementy_Jednostki" Relationship="Self.FK__Elementy___ID_Je__73BA3083" FromRole="Elementy_Cechy" ToRole="Elementy_Jednostki" />
@@ -132,7 +132,7 @@
       <PropertyRef Name="ID_Cecha" />
     </Key>
     <Property Name="ID_Cecha" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Cecha" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="Cecha" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Elementy_Cechy" Relationship="Self.FK__Elementy___ID_Ce__72C60C4A" FromRole="Elementy_Cechy_Slownik" ToRole="Elementy_Cechy" />
   </EntityType>
   <EntityType Name="Elementy_Jednostki">
@@ -140,7 +140,7 @@
       <PropertyRef Name="ID_jednostka" />
     </Key>
     <Property Name="ID_jednostka" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Elementy" Relationship="Self.FK__Elementy__ID_Jed__6EF57B66" FromRole="Elementy_Jednostki" ToRole="Elementy" />
     <NavigationProperty Name="Elementy_Cechy" Relationship="Self.FK__Elementy___ID_Je__73BA3083" FromRole="Elementy_Jednostki" ToRole="Elementy_Cechy" />
     <NavigationProperty Name="Material_Na_Produkcji" Relationship="Self.FK__Material___ID_Je__56E8E7AB" FromRole="Elementy_Jednostki" ToRole="Material_Na_Produkcji" />
@@ -161,7 +161,7 @@
       <PropertyRef Name="ID_Element_Typ" />
     </Key>
     <Property Name="ID_Element_Typ" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Typ" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+    <Property Name="Typ" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Elementy" Relationship="Self.FK__Elementy__ID_Ele__6E01572D" FromRole="Elementy_Typy" ToRole="Elementy" />
   </EntityType>
   <EntityType Name="Etapy_W_Procesie">
@@ -180,8 +180,8 @@
       <PropertyRef Name="ID_Etat" />
     </Key>
     <Property Name="ID_Etat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Wymiar_Etatu" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="Uwagi" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Wymiar_Etatu" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Uwagi" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Pracownicy_Zatrudnienie" Relationship="Self.FK__Pracownic__ID_Et__4316F928" FromRole="Etat" ToRole="Pracownicy_Zatrudnienie" />
   </EntityType>
   <EntityType Name="Faktury">
@@ -204,7 +204,7 @@
     <Property Name="ID_Faktura_zewnetrzna" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Nr_Faktury" Type="Single" Nullable="false" />
     <Property Name="ID_Grupa" Type="Int32" />
-    <Property Name="Nazwa_Firmy" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Nazwa_Firmy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Netto" Type="Single" Nullable="false" />
     <Property Name="Brutto" Type="Single" Nullable="false" />
     <Property Name="Podatek" Type="Single" Nullable="false" />
@@ -215,7 +215,7 @@
       <PropertyRef Name="ID_Grupa" />
     </Key>
     <Property Name="ID_Grupa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Nazwa" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Nazwa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Faktury_Zewnetrzne" Relationship="Self.FK__Faktury_Z__ID_Gr__5AEE82B9" FromRole="Grupa" ToRole="Faktury_Zewnetrzne" />
   </EntityType>
   <EntityType Name="Jezyk">
@@ -223,8 +223,8 @@
       <PropertyRef Name="ID_Jezyk" />
     </Key>
     <Property Name="ID_Jezyk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Jezyk1" Type="String" MaxLength="40" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="Informacje_Dodatkowe" Type="String" MaxLength="200" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Jezyk1" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Informacje_Dodatkowe" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Znajomosc_Jezykow" Relationship="Self.FK__Znajomosc__ID_Je__4BAC3F29" FromRole="Jezyk" ToRole="Znajomosc_Jezykow" />
   </EntityType>
   <EntityType Name="Klienci">
@@ -232,13 +232,13 @@
       <PropertyRef Name="ID_Klienta" />
     </Key>
     <Property Name="ID_Klienta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Imie" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="Nazwa_Firmy" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-    <Property Name="NIP" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-    <Property Name="Adres" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="Telefon" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="E_Mail" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Imie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nazwa_Firmy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NIP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Adres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Telefon" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="E_Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Faktury" Relationship="Self.FK__Faktury__ID_Klie__5441852A" FromRole="Klienci" ToRole="Faktury" />
     <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Zamowieni__ID_Kl__4F7CD00D" FromRole="Klienci" ToRole="Zamowienia" />
   </EntityType>
@@ -250,7 +250,7 @@
     <Property Name="ID_Procesu_Produkcyjnego" Type="Int32" Nullable="false" />
     <Property Name="Data_Kontroli" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="Dokument" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
-    <Property Name="Uwagi" Type="String" MaxLength="300" FixedLength="true" Unicode="false" />
+    <Property Name="Uwagi" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
     <Property Name="Zgodnosc_Zamowienia" Type="Boolean" Nullable="false" />
     <Property Name="Liczba_Poprawnych" Type="Int32" Nullable="false" />
     <Property Name="Liczba_Blednych" Type="Int32" Nullable="false" />
@@ -270,10 +270,10 @@
       <PropertyRef Name="ID_Kurier" />
     </Key>
     <Property Name="ID_Kurier" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Nazwa" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="Nazwa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="Telefon_1" Type="Int32" />
     <Property Name="Telefon_2" Type="Int32" />
-    <Property Name="Email" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Umowy_Kurierzy" Relationship="Self.FK__Umowy_Kur__ID_Ku__76969D2E" FromRole="Kurierzy" ToRole="Umowy_Kurierzy" />
   </EntityType>
   <EntityType Name="Maszyny">
@@ -281,9 +281,9 @@
       <PropertyRef Name="ID_Maszyny" />
     </Key>
     <Property Name="ID_Maszyny" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Model" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Model" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ID_Rodzaj_Maszyny" Type="Int32" Nullable="false" />
-    <Property Name="Producent" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Producent" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Gwarancja_do" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="Data_zakupu" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="Resurs_rbh" Type="Int32" Nullable="false" />
@@ -323,7 +323,7 @@
       <PropertyRef Name="ID_Miejsca" />
     </Key>
     <Property Name="ID_Miejsca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Nazwa" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="Nazwa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Dostarczenia_Wewn" Relationship="Self.FK__Dostarcze__ID_Mi__17F790F9" FromRole="Miejsca" ToRole="Dostarczenia_Wewn" />
     <NavigationProperty Name="Dostarczenia_Zewn" Relationship="Self.FK__Dostarcze__ID_Mi__1CBC4616" FromRole="Miejsca" ToRole="Dostarczenia_Zewn" />
   </EntityType>
@@ -346,7 +346,7 @@
     </Key>
     <Property Name="ID_Oferta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ID_Element" Type="Int32" />
-    <Property Name="Element_Oznaczenie" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="Element_Oznaczenie" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="ID_Dostawcy" Type="Int32" />
     <Property Name="Cena_Jedn" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="Data_Oferty" Type="DateTime" Precision="0" />
@@ -391,11 +391,11 @@
       <PropertyRef Name="ID_Pracownika" />
     </Key>
     <Property Name="ID_Pracownika" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Imie" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="Pesel" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="Adres" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="Telefon" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Imie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pesel" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Adres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Telefon" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Dokumentacje" Relationship="Self.FK__Dokumenta__ID_Pr__2FCF1A8A" FromRole="Pracownicy" ToRole="Dokumentacje" />
     <NavigationProperty Name="Dostarczenia_Wewn" Relationship="Self.FK__Dostarcze__ID_Pr__160F4887" FromRole="Pracownicy" ToRole="Dostarczenia_Wewn" />
     <NavigationProperty Name="Dostarczenia_Zewn" Relationship="Self.FK__Dostarcze__ID_Pr__1AD3FDA4" FromRole="Pracownicy" ToRole="Dostarczenia_Zewn" />
@@ -434,7 +434,7 @@
     <Property Name="Data_Rozpoczecia" Type="DateTime" Precision="0" />
     <Property Name="Data_Zakonczenia" Type="DateTime" Precision="0" />
     <Property Name="ID_Dokumentacja_Proces" Type="Int32" />
-    <Property Name="Uwagi" Type="String" MaxLength="300" FixedLength="true" Unicode="false" />
+    <Property Name="Uwagi" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Dokumentacja_Proces" Relationship="Self.FK__Proces_Pr__ID_Do__5224328E" FromRole="Proces_Produkcyjny" ToRole="Dokumentacja_Proces" />
     <NavigationProperty Name="Kontrola_Efektywnosci" Relationship="Self.FK__Kontrola___ID_Pr__662B2B3B" FromRole="Proces_Produkcyjny" ToRole="Kontrola_Efektywnosci" />
     <NavigationProperty Name="Material_Na_Produkcji" Relationship="Self.FK__Material___ID_Pr__55009F39" FromRole="Proces_Produkcyjny" ToRole="Material_Na_Produkcji" />
@@ -473,7 +473,7 @@
       <PropertyRef Name="ID_Produkt" />
     </Key>
     <Property Name="ID_Produkt" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Nazwa" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Nazwa" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Zamowienie_Produkt" Relationship="Self.FK__Zamowieni__ID_Pr__236943A5" FromRole="Produkt" ToRole="Zamowienie_Produkt" />
   </EntityType>
   <EntityType Name="Przydzial_Zasobow">
@@ -498,7 +498,7 @@
     <Property Name="Data_Rozpoczecia_Procesu" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="Data_Zakonczenia_Procesu" Type="DateTime" Precision="0" />
     <Property Name="Data_Kontroli" Type="DateTime" Precision="0" />
-    <Property Name="Uwagi_Kontroli" Type="String" MaxLength="300" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Uwagi_Kontroli" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Realizacj__ID_Pr__59C55456" FromRole="Realizacja_Procesu" ToRole="Proces_Produkcyjny" />
     <NavigationProperty Name="Przydzial_Zasobow" Relationship="Self.FK__Przydzial__ID_Re__5D95E53A" FromRole="Realizacja_Procesu" ToRole="Przydzial_Zasobow" />
     <NavigationProperty Name="Rodzaj_Etapu" Relationship="Self.FK__Realizacj__ID_Et__5AB9788F" FromRole="Realizacja_Procesu" ToRole="Rodzaj_Etapu" />
@@ -508,7 +508,7 @@
       <PropertyRef Name="ID_Rodzaj_Dokumentacji" />
     </Key>
     <Property Name="ID_Rodzaj_Dokumentacji" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Nazwa" Type="String" MaxLength="25" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Nazwa" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Dokumentacje" Relationship="Self.FK__Dokumenta__ID_Ro__2EDAF651" FromRole="Rodzaj_Dokumentacji" ToRole="Dokumentacje" />
   </EntityType>
   <EntityType Name="Rodzaj_Etapu">
@@ -516,7 +516,7 @@
       <PropertyRef Name="ID_Etapu" />
     </Key>
     <Property Name="ID_Etapu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Nazwa" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Nazwa" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Etapy_W_Procesie" Relationship="Self.FK__Etapy_W_P__ID_Et__4D5F7D71" FromRole="Rodzaj_Etapu" ToRole="Etapy_W_Procesie" />
     <NavigationProperty Name="Realizacja_Procesu" Relationship="Self.FK__Realizacj__ID_Et__5AB9788F" FromRole="Rodzaj_Etapu" ToRole="Realizacja_Procesu" />
   </EntityType>
@@ -525,7 +525,7 @@
       <PropertyRef Name="ID_Rodzaj_Maszyny" />
     </Key>
     <Property Name="ID_Rodzaj_Maszyny" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Rodzaj_Maszyny1" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Rodzaj_Maszyny1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Maszyny" Relationship="Self.FK__Maszyny__ID_Rodz__3D2915A8" FromRole="Rodzaj_Maszyny" ToRole="Maszyny" />
     <NavigationProperty Name="Maszyny_Proces" Relationship="Self.FK__Maszyny_P__ID_Ro__3A4CA8FD" FromRole="Rodzaj_Maszyny" ToRole="Maszyny_Proces" />
   </EntityType>
@@ -534,7 +534,7 @@
       <PropertyRef Name="ID_Rodzaj_Obslugi" />
     </Key>
     <Property Name="ID_Rodzaj_Obslugi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Nazwa" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Nazwa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Obsluga_Techniczna" Relationship="Self.FK__Obsluga_T__ID_Ro__40F9A68C" FromRole="Rodzaj_Obslugi" ToRole="Obsluga_Techniczna" />
   </EntityType>
   <EntityType Name="Rodzaj_Umowy">
@@ -542,8 +542,8 @@
       <PropertyRef Name="ID_Rodzaj_Umowy" />
     </Key>
     <Property Name="ID_Rodzaj_Umowy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Rodzaj_Umowy1" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="Uwagi" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Rodzaj_Umowy1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Uwagi" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Pracownicy_Zatrudnienie" Relationship="Self.FK__Pracownic__ID_Ro__440B1D61" FromRole="Rodzaj_Umowy" ToRole="Pracownicy_Zatrudnienie" />
   </EntityType>
   <EntityType Name="Stanowisko">
@@ -551,8 +551,8 @@
       <PropertyRef Name="ID_Stanowiska" />
     </Key>
     <Property Name="ID_Stanowiska" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Stanowisko1" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="Opis" Type="String" MaxLength="200" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Stanowisko1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Opis" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ID_Pensji" Type="Int32" />
     <NavigationProperty Name="Pensja" Relationship="Self.FK__Stanowisk__ID_Pe__300424B4" FromRole="Stanowisko" ToRole="Pensja" />
     <NavigationProperty Name="Pracownicy_Zatrudnienie" Relationship="Self.FK__Pracownic__ID_St__4222D4EF" FromRole="Stanowisko" ToRole="Pracownicy_Zatrudnienie" />
@@ -658,7 +658,7 @@
     <Property Name="ID_Element" Type="Int32" Nullable="false" />
     <Property Name="Liczba" Type="Int32" Nullable="false" />
     <Property Name="Czy_Otrzymano" Type="Boolean" />
-    <Property Name="Uwagi" Type="String" MaxLength="300" FixedLength="true" Unicode="false" />
+    <Property Name="Uwagi" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Elementy" Relationship="Self.FK__Zapotrzeb__ID_El__634EBE90" FromRole="Zapotrzebowanie_Opakowan" ToRole="Elementy" />
     <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Zapotrzeb__ID_Pr__625A9A57" FromRole="Zapotrzebowanie_Opakowan" ToRole="Proces_Produkcyjny" />
   </EntityType>
@@ -1959,5 +1959,20 @@
       <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
       <End Role="Zawartosc" EntitySet="Zawartosc" />
     </AssociationSet>
+    <EntitySet Name="vZatrudnienie" EntityType="Szwalnia.vZatrudnienie" />
   </EntityContainer>
+  <EntityType Name="vZatrudnienie">
+    <Key>
+      <PropertyRef Name="ID_Pracownika" />
+      <PropertyRef Name="Pensja" />
+      <PropertyRef Name="Stanowisko" />
+      <PropertyRef Name="Start_umowy" />
+      <PropertyRef Name="Koniec_umowy" />
+    </Key>
+    <Property Name="ID_Pracownika" Type="Int32" Nullable="false" />
+    <Property Name="Pensja" Type="Single" Nullable="false" />
+    <Property Name="Stanowisko" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Start_umowy" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Koniec_umowy" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
 </Schema>

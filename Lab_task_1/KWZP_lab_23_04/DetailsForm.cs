@@ -18,11 +18,13 @@ namespace KWZP_lab_23_04
 
             Pracownicy employee = db.Pracownicy.Where(pracownik => pracownik.Nazwisko == employeeLastName).First();
 
-            lblTitle.Text = employee.Imie.Trim() + ' ' + employee.Nazwisko.Trim();
+            lblTitle.Text = employee.ID_Pracownika + ' ' + employee.Imie + ' ' + employee.Nazwisko.Trim();
             txtName.Text = employee.Imie.Trim();
             txtSurname.Text = employee.Nazwisko.Trim();
             txtPesel.Text = employee.Pesel.Trim();
             txtAdres.Text = employee.Adres.Trim();
+
+            dgvEmployment.DataSource = db.vZatrudnienie.Where(employment => employment.ID_Pracownika == employee.ID_Pracownika).ToList();
         }
 
     }

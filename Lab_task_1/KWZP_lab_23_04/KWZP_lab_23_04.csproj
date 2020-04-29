@@ -231,6 +231,9 @@
     <Compile Include="Urlop.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="vZatrudnienie.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Zamowienia.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
