@@ -21,9 +21,9 @@ namespace KWZP_lab_23_04
         }
     
         public int ID_Umowy { get; set; }
-        public string ID_Kurier { get; set; }
+        public Nullable<int> ID_Kurier { get; set; }
         public Nullable<System.DateTime> Data_Zawarcia { get; set; }
-        public Nullable<System.TimeSpan> Czas_Dostawy { get; set; }
+        public Nullable<int> Czas_Dostawy { get; set; }
         public Nullable<int> Koszt_Km { get; set; }
         public Nullable<int> Koszt_Staly { get; set; }
     

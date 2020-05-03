@@ -281,11 +281,11 @@ FROM Elementy INNER JOIN (SELECT ID_Element, Data_Dostawy_Rzeczywista
 FROM Dostawy_Zawartosc INNER JOIN Zamowienia_Dostawy
 ON Dostawy_Zawartosc.ID_Dostawy=Zamowienia_Dostawy.ID_Dostawy) AS x
 ON Elementy.ID_Element=x.ID_Element
-WHERE DATEDIFF(MONTH,GETDATE(), DATEADD(MONTH, Okres_Przydatnosci_Miesiace, Data_Dostawy_Rzeczywista))<2;
+WHERE DATEDIFF(MONTH,GETDATE(), DATEADD(MONTH, Okres_Przydatnosci_Miesiace, Data_Dostawy_Rzeczywista))<2 
+AND Okres_Przydatnosci_Miesiace>0;
 
-/*
---najtañszy dostawca(wg produktu i /..œrednio dla wszystkich produktów)
-WG produktu
+
+--najtañszy dostawca WG produktu
 SELECT Nazwa, Oferta.ID_dostawcy, Ranking.ID_element, Ranking.Cena AS Cena_jednostkowa FROM(
 		SELECT ID_Element, MIN(Cena_Jedn) FROM Oferta GROUP BY ID_Element
 		) Ranking (ID_element, Cena) 
@@ -337,7 +337,8 @@ SELECT Nazwa, MidSelect.ID_dostawcy AS ID_dostawcy, Score
 	ON Dostawcy_Zaopatrzenie.ID_Dostawcy = MidSelect.ID_dostawcy 
 	ORDER BY Score DESC
 DROP TABLE #Ranking_sredni
-DROP TABLE #Ilosc_ofert
+DROP TABLE #Ilosc_ofert 
+GO
 ---------------------KONIEC SREDNIO DLA WSZYSTKICH-------------------------------------------------
 
 --najlepszy dostawca, kryteria: minimalna cena, krótki czas dostawy, minimalna iloœæ zamówienia
@@ -350,6 +351,7 @@ Mark real
 )
 --Counter for while loop declared
 DECLARE @counter INT = 0
+--SET @counter = 0
 --Teomporary amount of offers table created to work as a yardstick
 CREATE TABLE #Ilosc_ofert (
 ID_ilosc_ofert int IDENTITY(1,1) PRIMARY KEY,
@@ -447,7 +449,29 @@ WHERE Stan_magazynu.Ilosc_calkowita < Zapotrzebowanie_zamowien.Suma_potrzebnych
 
 --status zape³nienia pó³ek
 
+SELECT * FROM Zawartosc 
+DECLARE @ilosc_polek int = (SELECT COUNT(ID_Polka) FROM Polki)
+DECLARE @ilosc_polek_zajetych int = (SELECT Count(ID_Polka) FROM Zawartosc)
+DECLARE @procent_zajetych int = (@ilosc_polek_zajetych*100/@ilosc_polek)
+PRINT @procent_zajetych
+
+SELECT ID_Polka FROM Polki WHERE ID_polka NOT IN (SELECT ID_Polka FROM Zawartosc) 
+/*
+SELECT ID_polka FROM Polki WHERE ID_Polka != (SELECT ID_Polka FROM Zawartosc)
+CREATE TABLE #Puste_Polki (ID_Polka int)
+DECLARE @counter int = 0;
+WHILE @counter < (SELECT MAX(ID_Polka) FROM Polki )
+BEGIN
+SET @counter = @counter+1
+	INSERT INTO #Puste_polki
+	SELECT @counter AS ID_Polka
+	FROM Zawartosc
+	WHERE Zawartosc.ID_Polka != @counter
+END;
+SELECT * FROM #Puste_Polki
+DROP TABLE #Puste_polki
 */
+--SELECT COUNT(ID_Polka) FROM Polki
 /*sample code
 INSERT INTO 
 	Polki (ID_Rozmiar_Polki)

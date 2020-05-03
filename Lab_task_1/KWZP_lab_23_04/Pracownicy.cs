@@ -24,6 +24,7 @@ namespace KWZP_lab_23_04
             this.Pracownicy_Zatrudnienie = new HashSet<Pracownicy_Zatrudnienie>();
             this.Proces_Technologiczny = new HashSet<Proces_Technologiczny>();
             this.Przydzial_Zasobow = new HashSet<Przydzial_Zasobow>();
+            this.Urlop = new HashSet<Urlop>();
             this.Zamowienia = new HashSet<Zamowienia>();
             this.Zamowienia_Przydzial = new HashSet<Zamowienia_Przydzial>();
             this.Znajomosc_Jezykow = new HashSet<Znajomosc_Jezykow>();
@@ -50,6 +51,8 @@ namespace KWZP_lab_23_04
         public virtual ICollection<Proces_Technologiczny> Proces_Technologiczny { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Przydzial_Zasobow> Przydzial_Zasobow { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Urlop> Urlop { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zamowienia> Zamowienia { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

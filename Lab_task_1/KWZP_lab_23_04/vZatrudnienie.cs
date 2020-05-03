@@ -12,16 +12,12 @@ namespace KWZP_lab_23_04
     using System;
     using System.Collections.Generic;
     
-    public partial class Obsluga_Techniczna
+    public partial class vZatrudnienie
     {
-        public int ID_Obslugi { get; set; }
-        public int ID_Maszyny { get; set; }
-        public int ID_Rodzaj_Obslugi { get; set; }
-        public System.DateTime Data_Wykonania { get; set; }
         public int ID_Pracownika { get; set; }
-    
-        public virtual Maszyny Maszyny { get; set; }
-        public virtual Pracownicy Pracownicy { get; set; }
-        public virtual Rodzaj_Obslugi Rodzaj_Obslugi { get; set; }
+        public float Pensja { get; set; }
+        public string Stanowisko { get; set; }
+        public System.DateTime Start_umowy { get; set; }
+        public System.DateTime Koniec_umowy { get; set; }
     }
 }

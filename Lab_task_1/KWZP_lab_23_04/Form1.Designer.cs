@@ -35,6 +35,7 @@
             this.rbtRadio1 = new System.Windows.Forms.RadioButton();
             this.rbtRadio2 = new System.Windows.Forms.RadioButton();
             this.rbtRadio3 = new System.Windows.Forms.RadioButton();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnClose
@@ -72,11 +73,10 @@
             // 
             // txtButtonLabel
             // 
-            this.txtButtonLabel.Location = new System.Drawing.Point(17, 52);
+            this.txtButtonLabel.Location = new System.Drawing.Point(17, 68);
             this.txtButtonLabel.Name = "txtButtonLabel";
             this.txtButtonLabel.Size = new System.Drawing.Size(243, 20);
             this.txtButtonLabel.TabIndex = 3;
-            this.txtButtonLabel.TextChanged += new System.EventHandler(this.txtButtonLabel_TextChanged);
             // 
             // rbtRadio1
             // 
@@ -114,12 +114,23 @@
             this.rbtRadio3.UseVisualStyleBackColor = true;
             this.rbtRadio3.CheckedChanged += new System.EventHandler(this.rbtRadio3_CheckedChanged);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(71, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(150, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Szukaj pracownika (nazwisko)";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(315, 241);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.rbtRadio3);
             this.Controls.Add(this.rbtRadio2);
             this.Controls.Add(this.rbtRadio1);
@@ -143,6 +154,7 @@
         private System.Windows.Forms.RadioButton rbtRadio1;
         private System.Windows.Forms.RadioButton rbtRadio2;
         private System.Windows.Forms.RadioButton rbtRadio3;
+        private System.Windows.Forms.Label label2;
     }
 }
 

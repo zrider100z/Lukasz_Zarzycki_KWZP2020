@@ -15,7 +15,7 @@ namespace KWZP_lab_23_04
     public partial class Zawartosc
     {
         public int ID_Zawartosc { get; set; }
-        public string ID_Polka { get; set; }
+        public Nullable<int> ID_Polka { get; set; }
         public Nullable<int> ID_Element { get; set; }
         public Nullable<int> ID_Dostawy { get; set; }
         public Nullable<int> Ilosc_Paczek { get; set; }

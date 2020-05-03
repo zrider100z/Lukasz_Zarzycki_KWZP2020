@@ -24,7 +24,6 @@ namespace KWZP_lab_23_04
             this.Koszt_Jednostkowy = new HashSet<Koszt_Jednostkowy>();
             this.Material_Na_Produkcji = new HashSet<Material_Na_Produkcji>();
             this.Oferta = new HashSet<Oferta>();
-            this.Zamowienie_Produkt = new HashSet<Zamowienie_Produkt>();
             this.Zapotrzebowanie_Opakowan = new HashSet<Zapotrzebowanie_Opakowan>();
             this.Zawartosc = new HashSet<Zawartosc>();
         }
@@ -32,7 +31,6 @@ namespace KWZP_lab_23_04
         public int ID_Element { get; set; }
         public Nullable<int> ID_Element_Typ { get; set; }
         public string Element_Nazwa { get; set; }
-        public string Element_Oznaczenie { get; set; }
         public Nullable<int> Okres_Przydatnosci_Miesiace { get; set; }
         public Nullable<float> Element_Ilosc_W_Paczce { get; set; }
         public Nullable<int> ID_Jednostka { get; set; }
@@ -53,8 +51,6 @@ namespace KWZP_lab_23_04
         public virtual ICollection<Material_Na_Produkcji> Material_Na_Produkcji { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Oferta> Oferta { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Zamowienie_Produkt> Zamowienie_Produkt { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zapotrzebowanie_Opakowan> Zapotrzebowanie_Opakowan { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

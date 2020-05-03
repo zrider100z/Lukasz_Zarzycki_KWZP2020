@@ -14,6 +14,7 @@ namespace KWZP_lab_23_04
     
     public partial class Zapotrzebowanie_Opakowan
     {
+        public int ID_Zapotrzebowanie_opakowan { get; set; }
         public int ID_Procesu_Produkcyjnego { get; set; }
         public int ID_Element { get; set; }
         public int Liczba { get; set; }

@@ -18,7 +18,7 @@ namespace KWZP_lab_23_04
         public Nullable<int> ID_Pracownicy { get; set; }
         public Nullable<int> ID_Dostawy { get; set; }
         public Nullable<double> Ilosc_Dostarczona { get; set; }
-        public string ID_Miejsca { get; set; }
+        public Nullable<int> ID_Miejsca { get; set; }
         public string Data_Dostarczenia { get; set; }
     
         public virtual Zamowienia_Dostawy Zamowienia_Dostawy { get; set; }
