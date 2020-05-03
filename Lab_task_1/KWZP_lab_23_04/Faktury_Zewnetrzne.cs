@@ -14,12 +14,12 @@ namespace KWZP_lab_23_04
     
     public partial class Faktury_Zewnetrzne
     {
-        public int ID { get; set; }
+        public int ID_Faktura_zewnetrzna { get; set; }
         public float Nr_Faktury { get; set; }
         public Nullable<int> ID_Grupa { get; set; }
         public string Nazwa_Firmy { get; set; }
-        public float Cena_Netto { get; set; }
-        public float Cena_Brutto { get; set; }
+        public float Netto { get; set; }
+        public float Brutto { get; set; }
         public float Podatek { get; set; }
     
         public virtual Grupa Grupa { get; set; }

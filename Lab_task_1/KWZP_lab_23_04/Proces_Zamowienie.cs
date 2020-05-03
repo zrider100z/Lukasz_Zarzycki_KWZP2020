@@ -14,11 +14,11 @@ namespace KWZP_lab_23_04
     
     public partial class Proces_Zamowienie
     {
+        public int ID_Proces_Zamowienie { get; set; }
         public int ID_Proces_Technologiczny { get; set; }
-        public int ID_Zamowienia { get; set; }
+        public int ID_Zamowienie_Produkt { get; set; }
     
-        public virtual Elementy_Proces Elementy_Proces { get; set; }
         public virtual Proces_Technologiczny Proces_Technologiczny { get; set; }
-        public virtual Zamowienia Zamowienia { get; set; }
+        public virtual Zamowienie_Produkt Zamowienie_Produkt { get; set; }
     }
 }

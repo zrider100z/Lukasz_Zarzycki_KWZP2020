@@ -24,7 +24,7 @@ namespace KWZP_lab_23_04
         }
     
         public int ID_Procesu_Produkcyjnego { get; set; }
-        public int ID_Zamowienia { get; set; }
+        public int ID_Zamowienie_Produkt { get; set; }
         public int ID_Proces_Technologiczny { get; set; }
         public Nullable<System.DateTime> Data_Rozpoczecia { get; set; }
         public Nullable<System.DateTime> Data_Zakonczenia { get; set; }
@@ -37,7 +37,7 @@ namespace KWZP_lab_23_04
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Material_Na_Produkcji> Material_Na_Produkcji { get; set; }
         public virtual Proces_Technologiczny Proces_Technologiczny { get; set; }
-        public virtual Zamowienia Zamowienia { get; set; }
+        public virtual Zamowienie_Produkt Zamowienie_Produkt { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Realizacja_Procesu> Realizacja_Procesu { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

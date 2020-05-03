@@ -14,6 +14,7 @@ namespace KWZP_lab_23_04
     
     public partial class Przydzial_Zasobow
     {
+        public int ID_Przydzial_Zasobow { get; set; }
         public int ID_Realizacji_Procesu { get; set; }
         public int ID_Pracownika { get; set; }
         public int ID_Maszyny { get; set; }

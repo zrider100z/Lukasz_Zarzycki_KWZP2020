@@ -20,7 +20,7 @@ namespace KWZP_lab_23_04
             this.Oferta = new HashSet<Oferta>();
         }
     
-        public string ID_Dostawcy { get; set; }
+        public int ID_Dostawcy { get; set; }
         public string Nazwa { get; set; }
         public Nullable<int> Telefon_1 { get; set; }
         public Nullable<int> Telefon_2 { get; set; }

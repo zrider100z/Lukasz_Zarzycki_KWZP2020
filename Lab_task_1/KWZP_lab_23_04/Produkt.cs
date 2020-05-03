@@ -12,9 +12,18 @@ namespace KWZP_lab_23_04
     using System;
     using System.Collections.Generic;
     
-    public partial class Produkty
+    public partial class Produkt
     {
-        public int ID_Produkty { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Produkt()
+        {
+            this.Zamowienie_Produkt = new HashSet<Zamowienie_Produkt>();
+        }
+    
+        public int ID_Produkt { get; set; }
         public string Nazwa { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Zamowienie_Produkt> Zamowienie_Produkt { get; set; }
     }
 }

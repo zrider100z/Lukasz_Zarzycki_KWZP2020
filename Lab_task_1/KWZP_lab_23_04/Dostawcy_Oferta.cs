@@ -14,8 +14,8 @@ namespace KWZP_lab_23_04
     
     public partial class Dostawcy_Oferta
     {
-        public int ID_Doestawcy_Oferta { get; set; }
-        public string ID_Oferta { get; set; }
+        public int ID_Dostawcy_Oferta { get; set; }
+        public Nullable<int> ID_Oferta { get; set; }
         public Nullable<int> ID_Zamowienia { get; set; }
     
         public virtual Oferta Oferta { get; set; }

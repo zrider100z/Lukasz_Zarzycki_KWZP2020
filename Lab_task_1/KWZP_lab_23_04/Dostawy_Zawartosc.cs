@@ -14,7 +14,7 @@ namespace KWZP_lab_23_04
     
     public partial class Dostawy_Zawartosc
     {
-        public int ID_Dostawy_zawartosc { get; set; }
+        public int ID_Dostawy_Zawartosc { get; set; }
         public Nullable<int> ID_Dostawy { get; set; }
         public Nullable<int> ID_Element { get; set; }
         public Nullable<int> Ilosc_Dostarczona { get; set; }

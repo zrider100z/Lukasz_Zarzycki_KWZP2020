@@ -14,12 +14,23 @@ namespace KWZP_lab_23_04
     
     public partial class Zamowienie_Produkt
     {
-        public int ID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Zamowienie_Produkt()
+        {
+            this.Proces_Produkcyjny = new HashSet<Proces_Produkcyjny>();
+            this.Proces_Zamowienie = new HashSet<Proces_Zamowienie>();
+        }
+    
+        public int ID_Zamowienie_Produkt { get; set; }
         public Nullable<int> ID_Zamowienia { get; set; }
-        public Nullable<int> ID_Element { get; set; }
+        public Nullable<int> ID_Produkt { get; set; }
         public int Ilosc { get; set; }
     
-        public virtual Elementy Elementy { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Proces_Produkcyjny> Proces_Produkcyjny { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Proces_Zamowienie> Proces_Zamowienie { get; set; }
+        public virtual Produkt Produkt { get; set; }
         public virtual Zamowienia Zamowienia { get; set; }
     }
 }

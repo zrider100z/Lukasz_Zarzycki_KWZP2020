@@ -14,6 +14,7 @@ namespace KWZP_lab_23_04
     
     public partial class Kontrola_Efektywnosci
     {
+        public int ID_Kontrola_Efektywnosci { get; set; }
         public int ID_Procesu_Produkcyjnego { get; set; }
         public System.DateTime Data_Kontroli { get; set; }
         public byte[] Dokument { get; set; }

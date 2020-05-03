@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\Git\Users\zrider100z\Source\Repos\Lukasz_Zarzycki_KWZP2020\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\Szwalnia.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\Git\Users\zrider100z\Source\Repos\Lukasz_Zarzycki_KWZP2020\Lukasz_Zarzycki_KWZP2020\Lab_task_1\KWZP_lab_23_04\Model1.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
