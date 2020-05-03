@@ -191,11 +191,18 @@ VALUES
 INSERT INTO 
 	Polki_rozmiary (Wysokosc,Szerokosc,Glebokosc)
 VALUES
+	(50,100,100),
 	(100,100,100),
-	(200,200,200),
-	(200,300,100),
-	(100,300,100),
-	(500,500,100)
+	(150,100,100),
+	(200,100,100),
+	(50,200,100),
+	(100,200,100),
+	(150,200,100),
+	(200,200,100),
+	(100,300,200),
+	(200,300,200),
+	(300,300,200),
+	(400,300,200)
 
 INSERT INTO 
 Elementy_Typy (Typ, Czy_wlasne)
@@ -236,19 +243,41 @@ VALUES
 	('Wysokosc')
 
 INSERT INTO 
-	Polki (Rozszerzenie_ID, ID_Rozmiar_Polki)
+	Polki (ID_Rozmiar_Polki)
 VALUES
-	('A',1),
-	('A',1),
-	('B',1),
-	('C',1),
-	('A',2),
-	('A',3),
-	('B',3),
-	('A',4),
-	('A',5),
-	('B',5),
-	('C',5)
+	(1),
+	(1),
+	(2),
+	(2),
+	(5),
+	(6),
+	(6),
+	(7), --1 regal - 8 polek
+	(1),
+	(1),
+	(1),
+	(2),
+	(2),
+	(2),
+	(2),
+	(6),
+	(9), --2 regal - 9 polek /do 17
+	(10),
+	(10),
+	(10),
+	(12), --3 regal - 4 polek /do 21
+	(2),
+	(2),
+	(2),
+	(2),
+	(2),
+	(2), --4 regal - 6 polek /do 27
+	(1),
+	(1),
+	(2),
+	(2),
+	(3),
+	(3)  --5 regal - 5 polek /do 32
 
 INSERT INTO 
 	Dostawcy_Zaopatrzenie (Nazwa,Telefon_1,Telefon_2,Email)
@@ -293,6 +322,15 @@ VALUES
 	('Biuro'),
 	('Dzial finansow')
 
+INSERT INTO 
+	Regaly(Oznaczenie)
+VALUES
+	 ('AA'),
+	 ('AB'),
+	 ('AC'),
+	 ('AD'),
+	 ('AE')
+
 INSERT INTO
 	Typy_cechy_rejestr (ID_typ, ID_cecha)
 VALUES
@@ -322,9 +360,7 @@ VALUES
 	(8,7)
 
 INSERT INTO
-	Elementy (
-	ID_Element_Typ,Element_Nazwa,
-	Okres_Przydatnosci_Miesiace)
+	Elementy (ID_Element_Typ,Element_Nazwa,Okres_Przydatnosci_Miesiace)
 VALUES
 	(1,'£o¿ysko',24),
 	(2,'Bawe³na',48),
@@ -354,6 +390,43 @@ VALUES
 	(10,2,40,2,null),
 	(11,2,40,2,null),
 	(11,3,30,2,null)
+
+INSERT INTO
+	Polki_regaly (ID_Regal, ID_Polka)
+VALUES
+	(1,1),
+	(1,2),
+	(1,3),
+	(1,4),
+	(1,5),
+	(1,6),
+	(1,7),
+	(1,8),
+	(2,9),
+	(2,10),
+	(2,11),
+	(2,12),
+	(2,13),
+	(2,14),
+	(2,15),
+	(2,16),
+	(2,17),
+	(3,18),
+	(3,19),
+	(3,20),
+	(3,21),
+	(4,22),
+	(4,23),
+	(4,24),
+	(4,25),
+	(4,26),
+	(4,27),
+	(5,28),
+	(5,29),
+	(5,30),
+	(5,31),
+	(5,32),
+	(5,33)
 
 INSERT INTO 
 	Umowy_Kurierzy (ID_Kurier,Data_Zawarcia,Czas_Dostawy,Koszt_Km,Koszt_Staly)
@@ -436,8 +509,6 @@ VALUES
 	(2,2,5,10),
 	(3,3,9,2),
 	(4,5,14,1)
-
-
 
 INSERT INTO		
 	Dostarczenia_Wewn(ID_pracownicy,ID_dostawy,Ilosc_dostarczona,ID_miejsca,Data_dostarczenia) 

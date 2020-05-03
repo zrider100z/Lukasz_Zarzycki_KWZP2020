@@ -159,18 +159,9 @@ ID_Cecha int IDENTITY(1,1) PRIMARY KEY,
 Cecha varchar(20)
 )
 
-CREATE TABLE Regaly(
-ID_regal int IDENTITY(1,1) PRIMARY KEY,
-Oznaczenie varchar(10)
-)
-
 CREATE TABLE Polki (
 ID_Polka int IDENTITY(1,1) PRIMARY KEY,
-ID_regal int
-	FOREIGN KEY REFERENCES
-	Regaly(ID_regal),
-Numer_na_regale int,
-Rozszerzenie_numeru varchar(2),
+Rozszerzenie_ID varchar(2),
 ID_Rozmiar_Polki int 
 	FOREIGN KEY REFERENCES 
 	Polki_Rozmiary(ID_Rozmiar_Polki)
@@ -194,6 +185,11 @@ Email varchar(40)
 CREATE TABLE Miejsca (
 ID_Miejsca int IDENTITY(1,1) PRIMARY KEY,
 Nazwa varchar(20),
+)
+
+CREATE TABLE Regaly(
+ID_Regal int IDENTITY(1,1) PRIMARY KEY,
+Oznaczenie varchar(10)
 )
 ---------------------------------------------------------TABELE Z KLUCZAMI OBCYMI MAGAZYN ---------------------------------------------------------
 CREATE TABLE Typy_cechy_rejestr(
@@ -227,6 +223,15 @@ ID_Jednostka int
 	FOREIGN KEY REFERENCES
 	Elementy_Jednostki(ID_Jednostka),
 Wartosc_Cechy_Slowna varchar(30)
+)
+
+CREATE TABLE Polki_regaly (
+ID_Regal int 
+	FOREIGN KEY REFERENCES 
+	Regaly(ID_Regal),
+ID_Polka int UNIQUE
+	FOREIGN KEY REFERENCES 
+	Polki(ID_polka)
 )
 
 CREATE TABLE Umowy_Kurierzy (
