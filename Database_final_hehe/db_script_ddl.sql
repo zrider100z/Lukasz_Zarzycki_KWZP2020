@@ -134,7 +134,7 @@ Podatek real not null,
 --Magazyn tabele s³ownikowe 
 CREATE TABLE Statusy (
 ID_statusu int IDENTITY(1,1) Primary key, 
-Status_zatw varchar(9)
+Status_zatw varchar(12)
 )
 
 CREATE TABLE Polki_Rozmiary (
