@@ -181,6 +181,13 @@ VALUES
 ('5','2','200');
 
 ---------------------INSERTY MAGAZYN---------------------------------------------------------
+INSERT INTO
+	Statusy (Status_zatw)
+VALUES
+	('brak'),
+	('zatwierdzone'),
+	('odrzucone')
+
 INSERT INTO 
 	Polki_rozmiary (Wysokosc,Szerokosc,Glebokosc)
 VALUES
@@ -191,14 +198,16 @@ VALUES
 	(500,500,100)
 
 INSERT INTO 
-Elementy_Typy (Typ)
+Elementy_Typy (Typ, Czy_wlasne)
 VALUES
-	('Czesci maszyn'),
-	('Tkanina'),
-	('Nici'),
-	('Guziki'),
-	('Opakowania'),
-	('Gumka')
+	('Czesci maszyn', 0),
+	('Tkanina', 0),
+	('Nici', 0),
+	('Guziki', 0),
+	('Opakowania', 0),
+	('Gumka', 0),
+	('Polfabrykat', 1),
+	('Ubrania', 1)
 
 INSERT INTO 
 	Elementy_Jednostki (Jednostka)
@@ -227,19 +236,19 @@ VALUES
 	('Wysokosc')
 
 INSERT INTO 
-	Polki (ID_Rozmiar_Polki)
+	Polki (Rozszerzenie_ID, ID_Rozmiar_Polki)
 VALUES
-	(1),
-	(1),
-	(1),
-	(1),
-	(2),
-	(3),
-	(3),
-	(4),
-	(5),
-	(5),
-	(5)
+	('A',1),
+	('A',1),
+	('B',1),
+	('C',1),
+	('A',2),
+	('A',3),
+	('B',3),
+	('A',4),
+	('A',5),
+	('B',5),
+	('C',5)
 
 INSERT INTO 
 	Dostawcy_Zaopatrzenie (Nazwa,Telefon_1,Telefon_2,Email)
