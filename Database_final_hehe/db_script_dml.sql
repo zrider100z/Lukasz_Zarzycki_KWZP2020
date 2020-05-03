@@ -294,6 +294,24 @@ VALUES
 	('Dzial finansow')
 
 INSERT INTO
+	Typy_cechy_rejestr (ID_typ, ID_cecha)
+VALUES
+	(1,5),
+	(1,7),
+	(2,1),
+	(2,3),
+	(2,6),
+	(2,8),
+	(2,9),
+	(3,1),
+	(3,6),
+	(4,1),
+	(5,1),
+	(6,1),
+	(7,1),
+	(8,1)
+
+INSERT INTO
 	Elementy (
 	ID_Element_Typ,Element_Nazwa,
 	Okres_Przydatnosci_Miesiace)
