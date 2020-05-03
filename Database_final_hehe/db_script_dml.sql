@@ -463,14 +463,15 @@ VALUES
 ('Kod na wycinarkê'),
 ('Dokumentacja 2D');
 
-INSERT INTO Dokumentacje(ID_Rodzaj_Dokumentacji,ID_Pracownika,Data_Wykonania)
+INSERT INTO Dokumentacje(ID_Rodzaj_Dokumentacji,ID_Pracownika,Data_Wykonania, Plik)
+--jak cos to to jest zrobione tylko zeby mi moje dzialaly /Janusz
 VALUES
-(2,17,2020-03-01),
-(1,13,2020-03-06),
-(2,18,2020-03-16),
-(1,14,2020-04-01),
-(1,13,2020-04-10),
-(2,18,2020-05-11);
+(2,17,2020-03-01,'sdfdf'),
+(1,13,2020-03-06,'sdfdf'),
+(2,18,2020-03-16,'sdfdf'),
+(1,14,2020-04-01,'sdfdf'),
+(1,13,2020-04-10,'sdfdf'),
+(2,18,2020-05-11,'sdfdf');
 
 INSERT INTO Dokumentacja_proces(ID_Dokumentacji)
 VALUES
@@ -492,15 +493,16 @@ VALUES
 (4,13),
 (1,13);
 
-INSERT INTO Rodzaj_Maszyny (Rodzaj_Maszyny)
+INSERT INTO Rodzaj_Maszyny (Rodzaj_Maszyny,Koszt_Rbh)
+--jak cos to to jest zrobione tylko zeby mi moje dzialaly /Janusz
 VALUES
-('Maszyna_Do_Szycia'),
-('Wycinarka_Laserowa'),
-('Pralka'),
-('Suszarka'),
-('Maszyna_Do_Prasowania');
+('Maszyna_Do_Szycia',1),
+('Wycinarka_Laserowa',1),
+('Pralka',1),
+('Suszarka',1),
+('Maszyna_Do_Prasowania',1);
 
-INSERT INTO Maszyny (ID_Srodki_Trwale, ID_Rodzaj_Maszyny, Resurs_Rbh, Serwis_Co_Ile)
+/*INSERT INTO Maszyny (ID_Srodki_Trwale, ID_Rodzaj_Maszyny, Resurs_Rbh, Serwis_Co_Ile)
 VALUES --jak cos to to jest zrobione tylko zeby mi moje dzialaly /Magda
 (1, 1, 200, 1),
 (1, 1, 180, 1),
@@ -521,14 +523,14 @@ VALUES --jak cos to to jest zrobione tylko zeby mi moje dzialaly /Magda
 (3, 4, 200, 4),
 (3, 5, 300, 1),
 (3, 5, 300, 4);
-
+*/
 INSERT INTO Rodzaj_Obslugi(Nazwa)
 VALUES
 ('Serwis'),
 ('Naprawa'),
 ('Przezbrojenie');
 
-INSERT INTO Obsluga_Techniczna (ID_Maszyny, ID_Rodzaj_Obslugi, Data_Wykonania, ID_Pracownika)
+/*INSERT INTO Obsluga_Techniczna (ID_Maszyny, ID_Rodzaj_Obslugi, Data_Wykonania, ID_Pracownika)
 VALUES
 (1,2,2020-04-22,4),
 (10,1,2020-04-27,4),
@@ -547,7 +549,7 @@ VALUES --tralala Magda tu byla i blad wykluczyla
 (2,1,2),
 (2,7,1),
 (3,8,2);
-
+*/
 INSERT INTO Maszyny_Proces ( ID_Proces_Technologiczny, ID_Rodzaj_Maszyny, Liczba_Maszyn, Liczba_Rbh_Maszyna)
 VALUES --tu tez cos zmienilam bo bledy byly /Magda
 (1, 1, 3, 240),
@@ -564,16 +566,17 @@ VALUES --tu tez cos zmienilam bo bledy byly /Magda
 (3, 2, 1, 80),
 (3, 3, 2, 160),
 (3, 4, 2, 100);
-
-INSERT INTO Proces_Zamowienie(ID_Proces_Technologiczny,ID_Zamowienie_Element)
+/*
+INSERT INTO Proces_Zamowienie(ID_Proces_Technologiczny,ID_Zamowienie_Element,Kompletny_Proces)
+--tu tez cos zmienilem bo bledy byly /Janusz
 VALUES --tralala Magda tu byla i blad wykluczyla
-(1,2),
-(2,1),
-(3,4),
-(4,3),
-(5,1),
-(6,2);
-
+(1,2,1),
+(2,1,1),
+(3,4,1),
+(4,3,1),
+(5,1,1),
+(6,2,1);
+*/
 INSERT INTO Elementy_Proces(ID_Proces_Technologiczny,ID_Element,Liczba)
 VALUES
 (1,2,15),
@@ -650,7 +653,7 @@ VALUES
 (5, 2, 30, 4, 2.5), 
 (6, 2, 50, 4, 1.5), 
 (6, 4, 15, 8, 1); 
-*/
+
 INSERT INTO Realizacja_Procesu (ID_Procesu_Produkcyjnego, ID_Etapu, Data_Rozpoczecia_Procesu, Data_Zakonczenia_Procesu, Data_Kontroli, Uwagi_Kontroli)
 VALUES
 (1, 1, '2020-04-12 09:21:15', '2020-04-12 10:21:15', '2020-04-12 10:25:00', 'brak uwag'),
@@ -692,7 +695,7 @@ VALUES
 (3, 5, 1),
 (3, 6, 2);
 
-/*INSERT INTO Zapotrzebowanie_Opakowan (ID_Procesu_Produkcyjnego, ID_Element, Liczba, Czy_Otrzymano, Uwagi)
+INSERT INTO Zapotrzebowanie_Opakowan (ID_Procesu_Produkcyjnego, ID_Element, Liczba, Czy_Otrzymano, Uwagi)
 VALUES -- chyba nieaktualne to wyrzucilam se /Magda
 (1, 11, 300, 1, 'brak uwag'), 
 (1, 10, 10, 1, 'brak uwag'),
@@ -702,7 +705,7 @@ VALUES -- chyba nieaktualne to wyrzucilam se /Magda
 (3, 10, 10, 1, 'brak uwag'),
 (4, 11, 270, 1, 'brak uwag'),
 (4, 10, 10, 1, 'brak uwag');
-*/
+
 INSERT INTO Kontrola_Efektywnosci (ID_Procesu_Produkcyjnego, Data_Kontroli, Dokument, Uwagi, Zgodnosc_Zamowienia , Liczba_Poprawnych)
 VALUES
 (1, '2020-04-14 18:50:00', 'dok_1.img', 'brak uwag', 1, 300),
@@ -710,4 +713,5 @@ VALUES
 (3, '2020-04-19 13:30:01', 'dok_3.img', 'brak uwag', 1, 500),
 (4, '2020-04-21 13:15:00', 'dok_4.img', 'brak uwag', 1, 280),
 (5, '2020-04-23 21:40:00', 'dok_4.img', 'brak uwag', 1, 103);
+*/
 use master
