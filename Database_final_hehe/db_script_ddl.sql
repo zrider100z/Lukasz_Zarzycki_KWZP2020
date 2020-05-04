@@ -300,12 +300,12 @@ ID_Zawartosc int IDENTITY(1,1) PRIMARY KEY,
 ID_Polka int UNIQUE
 	FOREIGN KEY REFERENCES 
 	Polki(ID_Polka),
-ID_Dostawy int
-	FOREIGN KEY REFERENCES
-	Zamowienia_Dostawy(ID_Dostawy),
 ID_Element int
 	FOREIGN KEY REFERENCES 
 	Elementy(ID_Element),
+ID_Dostawy int
+	FOREIGN KEY REFERENCES
+	Zamowienia_Dostawy(ID_Dostawy),
 Ilosc_Paczek int
 )
 
