@@ -185,7 +185,7 @@ INSERT INTO
 	Statusy (Status_zatw)
 VALUES
 	('brak'),
-	('zatwierdzone'),
+	('przyjete'),
 	('odrzucone')
 
 INSERT INTO 
