@@ -10,11 +10,6 @@ CREATE TABLE Rodzaj_Etapu
 Nazwa varchar(30) NOT NULL); 
 ----------------------------------Finanse i Zarz¹dzanie--------------------------------------------------- 
 
-CREATE TABLE Rodzaj_Urlopu (
-ID_Rodzaj_Urlopu int IDENTITY(1,1) Primary key, 
-Nazwa varchar(20)
-)
-
 CREATE TABLE Klienci ( 
 ID_Klienta int IDENTITY(1,1) PRIMARY KEY, 
 Imie varchar(50) not null, 
@@ -22,10 +17,11 @@ Nazwisko varchar(50) not null,
 Nazwa_Firmy varchar(100) unique,  
 NIP varchar(10) UNIQUE,  
 Adres varchar(100) not null, 
-Odleglosc_km int NOT NULL,
+Odleglosc_km varchar(15) not null unique,
 Telefon varchar(15) not null unique,  
 E_Mail varchar(50) not null unique 
 ); 
+
 CREATE TABLE Dzialy ( 
 ID_Dzialu int IDENTITY(1,1) PRIMARY KEY, 
 Nazwa_dzialu varchar(50) not null, 
@@ -42,10 +38,12 @@ Roczny_stopien_amortyzacji varchar(100) not null,
 Gwarancja DATE not null default GETDATE(),  
 Zamortyzowane BIT not null unique 
 ); 
+
 CREATE TABLE Pensja ( 
 ID_Pensja int IDENTITY (1,1) PRIMARY KEY, 
 Pensja real not null 
 ); 
+
 
 CREATE TABLE Stanowisko ( 
 ID_Stanowiska int IDENTITY (1,1) PRIMARY KEY,  
@@ -72,15 +70,25 @@ Imie varchar(50) not null,
 Nazwisko varchar(50) not null, 
 Pesel varchar(11) not null unique, 
 Adres varchar(100) not null, 
-Telefon varchar(15) not null unique,
-); 
+Telefon varchar(15) not null unique
+);
+
+CREATE TABLE Rodzaj_Urlopu (
+ID_Rodzaj_Urlopu int IDENTITY(1,1) Primary key, 
+Nazwa varchar(20)not null
+);
+ CREATE TABLE Wymiar_Urlopu (
+ID_Wymiar_Urlopu int IDENTITY(1,1) Primary key, 
+Iloœæ_dni varchar(20)not null
+);
 
 CREATE TABLE Urlop ( 
 ID_Urlop int IDENTITY (1,1) PRIMARY KEY, 
 ID_Pracownika int FOREIGN KEY REFERENCES Pracownicy(ID_Pracownika), 
 Data_rozpoczêcia DATE not null default GETDATE(), 
 Data_zakonczenia DATE not null default GETDATE(),
-ID_Rodzaj_Urlopu int FOREIGN KEY REFERENCES Rodzaj_Urlopu  (ID_Rodzaj_Urlopu)
+ID_Rodzaj_Urlopu int FOREIGN KEY REFERENCES Rodzaj_Urlopu (ID_Rodzaj_Urlopu),
+ID_Wymiar_Urlopu int FOREIGN KEY REFERENCES Wymiar_Urlopu (ID_Wymiar_Urlopu)
 );  
 
 CREATE TABLE Pracownicy_Zatrudnienie ( 
@@ -129,13 +137,12 @@ Netto real not null,
 Brutto real not null, 
 Podatek real not null, 
 ); 
---na dole jest jeszcze jedna wasza tabela jbc /Justyna
 
 --------------------------------------------------------- MAGAZYN--------------------------------------------------------- 
 --Magazyn tabele s³ownikowe 
 CREATE TABLE Statusy (
 ID_statusu int IDENTITY(1,1) Primary key, 
-Status_zatw varchar(12)
+Status_zatw varchar(9)
 )
 
 CREATE TABLE Polki_Rozmiary (
@@ -189,9 +196,10 @@ Nazwa varchar(20),
 )
 
 CREATE TABLE Regaly(
-ID_Regal int IDENTITY(1,1) PRIMARY KEY,
+ID_regal int IDENTITY(1,1) PRIMARY KEY,
 Oznaczenie varchar(10)
 )
+
 ---------------------------------------------------------TABELE Z KLUCZAMI OBCYMI MAGAZYN ---------------------------------------------------------
 CREATE TABLE Typy_cechy_rejestr(
 ID_typ int
@@ -200,6 +208,15 @@ ID_typ int
 ID_cecha int
 	FOREIGN KEY REFERENCES
 	Elementy_cechy_slownik (ID_Cecha)
+)
+
+CREATE TABLE Polki_regaly (
+ID_regal int 
+	FOREIGN KEY REFERENCES 
+	Regaly(ID_regal),
+ID_Polka int UNIQUE
+	FOREIGN KEY REFERENCES 
+	Polki(ID_polka)
 )
 
 CREATE TABLE Elementy (
@@ -224,15 +241,6 @@ ID_Jednostka int
 	FOREIGN KEY REFERENCES
 	Elementy_Jednostki(ID_Jednostka),
 Wartosc_Cechy_Slowna varchar(30)
-)
-
-CREATE TABLE Polki_regaly (
-ID_Regal int 
-	FOREIGN KEY REFERENCES 
-	Regaly(ID_Regal),
-ID_Polka int UNIQUE
-	FOREIGN KEY REFERENCES 
-	Polki(ID_polka)
 )
 
 CREATE TABLE Umowy_Kurierzy (
@@ -332,6 +340,9 @@ ID_Pracownicy int
 ID_Dostawy int
 	FOREIGN KEY REFERENCES
 	Zamowienia_Dostawy (ID_Dostawy),
+ID_element int
+	FOREIGN KEY REFERENCES
+	Elementy(ID_Element),
 Ilosc_Dostarczona float,
 ID_Miejsca int
 	FOREIGN KEY REFERENCES
@@ -347,14 +358,15 @@ ID_Pracownicy int
 ID_Zamowienia int 
 	FOREIGN KEY REFERENCES
 	Zamowienia(ID_Zamowienia),
+ID_element int
+	FOREIGN KEY REFERENCES
+	Elementy(ID_Element),
 Ilosc_Dostarczona float,
 ID_Miejsca int
 	FOREIGN KEY REFERENCES
 	Miejsca(ID_Miejsca),
 Data_Dostarczenia varchar(10),
 )
-
------------------------------------------------------TABELA FINANSÓW----------------------------------------------------------
 
 CREATE TABLE Zamowienie_Element (
 	ID_Zamowienie_Element int IDENTITY (1,1) PRIMARY KEY,
@@ -456,7 +468,6 @@ create table Etapy_W_Procesie (
 GO
 
 -----------------------------------------Produkcja----------------------------------------- 
-    
 CREATE TABLE Proces_Produkcyjny  
 (ID_Procesu_Produkcyjnego int IDENTITY(1,1) PRIMARY KEY NOT NULL, 
 ID_Zamowienie_Element int FOREIGN KEY REFERENCES Zamowienie_Element (ID_Zamowienie_Element) NOT NULL, 
@@ -488,9 +499,8 @@ CREATE TABLE Przydzial_Zasobow
 ID_Realizacji_Procesu int FOREIGN KEY REFERENCES Realizacja_Procesu (ID_Realizacji_Procesu) NOT NULL, 
 ID_Pracownika int FOREIGN KEY REFERENCES Pracownicy (ID_Pracownika) NOT NULL, 
 ID_Maszyny int FOREIGN KEY REFERENCES Maszyny (ID_Maszyny) NOT NULL,
-Data_Rozpoczecia SMALLDATETIME,
-Data_Zakonczenia SMALLDATETIME
-);
+Data_Rozpoczecia SMALLDATETIME NULL,
+Data_Zakonczenia SMALLDATETIME NULL);
   
 CREATE TABLE Kontrola_Efektywnosci  
 (ID_Kontrola_Efektywnosci int IDENTITY(1,1) PRIMARY KEY NOT NULL, 
@@ -514,17 +524,4 @@ FROM Elementy INNER JOIN
 	Elementy_Cechy ON Elementy.ID_Element = Elementy_Cechy.ID_Element INNER JOIN 
 	Elementy_Cechy_Slownik ON Elementy_Cechy.ID_Cecha = Elementy_Cechy_Slownik.ID_Cecha INNER JOIN 
 	Elementy_Jednostki ON Elementy_Cechy.ID_Jednostka = Elementy_Jednostki.ID_jednostka
-GO
-
-CREATE VIEW [dbo].[vRegaly]
-AS
-SELECT Regaly.Oznaczenie, Polki.ID_Polka, Elementy.Element_Nazwa, Zawartosc.Ilosc_Paczek, Elementy_Jednostki.Jednostka
-FROM            dbo.Elementy_Jednostki INNER JOIN
-    Elementy INNER JOIN
-    Oferta ON Elementy.ID_Element = Oferta.ID_Element ON Elementy_Jednostki.ID_jednostka = Oferta.ID_Jednostka INNER JOIN
-    Dostawy_Zawartosc ON dbo.Elementy.ID_Element = Dostawy_Zawartosc.ID_Element AND Oferta.ID_Oferta = Dostawy_Zawartosc.ID_oferta INNER JOIN
-    Zawartosc ON Elementy.ID_Element = Zawartosc.ID_Element INNER JOIN
-    Polki_regaly INNER JOIN
-    Polki ON dbo.Polki_regaly.ID_Polka = Polki.ID_Polka INNER JOIN
-    Regaly ON dbo.Polki_regaly.ID_Regal = Regaly.ID_Regal ON Zawartosc.ID_Polka = Polki.ID_Polka
 GO
