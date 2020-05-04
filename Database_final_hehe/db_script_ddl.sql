@@ -516,15 +516,25 @@ FROM Elementy INNER JOIN
 	Elementy_Jednostki ON Elementy_Cechy.ID_Jednostka = Elementy_Jednostki.ID_jednostka
 GO
 
-CREATE VIEW [dbo].[vRegaly]
+---- Widok polek na regalach (z wymiarami)
+CREATE VIEW [dbo].[vPolki_na_regalach]
 AS
-SELECT Regaly.Oznaczenie, Polki.ID_Polka, Elementy.Element_Nazwa, Zawartosc.Ilosc_Paczek, Elementy_Jednostki.Jednostka
-FROM            dbo.Elementy_Jednostki INNER JOIN
-    Elementy INNER JOIN
-    Oferta ON Elementy.ID_Element = Oferta.ID_Element ON Elementy_Jednostki.ID_jednostka = Oferta.ID_Jednostka INNER JOIN
-    Dostawy_Zawartosc ON dbo.Elementy.ID_Element = Dostawy_Zawartosc.ID_Element AND Oferta.ID_Oferta = Dostawy_Zawartosc.ID_oferta INNER JOIN
-    Zawartosc ON Elementy.ID_Element = Zawartosc.ID_Element INNER JOIN
-    Polki_regaly INNER JOIN
-    Polki ON dbo.Polki_regaly.ID_Polka = Polki.ID_Polka INNER JOIN
-    Regaly ON dbo.Polki_regaly.ID_Regal = Regaly.ID_Regal ON Zawartosc.ID_Polka = Polki.ID_Polka
+SELECT        TOP (100) PERCENT dbo.Regaly.Oznaczenie, dbo.Polki.ID_Polka, dbo.Polki_Rozmiary.Wysokosc, dbo.Polki_Rozmiary.Szerokosc, dbo.Polki_Rozmiary.Glebokosc
+FROM            dbo.Regaly INNER JOIN
+                         dbo.Polki_regaly ON dbo.Regaly.ID_Regal = dbo.Polki_regaly.ID_Regal INNER JOIN
+                         dbo.Polki ON dbo.Polki_regaly.ID_Polka = dbo.Polki.ID_Polka INNER JOIN
+                         dbo.Polki_Rozmiary ON dbo.Polki.ID_Rozmiar_Polki = dbo.Polki_Rozmiary.ID_Rozmiar_Polki
+ORDER BY dbo.Polki.ID_Polka
+GO
+
+---- Widok zawartosci polek
+CREATE VIEW [dbo].[vZawartosc polki]
+AS
+SELECT        dbo.Zawartosc.ID_Polka, dbo.Elementy.Element_Nazwa, dbo.Zawartosc.Ilosc_Paczek, dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym, dbo.Elementy_Jednostki.Jednostka
+FROM            dbo.Polki INNER JOIN
+                         dbo.Zawartosc ON dbo.Polki.ID_Polka = dbo.Zawartosc.ID_Polka INNER JOIN
+                         dbo.Zamowienia_Dostawy ON dbo.Zawartosc.ID_Dostawy = dbo.Zamowienia_Dostawy.ID_Dostawy INNER JOIN
+                         dbo.Elementy ON dbo.Zawartosc.ID_Element = dbo.Elementy.ID_Element INNER JOIN
+                         dbo.Oferta ON dbo.Elementy.ID_Element = dbo.Oferta.ID_Element INNER JOIN
+                         dbo.Elementy_Jednostki ON dbo.Oferta.ID_Jednostka = dbo.Elementy_Jednostki.ID_jednostka
 GO
