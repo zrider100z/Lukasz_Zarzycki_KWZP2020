@@ -484,13 +484,13 @@ VALUES
 	(4,2,1)
 
 INSERT INTO 
-	Zamowienia_Dostawy(ID_zamowienia,Data_dostawy_planowana,Data_dostawy_rzeczywista) 
+	Zamowienia_Dostawy(ID_zamowienia,Data_dostawy_planowana,Data_dostawy_rzeczywista,ID_statusu) 
 VALUES 
-	(1,'2020-04-08','2020-04-09'),
-	(2,'2020-04-09','2020-04-11'),
-	(3,'2020-04-09','2020-04-08'),
-	(4,'2020-04-12','2020-04-14'),
-	(5,'2020-04-16','2020-04-16')
+	(1,'2020-04-08','2020-04-09',1),
+	(2,'2020-04-09','2020-04-11',2),
+	(3,'2020-04-09','2020-04-08',1),
+	(4,'2020-04-12','2020-04-14',1),
+	(5,'2020-04-16','2020-04-16',1)
 
 INSERT INTO 
 	Zawartosc(ID_Polka,ID_Element,ID_Dostawy,Ilosc_Paczek) 
