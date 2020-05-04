@@ -12,25 +12,17 @@ VALUES
     ('Guzikowanie'),
     ('Pakowanie'),
     ('Metkowanie - pistolet'),
-    ( 'Wszywanie suwaków');
+    ('Wszywanie suwaków');
 
-/*INSERT INTO Produkt(Nazwa) 
-VALUES  --a wywalilam bo co hehe /Magda
-    ('Koszulka'), 
-    ('Spodnie'), 
-    ('Sukienka'), 
-    ('Koszula'), 
-    ('Bluza'); 
-*/ 
-INSERT into Klienci(Imie, Nazwisko, Nazwa_Firmy, NIP, Adres,Odleglosc_km, Telefon, E_Mail)
-VALUES -- bylam tu i zrob=ilam byle jak byle mi dzialalo /Magda
-('Jan','Jankowski','Firmowo','1213141516','Firmowa 2, Warszawa',1,'987548362','Mailfirmowy@gmail.com'),
-('Piotr','Piotrowski','Zamaseczowo','9882351235','Kazimierza Wielkiego 44, £ódŸ',1,'675234123','Zamaseczki@gmail.com'),
-('Pawe³','Paw³owski','Ulandia','7654827346','Aleje Religijne 784, Mr¹gowo',1,'526374583','Tomasz.Rogulski@gmail.com'),
-('Kamil','Kamilowski','Primaris','2845401300','Królewska 1, Warszawa',1,'748372421','FirmowyMail@gmail.com'),
-('Ferrus','Manus','IOM','1113123125','Pa³acowa 1, Terra',1,'777838352','IOM.mail@gmail.com');
+INSERT into Klienci (Imie, Nazwisko, Nazwa_Firmy, NIP, Adres, Odleglosc_km, Telefon, E_Mail)
+VALUES
+('Jan','Jankowski','Firmowo','1213141516','Firmowa 2, Warszawa','100','987548362','mailfirmowy@gmail.com'),
+('Piotr','Piotrowski','Zamaseczowo','9882351235','Kazimierza Wielkiego 44, £ódŸ', '90','675234123','Zamaseczki@gmail.com'),
+('Pawe³','Paw³owski','Ulandia','7654827346','Aleje Religijne 784, Mr¹gowo','526374583','92','Tomasz.Rogulski@gmail.com'),
+('Kamil','Kamilowski','Primaris','2845401300','Królewska 1, Warszawa','748372421','70','FirmowyMail@gmail.com'),
+('Ferrus','Manus','IOM','1113123125','Pa³acowa 1, Terra', '70','777838352','IOM.mail@gmail.com');
 
-INSERT into Pensja(Pensja)
+INSERT into Pensja (Pensja)
 VALUES
 ('2500'),
 ('3000'),
@@ -38,7 +30,7 @@ VALUES
 ('4500'),
 ('10000');
 
-INSERT into Stanowisko(Stanowisko,Opis,ID_Pensji)
+INSERT into Stanowisko (Stanowisko,Opis,ID_Pensji)
 VALUES
 ('Operator Maszyn Laserowych','Brak','3'),
 ('Szwacz','Brak','1'),
@@ -49,19 +41,6 @@ VALUES
 ('Technolog','Brak','4'),
 ('Technik utrzymania ruchu','Brak','3'),
 ('Projektant', 'Brak', '3');
-
-INSERT into Rodzaj_Umowy(Rodzaj_Umowy, Uwagi)
-VALUES
-('Zlecenie','Umowa uniemo¿liwa zdobycie premii'),
-('O pracê','Umowa umo¿liwa zdobycie premii');
-
-INSERT into Etat(Wymiar_Etatu, Uwagi)
-VALUES
-('1/1','Brak'),
-('1/2','Brak'),
-('1/4','Brak'),
-('3/4','Brak'),
-('1/8','Brak');
 
 INSERT into Pracownicy (Imie, Nazwisko, Pesel, Adres, Telefon)
 VALUES 
@@ -84,34 +63,87 @@ VALUES
 ('Stanis³aw','Polak','90110369852','Widok 22, Warszawa','511569569'),
 ('Marcel','Wê¿yk','88062207956','Okopowa 7, Warszawa','603605604');
 
-INSERT into Urlop (ID_Pracownika, Data_rozpoczêcia, Data_zakonczenia)
+INSERT into Pensja(Pensja)
 VALUES
-('1','2020-03-15','2020-03-17'),
-('2','2020-03-18','2020-03-25'),
-('6','2020-03-20','2020-03-25'),
-('8','2020-03-27','2020-04-05'),
-('18','2020-04-20','2020-05-30');
+('2500'),
+('3000'),
+('4000'),
+('4500'),
+('10000');
 
-INSERT into Pracownicy_Zatrudnienie (ID_Pracownika, ID_Stanowiska, ID_Etatu, ID_Rodzaju_Umowy, Data_Zatrudnienia, Koniec_umowy)
+INSERT into Stanowisko(Stanowisko,Opis,ID_Pensji)
 VALUES
-('1','1','1','1','2020-03-01','2050-03-01'),
-('2','1','1','1','2020-03-01','2050-03-01'),
-('3','3','3','2','2020-03-01','2021-03-01'),
-('4','3','2','2','2020-03-01','2021-03-01'),
-('5','2','5','2','2020-03-01','2021-03-01'),
-('6','2','5','2','2020-03-01','2021-03-01'),
-('7','5','5','1','2020-03-01','2050-03-01'),
-('8','5','5','1','2020-03-01','2050-03-01'),
-('9','4','5','1','2020-03-01','2050-03-01'),
-('10','4','5','2','2020-03-01','2020-06-11'),
-('11','6','5','2','2020-03-01','2021-03-01'),
-('12','6','5','1','2020-03-01','2050-03-01'),
-('13','7','5','2','2020-03-01','2020-05-25'),
-('14','7','5','1','2020-03-01','2050-03-01'),
-('15','8','5','1','2020-03-01','2050-03-01'),
-('16','8','5','2','2020-03-01','2020-05-25'),
-('17','9','5','1','2020-03-01','2050-03-01'),
-('18','9','5','2','2020-03-01','2020-06-01');
+('Operator Maszyn Laserowych','Brak','3'),
+('Szwacz','Brak','1'),
+('Pracz','Brak','1'),
+('Prasowacz','Brak','1'),
+('Pracownik dzia³u sprzeda¿y','Brak','2'),
+('Magazynier','Brak','1'),
+('Technolog','Brak','4'),
+('Technik utrzymania ruchu','Brak','3'),
+('Projektant', 'Brak', '3');
+
+INSERT into Rodzaj_Umowy (Rodzaj_Umowy, Uwagi)
+VALUES
+('Zlecenie','Umowa uniemo¿liwa zdobycie premii'),
+('O pracê','Umowa umo¿liwa zdobycie premii');
+
+INSERT into Etat(Wymiar_Etatu, Uwagi)
+VALUES
+('1/1','Brak'),
+('1/2','Brak'),
+('1/4','Brak'),
+('3/4','Brak'),
+('1/8','Brak');
+
+INSERT INTO Rodzaj_Urlopu (Nazwa)
+VALUES 
+('Urlop wypoczynkowy'),
+('Urlop Macierzyñski'),
+('Zwolnienie Lekarskie');
+
+INSERT INTO Wymiar_Urlopu (Iloœæ_dni)
+VALUES 
+('20'),
+('22'),
+('26'),
+('brak');
+
+INSERT into Urlop (ID_Pracownika, Data_rozpoczêcia, Data_zakonczenia, ID_Rodzaj_Urlopu, ID_Wymiar_Urlopu)
+VALUES
+('1','2020-03-15','2020-03-17', '3','4'),
+('2','2020-03-18','2020-03-25', '1','2'),
+('6','2020-03-20','2020-03-25', '1','2'),
+('8','2020-03-27','2020-04-05', '1','3'),
+('18','2020-04-20','2020-05-30', '3','4');
+
+INSERT into Dzialy (Nazwa_dzialu)
+VALUES
+('Zarz¹dzania'),
+('Magazynowy'),
+('Produkcji'),
+('Przygotowania produkcji');
+
+INSERT into Pracownicy_Zatrudnienie (ID_Pracownika, ID_Stanowiska, ID_Etatu, ID_Rodzaju_Umowy, ID_Dzialu, Data_Zatrudnienia, Koniec_umowy)
+VALUES
+('1','1','1','1','3','2020-03-01','2050-03-01'),
+('2','1','1','1','3','2020-03-01','2050-03-01'),
+('3','3','3','2','3','2020-03-01','2021-03-01'),
+('4','3','2','2','3','2020-03-01','2021-03-01'),
+('5','2','5','2','3','2020-03-01','2021-03-01'),
+('6','2','5','2','3','2020-03-01','2021-03-01'),
+('7','5','5','1','1','2020-03-01','2050-03-01'),
+('8','5','5','1','1','2020-03-01','2050-03-01'),
+('9','4','5','1','3','2020-03-01','2050-03-01'),
+('10','4','5','2','3','2020-03-01','2020-06-11'),
+('11','6','5','2','2','2020-03-01','2021-03-01'),
+('12','6','5','1','2','2020-03-01','2050-03-01'),
+('13','7','5','2','4','2020-03-01','2020-05-25'),
+('14','7','5','1','4','2020-03-01','2050-03-01'),
+('15','8','5','1','4','2020-03-01','2050-03-01'),
+('16','8','5','2','4','2020-03-01','2020-05-25'),
+('17','9','5','1','4','2020-03-01','2050-03-01'),
+('18','9','5','2','4','2020-03-01','2020-06-01');
 
 INSERT into Jezyk(Jezyk, Informacje_Dodatkowe)
 VALUES
@@ -134,20 +166,12 @@ VALUES
 
 INSERT into Zamowienia(ID_Klienta, Data_Zlozenia, Data_Zakonczenia, Umowa, ID_Pracownika)
 VALUES
-('1','2020-04-10','2020-04-15',1, '7'),
-('2','2020-04-11','2020-04-20',1, '7'),
-('3','2020-04-14','2020-04-21',1, '7'),
-('4','2020-04-18','2020-04-22',1, '8'),
-('5','2020-04-20','2020-04-24',1, '8');
+('1','2020-04-10','2020-04-15','1', '7'),
+('2','2020-04-11','2020-04-20','1', '7'),
+('3','2020-04-14','2020-04-21','1', '7'),
+('4','2020-04-18','2020-04-22','1', '8'),
+('5','2020-04-20','2020-04-24','1', '8');
 
-/*INSERT into Faktury(ID_Zamowienia, ID_Klienta, Cena_Netto, Cena_Brutto, Podatek_VAT)
-VALUES  --to chyba zostalo wyrzucone to wyrzucilam /Magda
-('1','1','2000','2500','500'),
-('2','2','50000','62500','12500'),
-('3','3','3000','3750','750'),
-('4','4','4600','5750','1150'),
-('5','5','3200','4000','800');
-*/
 INSERT into Grupa(Nazwa)
 VALUES
 ('Czynsz'),
@@ -157,36 +181,54 @@ VALUES
 ('Inne');
 
 INSERT into Faktury_Zewnetrzne(Nr_Faktury, ID_Grupa, Nazwa_Firmy, Netto, Brutto, Podatek)
-VALUES --poprawilam sobie zeby mi bledow nie wyrzudalo -na pewno jest zle /Magda
-(1826731623,1,'Urzad_dzielnicy',2000,2500,500),
-(1235457456,2,'Innogy',2000,2500,500),
-(8908234234,2,'Wodociagi',2000,2500,500),
-(5034592346,3,'Uuuu karczek',2000,2500,500),
-(6038425632,3,'Blady',2000,2500,500),
-(9857234537,3,'Dluga szyja',2000,2500,500),
-(7872398524,4,'Grusome',2000,2500,500),
-(3958349856,4,'Hurrasz',2000,2500,500),
-(4873409245,4,'Kolettoea',2000,2500,500);
+VALUES
+('1826731623','1','Urzad_dzielnicy','2000','2500','500' ),
+('1235457456','2','Innogy','1500','2000','500'),
+('8908234234','2','Wodociagi','3400','3500','100'),
+('5034592346','3','Uuuu karczek','5000','6000','1000'),
+('6038425632','3','Blady', '400','500','100'),
+('9857234537','3','Dluga szyja','1000','1200','200'),
+('7872398524','4','Grusome','500','700','200'),
+('3958349856','4','Hurrasz','400','450','50'),
+('4873409245','4','Kolettoea','750','800','50');
 
-/*INSERT INTO Zamowienie_Produkt(ID_Zamowienia, ID_Produkt, Ilosc)
-VALUES --nie wjem co to i czy dalej istnieje/Magda
-('1','2','300'),
-('2','1','500'),
-('2','4','500'),
-('3','3','270'),
-('4','1','100'),
-('4','2','50'),
-('4','3','100'),
-('5','5','200'),
-('5','2','200');
-*/
+INSERT INTO Srodki_Trwale (Nazwa, Producent, Numer_seryjny, ID_Dzialu, Koszt_zakupu, Roczny_stopien_amortyzacji, Gwarancja, Zamortyzowane)
+VALUES
+('Laptop','Asus','VDA14586', '1', '5600', '20','22-05-2022', '0'),
+('Laptop','Asus','VDA14444', '1', '5600', '20','22-05-2022', '0'),
+('Laptop','Asus','VDA54896', '2', '5600', '20','22-05-2022', '0'),
+('Laptop','Asus','VDA57892', '2', '5600', '20','22-05-2022', '0'),
+('Laptop','Asus','VDA23696', '4', '5600', '20','22-05-2022', '0'),
+('Laptop','Asus','VDA33365', '4', '5600', '20','22-05-2022', '0'),
+('Laptop','Asus','VDA23569', '4', '5600', '20','22-05-2022', '0'),
+('Laptop','Asus','VDA23589', '1', '5600', '20','22-05-2022', '0'),
+('Maszyna Laserowa','Perfect Laser','FRA34KA1123', '3', '105000', '14','10-10-2024', '0'),
+('Maszyna Laserowa','Perfect Laser','FRA34RO4589', '3', '105000', '14','10-10-2024', '0'),
+('Maszyna Laserowa','Perfect Laser','FRA34HA1145', '3', '105000', '14','10-10-2024', '0'),
+('Maszyna Laserowa','Perfect Laser','FRA34WU5568', '3', '105000', '14','10-10-2024', '0'),
+('MAszyna Do Szycia','Janome','W186', '3', '5500', '14','01-05-2026', '0'),
+('MAszyna Do Szycia','Janome','W189', '3', '5500', '14','01-05-2026', '0'),
+('MAszyna Do Szycia','Janome','W199', '3', '5500', '14','01-05-2026', '0'),
+('MAszyna Do Szycia','Janome','W253', '3', '5500', '14','01-05-2026', '0'),
+('MAszyna Do Szycia','£ucznik','A456VB', '3', '6200', '14','01-05-2026', '0'),
+('MAszyna Do Szycia','£ucznik','AA45GH', '3', '6200', '14','01-05-2026', '0'),
+('MAszyna Do Szycia','£ucznik','ATY45A', '3', '6200', '14','01-05-2026', '0'),
+('Pralka','Whirpool','B56/456', '3', '8000', '14','01-10-2027', '0'),
+('Pralka','Whirpool','B56/678', '3', '8000', '14','01-10-2027', '0'),
+('Pralka','Whirpool','B56/678', '3', '8000', '14','01-10-2027', '0'),
+('Pralka','Whirpool','B56/345', '3', '8000', '14','01-10-2027', '0'),
+('¯elasko przemys³owe','Bosh','MD2/125/2019', '3', '4500', '14','12-04-2025', '0'),
+('¯elasko przemys³owe','Bosh','MD2/225/2019', '3', '4500', '14','12-04-2025', '0'),
+('¯elasko przemys³owe','Bosh','MD2/199/2019', '3', '4500', '14','12-04-2025', '0'),
+('¯elasko przemys³owe','Bosh','MD2/198/2019', '3', '4500', '14','12-04-2025', '0');
+
 ---------------------INSERTY MAGAZYN---------------------------------------------------------
 INSERT INTO
 	Statusy (Status_zatw)
 VALUES
 	('brak'),
-	('przyjete'),
-	('odrzucone')
+	('odrzucone'),
+	('przyjete')
 
 INSERT INTO 
 	Polki_rozmiary (Wysokosc,Szerokosc,Glebokosc)
@@ -550,22 +592,35 @@ VALUES
 	(5,2,15,3,'2020-04-21'),
 	(4,3,2000,3,'2020-04-25'),
 	(4,3,100,3,'2020-04-26')
-	------------- INSERTY PRZYGOTOANIE PRODUKCJI
 
-	INSERT INTO Rodzaj_Dokumentacji(Nazwa)
+
+------Dodatokowy insert zarz¹dzanie---
+INSERT INTO Zamowienie_Element (ID_Zamowienia, ID_Element, Ilosc, Licz_do_zamowienia)
+VALUES
+('1','1','100','0'),
+('1','3','100','0'),
+('2','5','500','0'),
+('4','7','5000','0'),
+('3','1','100','0'),
+('3','4','100','0'),
+('5','6','50','0'),
+('5','7','50','0');
+
+	----------------------------------- INSERTY PRZYGOTOANIE PRODUKCJI---------------------------------
+
+INSERT INTO Rodzaj_Dokumentacji(Nazwa)
 VALUES
 ('Kod na wycinarkê'),
 ('Dokumentacja 2D');
 
-INSERT INTO Dokumentacje(ID_Rodzaj_Dokumentacji,ID_Pracownika,Data_Wykonania, Plik)
---jak cos to to jest zrobione tylko zeby mi moje dzialaly /Janusz
+INSERT INTO Dokumentacje(ID_Rodzaj_Dokumentacji,ID_Pracownika,Data_Wykonania,Plik)
 VALUES
-(2,17,2020-03-01,'sdfdf'),
-(1,13,2020-03-06,'sdfdf'),
-(2,18,2020-03-16,'sdfdf'),
-(1,14,2020-04-01,'sdfdf'),
-(1,13,2020-04-10,'sdfdf'),
-(2,18,2020-05-11,'sdfdf');
+(2,17,2020-03-01,'lokalizacja'),
+(1,13,2020-03-06,'lokalizacja'),
+(2,18,2020-03-16,'lokalizacja'),
+(1,14,2020-04-01,'lokalizacja'),
+(1,13,2020-04-10,'lokalizacja'),
+(2,18,2020-05-11,'lokalizacja');
 
 INSERT INTO Dokumentacja_proces(ID_Dokumentacji)
 VALUES
@@ -588,89 +643,90 @@ VALUES
 (1,13);
 
 INSERT INTO Rodzaj_Maszyny (Rodzaj_Maszyny,Koszt_Rbh)
---jak cos to to jest zrobione tylko zeby mi moje dzialaly /Janusz
 VALUES
-('Maszyna_Do_Szycia',1),
-('Wycinarka_Laserowa',1),
-('Pralka',1),
-('Suszarka',1),
-('Maszyna_Do_Prasowania',1);
+('Maszyna_Do_Szycia',60),
+('Wycinarka_Laserowa',70),
+('Pralka',80),
+('Suszarka',90),
+('Maszyna_Do_Prasowania',100),
+('¯elazko',50);
 
-/*INSERT INTO Maszyny (ID_Srodki_Trwale, ID_Rodzaj_Maszyny, Resurs_Rbh, Serwis_Co_Ile)
-VALUES --jak cos to to jest zrobione tylko zeby mi moje dzialaly /Magda
-(1, 1, 200, 1),
-(1, 1, 180, 1),
-(2, 1, 190, 4),
-(2, 1, 220, 4),
-(2, 1, 170, 4),
-(1, 1, 170, 7),
-(2, 1, 170, 1),
-(3, 1, 170, 1),
-(4, 1, 170, 1),
-(1, 2, 700, 1),
-(1, 2, 700, 1),
-(2, 3, 300, 1),
-(2, 3, 300, 1),
-(3, 3, 300, 7),
-(3, 4, 200, 7),
-(3, 4, 200, 8),
-(3, 4, 200, 4),
-(3, 5, 300, 1),
-(3, 5, 300, 4);
-*/
+INSERT INTO Maszyny (ID_Srodki_Trwale,ID_Rodzaj_Maszyny,Resurs_Rbh,Serwis_Co_Ile)
+VALUES
+(9,2,1000,60),
+(10,2,1000,60),
+(11,2,1000,60),
+(12,2,1000,60),
+(13,1,1100,90),
+(14,1,1100,90),
+(15,1,1100,90),
+(16,1,1100,90),
+(17,1,1100,90),
+(18,1,1100,90),
+(19,1,1100,90),
+(20,3,2000,50),
+(21,3,2000,50),
+(22,3,2000,50),
+(23,3,2000,50),
+(24,6,3000,80),
+(25,6,3000,80),
+(26,6,3000,80),
+(27,6,3000,80);
+
 INSERT INTO Rodzaj_Obslugi(Nazwa)
 VALUES
 ('Serwis'),
-('Naprawa'),
-('Przezbrojenie');
+('Naprawa');
 
-/*INSERT INTO Obsluga_Techniczna (ID_Maszyny, ID_Rodzaj_Obslugi, Data_Wykonania, ID_Pracownika)
+INSERT INTO Obsluga_Techniczna (ID_Maszyny,ID_Rodzaj_Obslugi,Data_Wykonania,ID_Pracownika)
 VALUES
-(1,2,2020-04-22,4),
-(10,1,2020-04-27,4),
-(11,1,2020-04-27,4),
-(3,3,2020-04-23,4),
-(4,3,2020-04-23,4);
+(1,2,'2020-04-22',15),
+(10,1,'2020-04-27',16),
+(11,1,'2020-04-02',16),
+(3,2,'2020-04-23',15),
+(4,1,'2020-04-23',15),
+(9,1,'2020-05-01',16);
 
-INSERT into Czesci_Obsluga(ID_Obsluga_Techniczna, ID_Element, Liczba)
-VALUES --tralala Magda tu byla i blad wykluczyla
+INSERT into Czesci_Obsluga(ID_Obsluga_Techniczna,ID_Element,Liczba)
+VALUES
 (1,1,2),
-(1,6,1),
-(1,7,1),
-(1,8,2),
-(2,9,2),
-(2,6,2),
-(2,1,2),
+(1,6,2),
 (2,7,1),
-(3,8,2);
-*/
-INSERT INTO Maszyny_Proces ( ID_Proces_Technologiczny, ID_Rodzaj_Maszyny, Liczba_Maszyn, Liczba_Rbh_Maszyna)
-VALUES --tu tez cos zmienilam bo bledy byly /Magda
-(1, 1, 3, 240),
-(1, 2, 1, 40),
-(1, 3, 1, 80),
-(1, 4, 1, 40),
-(1, 5, 1, 30),
-(2, 1, 2, 120),
-(2, 2, 1, 20),
-(2, 3, 1, 60),
-(2, 4, 1, 30),
-(2, 5, 1, 15),
-(3, 1, 5, 500),
-(3, 2, 1, 80),
-(3, 3, 2, 160),
-(3, 4, 2, 100);
-/*
+(3,1,3),
+(3,7,1),
+(4,1,2),
+(4,6,5),
+(5,1,2),
+(5,9,1),
+(6,1,2),
+(6,7,1);
+
+INSERT INTO Maszyny_Proces(ID_Proces_Technologiczny,ID_Rodzaj_Maszyny,Liczba_Maszyn,Liczba_Rbh_Maszyna)
+VALUES
+(1,1,3,240),
+(1,2,1,40),
+(1,3,1,80),
+(1,4,1,40),
+(1,5,1,30),
+(2,1,2,120),
+(2,2,1,20),
+(2,3,1,60),
+(2,4,1,30),
+(2,5,1,15),
+(3,1,5,500),
+(3,2,1,80),
+(3,3,2,160),
+(3,4,2,100);
+
 INSERT INTO Proces_Zamowienie(ID_Proces_Technologiczny,ID_Zamowienie_Element,Kompletny_Proces)
---tu tez cos zmienilem bo bledy byly /Janusz
-VALUES --tralala Magda tu byla i blad wykluczyla
-(1,2,1),
-(2,1,1),
-(3,4,1),
-(4,3,1),
-(5,1,1),
-(6,2,1);
-*/
+VALUES
+(1,1,1),
+(2,2,1),
+(3,3,1),
+(4,4,1),
+(5,5,1),
+(6,6,1);
+
 INSERT INTO Elementy_Proces(ID_Proces_Technologiczny,ID_Element,Liczba)
 VALUES
 (1,2,15),
@@ -683,70 +739,76 @@ VALUES
 (6,2,50),
 (6,4,15);
 
-INSERT INTO Etapy_W_Procesie (ID_Proces_Technologiczny, ID_Etapu, Czas)
+INSERT INTO Etapy_W_Procesie (ID_Proces_Technologiczny,ID_Etapu,Czas)
 VALUES
-(1, 1, 1),
-(1, 2, 2),
-(1, 3, 3),
-(1, 4, 4),
-(1, 5, 5),
-(1, 6, 5),
-(1, 7, 5),
-(1, 8, 5),
-(1, 9, 5),
-(1, 10, 5),
-(2, 1, 1),
-(2, 2, 2),
-(2, 3, 3),
-(2, 5, 5),
-(2, 8, 5),
-(3, 1, 1),
-(3, 2, 2),
-(3, 3, 3),
-(3, 4, 4),
-(3, 5, 5),
-(3, 6, 5),
-(3, 7, 5),
-(3, 8, 5),
-(3, 9, 5),
-(3, 10, 5),
-(4, 1, 1),
-(4, 2, 2),
-(4, 3, 3),
-(4, 5, 5),
-(4, 8, 5),
-(5, 1, 1),
-(5, 2, 2),
-(5, 3, 3),
-(5, 4, 4),
-(5, 5, 5),
-(5, 6, 5),
-(5, 7, 5),
-(5, 8, 5),
-(5, 9, 5),
-(5, 10, 5);
-GO
-	--------------------Inserty Produkcja-------------------------
-/*INSERT INTO Proces_Produkcyjny (ID_Zamowienie_Produkt, ID_Proces_Technologiczny, Data_Rozpoczecia, Data_Zakonczenia, ID_Dokumentacja_Proces, Uwagi)
-VALUES --to ja /Magda
-(1, 1, '2020-04-12 09:21:15', '2020-04-14 19:00:00', 1, 'brak uwag'),
-(2, 2, '2020-04-13 06:30:00', '2020-04-14 08:30:00', 2, 'brak uwag'),
-(3, 3, '2020-04-14 09:30:00', '2020-04-19 13:35:01', 3, 'brak uwag'),
-(4, 4, '2020-04-20 12:20:00', '2020-04-21 13:15:00', 4, 'brak uwag'),
-(5, 5, '2020-04-22 09:25:00', '2020-04-23 21:45:00', 5, 'brak uwag'),
-(6, 6, '2020-04-22', '2020-04-23', 6, 'brak uwag');
+(1,1,1),
+(1,2,2),
+(1,3,3),
+(1,4,4),
+(1,5,5),
+(1,6,5),
+(1,7,5),
+(1,8,5),
+(1,9,5),
+(1,10,5),
+(2,1,1),
+(2,2,2),
+(2,3,3),
+(2,5,5),
+(2,8,5),
+(3,1,1),
+(3,2,2),
+(3,3,3),
+(3,4,4),
+(3,5,5),
+(3,6,5),
+(3,7,5),
+(3,8,5),
+(3,9,5),
+(3,10,5),
+(4,1,1),
+(4,2,2),
+(4,3,3),
+(4,5,5),
+(4,8,5),
+(5,1,1),
+(5,2,2),
+(5,3,3),
+(5,4,4),
+(5,5,5),
+(5,6,5),
+(5,7,5),
+(5,8,5),
+(5,9,5),
+(5,10,5),
+(6,1,10),
+(6,2,2),
+(6,3,5),
+(6,7,10),
+(6,10,10);
+	
 
-INSERT INTO Material_Na_Produkcji (ID_Procesu_Produkcyjnego, ID_Element, Liczba, ID_Jednostka, Odpad)
+	---------------------Inserty Produkcja-------------------------
+INSERT INTO Proces_Produkcyjny ( ID_Zamowienie_Element, Proponowana_data_dostawy_materialu, ID_Dostarczenia, Data_Rozpoczecia, Data_Zakonczenia, Uwagi )
 VALUES
-(1, 2, 15, 4, 0.5), 
-(1, 4, 30, 8, 0), 
-(2, 2, 20, 4, 1.2), 
-(3, 3, 33, 3, 1.5), 
-(3, 4, 40, 8, 0), 
-(4, 2, 50, 4, 1), 
-(5, 2, 30, 4, 2.5), 
-(6, 2, 50, 4, 1.5), 
-(6, 4, 15, 8, 1); 
+(1, '2020-04-12 06:00:00', 1, '2020-04-12 09:21:15', '2020-04-14 19:00:00',  'brak uwag'),
+(2, '2020-04-13 06:00:00', 2, '2020-04-13 06:30:00', '2020-04-14 08:30:00',  'brak uwag'),
+(3, '2020-04-14 06:00:00', 3,'2020-04-14 09:30:00', '2020-04-19 13:35:01',  'brak uwag'),
+(4, '2020-04-20 06:00:00', 4, '2020-04-20 12:20:00', '2020-04-21 13:15:00',  'brak uwag'),
+(5, '2020-04-20 06:00:00', 5,'2020-04-20 12:20:00', '2020-04-21 13:15:00',  'brak uwag');
+
+
+
+INSERT INTO Material_Na_Produkcji (ID_Procesu_Produkcyjnego, ID_Elementy_Proces, Odpad, Niezuzyty_material, Magazyn_odebral_material) 
+VALUES
+(1, 2, 0, 4, 1), 
+(1, 4, 1, 8, 1), 
+(2, 2, 1, 4, 1), 
+(3, 3, 2, 3, 1), 
+(3, 4, 0, 8, 1), 
+(4, 2, 3, 4, 1), 
+(5, 2, 0, 4, 1); 
+
 
 INSERT INTO Realizacja_Procesu (ID_Procesu_Produkcyjnego, ID_Etapu, Data_Rozpoczecia_Procesu, Data_Zakonczenia_Procesu, Data_Kontroli, Uwagi_Kontroli)
 VALUES
@@ -781,24 +843,14 @@ VALUES
 (4, 5, '2020-04-20 18:36:00','2020-04-21 17:40:00', '2020-04-21 17:45:00','brak uwag'),
 (4, 8, '2020-04-21 07:50:00','2020-04-21 13:02:00', '2020-04-21 13:08:00','brak uwag');
 
-INSERT INTO Przydzial_Zasobow (ID_Realizacji_Procesu, ID_Pracownika , ID_Maszyny)
+INSERT INTO Przydzial_Zasobow (ID_Realizacji_Procesu, ID_Pracownika , ID_Maszyny, Data_Rozpoczecia, Data_Zakonczenia)
 VALUES
-(1, 1, 10),
-(1, 2, 11),
-(2, 9, 18),
-(3, 5, 1),
-(3, 6, 2);
+(1, 1, 10, '2020-04-12 10:21:15', '2020-04-12 10:25:00'),
+(1, 2, 11, '2020-04-12 10:21:15', '2020-04-12 10:25:00'),
+(2, 9, 18, '2020-04-12 12:34:12', '2020-04-12 12:36:00'),
+(3, 5, 1, '2020-04-12 12:37:15', '2020-04-12 15:38:00'),
+(3, 6, 2, '2020-04-12 12:37:15', '2020-04-12 15:38:00');
 
-INSERT INTO Zapotrzebowanie_Opakowan (ID_Procesu_Produkcyjnego, ID_Element, Liczba, Czy_Otrzymano, Uwagi)
-VALUES -- chyba nieaktualne to wyrzucilam se /Magda
-(1, 11, 300, 1, 'brak uwag'), 
-(1, 10, 10, 1, 'brak uwag'),
-(2, 11, 500, 1, 'brak uwag'),
-(2, 10, 8, 1, 'brak uwag'),
-(3, 11, 500, 1, 'brak uwag'),
-(3, 10, 10, 1, 'brak uwag'),
-(4, 11, 270, 1, 'brak uwag'),
-(4, 10, 10, 1, 'brak uwag');
 
 INSERT INTO Kontrola_Efektywnosci (ID_Procesu_Produkcyjnego, Data_Kontroli, Dokument, Uwagi, Zgodnosc_Zamowienia , Liczba_Poprawnych)
 VALUES
@@ -807,5 +859,4 @@ VALUES
 (3, '2020-04-19 13:30:01', 'dok_3.img', 'brak uwag', 1, 500),
 (4, '2020-04-21 13:15:00', 'dok_4.img', 'brak uwag', 1, 280),
 (5, '2020-04-23 21:40:00', 'dok_4.img', 'brak uwag', 1, 103);
-*/
 use master
