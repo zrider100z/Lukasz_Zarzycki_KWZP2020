@@ -188,10 +188,9 @@ Nazwa varchar(20),
 )
 
 CREATE TABLE Regaly(
-ID_regal int IDENTITY(1,1) PRIMARY KEY,
+ID_Regal int IDENTITY(1,1) PRIMARY KEY,
 Oznaczenie varchar(10)
 )
-
 ---------------------------------------------------------TABELE Z KLUCZAMI OBCYMI MAGAZYN ---------------------------------------------------------
 CREATE TABLE Typy_cechy_rejestr(
 ID_typ int
@@ -200,15 +199,6 @@ ID_typ int
 ID_cecha int
 	FOREIGN KEY REFERENCES
 	Elementy_cechy_slownik (ID_Cecha)
-)
-
-CREATE TABLE Polki_regaly (
-ID_regal int 
-	FOREIGN KEY REFERENCES 
-	Regaly(ID_regal),
-ID_Polka int UNIQUE
-	FOREIGN KEY REFERENCES 
-	Polki(ID_polka)
 )
 
 CREATE TABLE Elementy (
@@ -233,6 +223,15 @@ ID_Jednostka int
 	FOREIGN KEY REFERENCES
 	Elementy_Jednostki(ID_Jednostka),
 Wartosc_Cechy_Slowna varchar(30)
+)
+
+CREATE TABLE Polki_regaly (
+ID_Regal int 
+	FOREIGN KEY REFERENCES 
+	Regaly(ID_Regal),
+ID_Polka int UNIQUE
+	FOREIGN KEY REFERENCES 
+	Polki(ID_polka)
 )
 
 CREATE TABLE Umowy_Kurierzy (
@@ -512,4 +511,17 @@ FROM Elementy INNER JOIN
 	Elementy_Cechy ON Elementy.ID_Element = Elementy_Cechy.ID_Element INNER JOIN 
 	Elementy_Cechy_Slownik ON Elementy_Cechy.ID_Cecha = Elementy_Cechy_Slownik.ID_Cecha INNER JOIN 
 	Elementy_Jednostki ON Elementy_Cechy.ID_Jednostka = Elementy_Jednostki.ID_jednostka
+GO
+
+CREATE VIEW [dbo].[vRegaly]
+AS
+SELECT Regaly.Oznaczenie, Polki.ID_Polka, Elementy.Element_Nazwa, Zawartosc.Ilosc_Paczek, Elementy_Jednostki.Jednostka
+FROM            dbo.Elementy_Jednostki INNER JOIN
+    Elementy INNER JOIN
+    Oferta ON Elementy.ID_Element = Oferta.ID_Element ON Elementy_Jednostki.ID_jednostka = Oferta.ID_Jednostka INNER JOIN
+    Dostawy_Zawartosc ON dbo.Elementy.ID_Element = Dostawy_Zawartosc.ID_Element AND Oferta.ID_Oferta = Dostawy_Zawartosc.ID_oferta INNER JOIN
+    Zawartosc ON Elementy.ID_Element = Zawartosc.ID_Element INNER JOIN
+    Polki_regaly INNER JOIN
+    Polki ON dbo.Polki_regaly.ID_Polka = Polki.ID_Polka INNER JOIN
+    Regaly ON dbo.Polki_regaly.ID_Regal = Regaly.ID_Regal ON Zawartosc.ID_Polka = Polki.ID_Polka
 GO
