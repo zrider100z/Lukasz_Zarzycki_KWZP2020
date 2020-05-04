@@ -129,6 +129,7 @@ Netto real not null,
 Brutto real not null, 
 Podatek real not null, 
 ); 
+--na dole jest jeszcze jedna wasza tabela jbc /Justyna
 
 --------------------------------------------------------- MAGAZYN--------------------------------------------------------- 
 --Magazyn tabele s³ownikowe 
@@ -352,6 +353,8 @@ ID_Miejsca int
 	Miejsca(ID_Miejsca),
 Data_Dostarczenia varchar(10),
 )
+
+-----------------------------------------------------TABELA FINANSÓW----------------------------------------------------------
 
 CREATE TABLE Zamowienie_Element (
 	ID_Zamowienie_Element int IDENTITY (1,1) PRIMARY KEY,
